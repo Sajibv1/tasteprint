@@ -335,7 +335,7 @@ The demo catalog (`src/data/catalog.json`) contains **171 curated products** acr
 
 **Price range:** $9 – $199
 
-Each product maps to a Qloo entity by name and type. Entity IDs are pre-resolved at build time (`npm run catalog:resolve` writes `src/data/catalog-entities.json`, which is checked in) so a cold start doesn't pay ~170 entity searches; unmapped items fall back to runtime resolution with a server-memory cache. **No bulk Qloo response data is stored in this repository.**
+Each product maps to a Qloo entity by name and type. Product artwork is the mapped entity's own image from Qloo's graph (album art, posters, covers, brand marks); items without entity artwork render an initial tile instead of a stock photo. Entity IDs are pre-resolved at build time (`npm run catalog:resolve` writes `src/data/catalog-entities.json`, which is checked in) so a cold start doesn't pay ~170 entity searches; unmapped items fall back to runtime resolution with a server-memory cache. **No bulk Qloo response data is stored in this repository.**
 
 ---
 
