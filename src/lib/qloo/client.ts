@@ -9,8 +9,9 @@ import type {
 
 const DEFAULT_BASE_URL = "https://hackathon.api.qloo.com";
 const CACHE_TTL_MS = 60 * 60 * 1000;
-const MAX_CONCURRENT = 4;
-const MAX_ATTEMPTS = 4;
+const MAX_CONCURRENT = 2;
+const MAX_ATTEMPTS = 6;
+const MAX_BACKOFF_MS = 8000;
 
 export class QlooError extends Error {
   status: number;
@@ -105,7 +106,10 @@ async function qlooGet<T>(path: string, params: Record<string, QueryValue>): Pro
           throw new QlooError(res.status, `Qloo ${res.status} after ${attempt} attempts: ${body.slice(0, 200)}`);
         }
         const retryAfter = Number(res.headers.get("retry-after")) || 0;
-        const delay = retryAfter > 0 ? retryAfter * 1000 : 350 * 2 ** (attempt - 1) + Math.random() * 250;
+        const delay = Math.min(
+          MAX_BACKOFF_MS,
+          retryAfter > 0 ? retryAfter * 1000 : 500 * 2 ** (attempt - 1) + Math.random() * 400,
+        );
         await sleep(delay);
         continue;
       }
