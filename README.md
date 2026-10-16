@@ -1,62 +1,199 @@
-# Tasteprint — AI Gift Discovery Through Cultural Taste
+<p align="center">
+  <img src="https://img.shields.io/badge/Qloo-Taste_Intelligence-6C63FF?style=for-the-badge" alt="Qloo Taste Intelligence" />
+  <img src="https://img.shields.io/badge/Next.js-16-000?style=for-the-badge&logo=nextdotjs" alt="Next.js 16" />
+  <img src="https://img.shields.io/badge/TypeScript-5-3178C6?style=for-the-badge&logo=typescript&logoColor=white" alt="TypeScript" />
+  <img src="https://img.shields.io/badge/License-MIT-green?style=for-the-badge" alt="MIT License" />
+</p>
 
-Tasteprint is an AI gift agent that finds thoughtful, unexpected gifts by reading a person's cultural taste print. It uses [Qloo](https://qloo.com)'s taste intelligence to connect interests across music, film, TV, books, and brands, then matches them to real products in a curated catalog.
+# 🎁 Tasteprint — AI Gift Discovery Through Cultural Taste
 
-Every search returns three angles on the same person:
+> **Tell us what they love. We'll find what they didn't know they wanted.**
 
-- **Safe pick** — the gift with the strongest affinity to what they already love.
-- **Surprising find** — a cross-domain discovery from Qloo's graph that they would never find by searching themselves.
-- **Curated bundle** — a multi-item set that tells one taste story across categories, within budget.
+Tasteprint is an AI gift agent that finds thoughtful, unexpected gifts by reading a person's **cultural taste print**. It uses [Qloo](https://qloo.com)'s taste intelligence API to connect interests across music, film, TV, books, and brands — then matches them to real products in a curated catalog.
 
-Each pick comes with an explanation grounded in the recipient's taste signals.
+Every search returns **three angles** on the same person:
 
-## How it works
+| Lane | What it does |
+|------|-------------|
+| 🟢 **Safe Bet** | The gift with the strongest affinity to what they already love |
+| 🩷 **Wild Card** | A cross-domain discovery from Qloo's graph they'd never find themselves |
+| 🟡 **The Bundle** | A multi-item set that tells one taste story across categories, within budget |
 
-1. **Taste intake** — the shopper adds the recipient's interests (artists, movies, shows, books, brands), a budget, and an occasion.
-2. **Entity resolution** — each interest is resolved to a Qloo entity via `GET /search`. As you type, a picker (`GET /api/search`) shows the matching Qloo nodes — name, type, popularity — so ambiguous names ("Dune" is a film, a book, an artist, an album…) can be pinned to the exact node. If a match was fuzzy, the result offers "did you mean" candidates to correct it in one click.
-3. **Taste expansion** — the resolved entities are used as `signal.interests.entities` on `GET /v2/insights` to expand taste across four discovery domains (artists, brands, books, movies), with `feature.explainability=true`.
-4. **Second hop** — the top first-hop discoveries are added to the signal mix and expansion runs again, so picks can be two degrees away from what the shopper typed, with the "via" chain retained for explanation.
-5. **Catalog scoring** — every catalog item maps to a Qloo entity; candidate entity IDs are batch-scored with `filter.results.entities` so each product gets a real affinity score against the recipient's taste. Per-pick contributor shares come from Qloo's explainability payload.
-6. **Lane selection** — safe / surprise / bundle picks are selected from the scored, budget-filtered pool: the safe lane tilts toward popularity + stock, the wild-card lane uses MMR diversification against the safe pick (niche affinity gets a boost), and the bundle is a budget-truncated search over high-affinity combinations with category/type/brand diversity bonuses.
-7. **Explanation** — an LLM (optional) writes the copy from the structured evidence and interprets free-text refinement notes into structured actions; without an LLM key, built-in templates and regex note parsing are used instead.
-8. **Refinement loop** — every pick can be reacted to: "not for them" (permanent avoid), "another like this" (lane rotation), boost/mute any interest (re-weights `signal.interests.entities.weight` and re-scores), bolder/grounded mood (biases `bias.trends`), free-text notes (budget regexes, keyword boosts), and budget re-runs. Constraint state lives on the client; the server stays stateless.
+Each pick comes with a human-readable explanation grounded in the recipient's taste signals — written by an LLM (or built-in templates when no LLM key is set).
 
-## Stack
+---
 
-- Next.js (App Router) + TypeScript
-- Tailwind CSS
-- Qloo API (`hackathon.api.qloo.com` during the hackathon)
-- Optional OpenAI-compatible LLM for explanation copy
+## ✨ Key Features
 
-## Getting started
+- **Taste-graph powered** — goes beyond keyword matching; uses Qloo's cultural knowledge graph spanning 700M+ entities
+- **Two-hop discovery** — finds gifts two degrees of separation away from stated interests
+- **Three recommendation lanes** — Safe / Surprise / Bundle picks with per-item affinity scores
+- **Explainable results** — every pick shows *which* interests drove it, with contributor shares and "via" chains
+- **Interactive refinement** — boost/mute interests, adjust budget, change mood, mark items as "not for them", or type free-text notes
+- **Stateless server** — all constraint state lives on the client; the server stays stateless and re-runnable
+- **SSE streaming** — real-time progress events while the agent thinks (stage updates, discoveries, warnings)
+- **Graceful degradation** — works without an LLM key using built-in templates and regex note parsing
+
+---
+
+## 🏗️ Architecture
+
+```mermaid
+flowchart LR
+    subgraph Client["Browser (React)"]
+        UI["Gift Finder UI"]
+    end
+
+    subgraph Server["Next.js API Routes"]
+        STREAM["/api/stream"]
+        REC["/api/recommend"]
+        SEARCH["/api/search"]
+        HEALTH["/api/health"]
+    end
+
+    subgraph Agent["Recommendation Agent"]
+        PIPE["Pipeline"]
+        ACT["Refinement Actions"]
+        EXP["Explanation Engine"]
+    end
+
+    subgraph External["External APIs"]
+        QLOO["Qloo Taste API"]
+        LLM["LLM (Optional)"]
+    end
+
+    subgraph Data["Data Layer"]
+        CAT["Product Catalog\n(63 items)"]
+        CACHE["In-Memory Cache"]
+    end
+
+    UI -->|SSE| STREAM
+    UI -->|POST| REC
+    UI -->|GET| SEARCH
+    STREAM --> PIPE
+    REC --> PIPE
+    SEARCH --> QLOO
+    PIPE --> ACT
+    PIPE --> EXP
+    PIPE --> QLOO
+    EXP --> LLM
+    PIPE --> CAT
+    QLOO --> CACHE
+```
+
+---
+
+## 🔄 How It Works — The Recommendation Pipeline
+
+```mermaid
+flowchart TD
+    A["🎯 Taste Intake\nShopper enters interests, budget, occasion"] --> B["🔍 Entity Resolution\nResolve each interest to a Qloo entity via /search\nHandles ambiguity: 'Dune' → film? book? artist?"]
+    B --> C["🌐 Taste Expansion (Hop 1)\nExpand across 4 domains:\nArtists · Brands · Books · Movies\nvia /v2/insights with explainability"]
+    C --> D["🔗 Second Hop\nTop first-hop discoveries become bridge signals\nExpansion runs again — picks can be\ntwo degrees from the original input"]
+    D --> E["📊 Catalog Scoring\nBatch-score catalog items against taste signal\nEach product gets a real affinity score\nwith per-pick contributor shares"]
+    E --> F["🎰 Lane Selection\nSafe: popularity + stock weighted\nSurprise: MMR diversification, niche boost\nBundle: budget-constrained combinatorial search"]
+    F --> G["✍️ Explanation\nLLM writes copy from structured evidence\n(or built-in templates as fallback)"]
+    G --> H["🔁 Refinement Loop\nUser reacts → constraints update → re-score"]
+    H -->|"New constraints"| E
+```
+
+### Pipeline Stages in Detail
+
+| Stage | Qloo API | What happens |
+|-------|----------|-------------|
+| **Entity Resolution** | `GET /search` | Each interest → Qloo entity ID. Ambiguous names show alternatives with "did you mean?" |
+| **Taste Expansion** | `GET /v2/insights` | Resolved entities used as `signal.interests.entities` across 4 discovery domains. `feature.explainability=true` enables contributor tracking |
+| **Second Hop** | `GET /v2/insights` | Top first-hop discoveries added to signal mix → expansion runs again. "Via" chains retained for explanation |
+| **Catalog Scoring** | `GET /v2/insights` | Candidate entity IDs batch-scored with `filter.results.entities` so each product gets a real affinity score |
+| **Lane Selection** | — | Safe lane: popularity + stock tilt. Wild card: MMR diversification against safe pick (niche affinity boosted). Bundle: budget-truncated search with category/type/brand diversity bonuses |
+| **Explanation** | — | LLM (optional) writes copy from structured evidence. Without an LLM key, built-in templates are used |
+
+---
+
+## 🔁 Refinement Loop
+
+Every pick can be reacted to — the agent re-scores with updated constraints while the server stays fully stateless:
+
+```mermaid
+flowchart LR
+    A["User Reaction"] --> B{"Action Type"}
+    B --> C["👎 Not for them\n→ permanent avoid"]
+    B --> D["🔄 Another like this\n→ lane rotation"]
+    B --> E["⬆️⬇️ Boost / Mute\n→ re-weight interests"]
+    B --> F["🎨 Mood shift\n→ adventurous / grounded"]
+    B --> G["💬 Free-text note\n→ parsed for budget,\nmoods, interest changes"]
+    B --> H["💰 Budget change\n→ re-run with new range"]
+    C & D & E & F & G & H --> I["Updated Constraints"]
+    I --> J["🔄 Re-score & Select"]
+```
+
+---
+
+## 🛠️ Tech Stack
+
+| Layer | Technology |
+|-------|-----------|
+| **Framework** | [Next.js 16](https://nextjs.org) (App Router) |
+| **Language** | TypeScript 5 |
+| **UI** | React 19 + Tailwind CSS 4 |
+| **Taste Intelligence** | [Qloo API](https://qloo.com) (`hackathon.api.qloo.com`) |
+| **Explanation Copy** | Any OpenAI-compatible LLM (optional) |
+| **Deployment** | Vercel / any Node.js host |
+
+---
+
+## 🚀 Getting Started
+
+### Prerequisites
+
+- **Node.js** 18+ 
+- **Qloo API Key** — get one from the [Qloo Developer Guide](https://docs.qloo.com/reference/qloo-llm-hackathon-developer-guide#getting-your-api-key)
+
+### Installation
 
 ```bash
+# Clone the repository
+git clone https://github.com/your-username/tasteprint.git
+cd tasteprint
+
+# Install dependencies
 npm install
-cp .env.example .env.local   # then fill in QLOO_API_KEY
+
+# Set up environment variables
+cp .env.example .env.local
+# Edit .env.local and add your QLOO_API_KEY
+
+# Start the development server
 npm run dev
 ```
 
-Open http://localhost:3000.
+Open [http://localhost:3000](http://localhost:3000) 🎉
 
-### Environment variables
-
-| Variable | Required | Description |
-| --- | --- | --- |
-| `QLOO_API_KEY` | yes | Hackathon API key from the [Qloo developer guide](https://docs.qloo.com/reference/qloo-llm-hackathon-developer-guide#getting-your-api-key) |
-| `QLOO_BASE_URL` | no | Defaults to `https://hackathon.api.qloo.com` |
-| `LLM_API_KEY` | no | Any OpenAI-compatible key for richer explanation copy |
-| `LLM_BASE_URL` | no | Defaults to `https://api.openai.com/v1` |
-| `LLM_MODEL` | no | Defaults to `gpt-4o-mini` |
-
-### Verify Qloo connectivity
+### Verify Qloo Connectivity
 
 ```bash
 curl http://localhost:3000/api/health
 ```
 
-## API
+A successful response confirms the API key is valid and the Qloo API is reachable.
 
-`POST /api/recommend`
+### Environment Variables
+
+| Variable | Required | Default | Description |
+|----------|----------|---------|-------------|
+| `QLOO_API_KEY` | ✅ Yes | — | Hackathon API key from the [Qloo Developer Guide](https://docs.qloo.com/reference/qloo-llm-hackathon-developer-guide#getting-your-api-key) |
+| `QLOO_BASE_URL` | No | `https://hackathon.api.qloo.com` | Qloo API base URL |
+| `LLM_API_KEY` | No | — | Any OpenAI-compatible key for richer explanation copy |
+| `LLM_BASE_URL` | No | `https://api.openai.com/v1` | LLM endpoint (works with Groq, Together, etc.) |
+| `LLM_MODEL` | No | `gpt-4o-mini` | Model to use for explanations |
+
+---
+
+## 📡 API Reference
+
+### `POST /api/recommend`
+
+Synchronous recommendation — returns the full result in one JSON response.
 
 ```json
 {
@@ -67,37 +204,174 @@ curl http://localhost:3000/api/health
 }
 ```
 
-Returns resolved interests, the discovered taste map (1-hop and 2-hop entries), taste connections (`from → to at X%, via Y`), and the three picks with per-item affinity scores, contributor breakdowns (which of the shopper's interests drove the pick, with shares and "via" chains), reasons, and buy links.
+**Response** includes:
+- Resolved interests with alternates and candidates
+- Discovered taste map (1-hop and 2-hop entries)
+- Taste connections (`from → to at X%, via Y`)
+- Three gift picks with per-item affinity scores, contributor breakdowns, reasons, and buy links
 
-`POST /api/stream` — the same agent over Server-Sent Events. Body:
+---
+
+### `POST /api/stream`
+
+The same agent over **Server-Sent Events** — streams real-time progress events.
+
+**Initial recommendation:**
 
 ```json
 { "kind": "recommend", "request": { "interests": ["Radiohead"] } }
 ```
 
-or, to re-run with feedback (all constraint state is supplied by the caller):
+**Refinement (with constraint state from the client):**
 
 ```json
 {
   "kind": "refine",
   "request": { "interests": ["Radiohead"] },
   "action": { "kind": "note", "text": "under $60, less Radiohead, bolder" },
-  "constraints": { "avoidItemIds": ["tp-014"], "muteInterests": ["Radiohead"], "mood": "adventurous" }
+  "constraints": {
+    "avoidItemIds": ["tp-014"],
+    "muteInterests": ["Radiohead"],
+    "mood": "adventurous"
+  }
 }
 ```
 
-Actions: `budget` (newMin/newMax), `avoid` (itemIds), `more` (lane + itemIds to rotate), `reset-picks`, `mood` (`adventurous` | `grounded` | `clear`), `boost` (interest, op = boost | mute | clear), `note` (free text — parsed for budget ranges, moods, and interest boosts/mutes).
+**SSE Event Types:**
 
-The response is an SSE stream of transcript events (`stage`, `interest`, `expansion`, `warning`, `agent-note`, `selection`) terminated by a `result` event carrying the full result and the merged constraints (echo them back on the next refine call).
+| Event | Description |
+|-------|-------------|
+| `stage` | Pipeline stage update (resolve, expand, hop2, score, select, explain) |
+| `interest` | An interest resolved to a Qloo entity |
+| `expansion` | A taste discovery from the expansion phase |
+| `warning` | Non-fatal issue (e.g., a domain failed) |
+| `agent-note` | Internal agent observation |
+| `selection` | Lane selection summary |
+| `result` | Final payload with picks + merged constraints |
 
-## Catalog
+**Refinement Actions:**
 
-The demo catalog (`src/data/catalog.json`) is a curated set of products mapped to Qloo entities by name and type. Resolution to Qloo entity IDs happens at runtime and is cached in server memory. No Qloo response data is stored in this repository.
+| Action | Description |
+|--------|-------------|
+| `budget` | Set `newMin` / `newMax` |
+| `avoid` | Permanently exclude items by ID |
+| `more` | Rotate a lane's pick (keep exploring) |
+| `reset-picks` | Clear prior-item memory |
+| `mood` | `adventurous` · `grounded` · `clear` |
+| `boost` | Boost / mute / clear an interest's weight |
+| `note` | Free text — auto-parsed for budget, moods, interest changes |
 
-## Deploying
+---
 
-The app is built for Vercel: import the repo, add the environment variables, and deploy. Any Node.js host works with `npm run build && npm start`.
+### `GET /api/search?q=radiohead`
 
-## License
+Entity search endpoint — returns Qloo entities matching the query with name, type, and popularity. Used by the interest picker in the UI for typeahead disambiguation.
+
+---
+
+### `GET /api/health`
+
+Returns Qloo API connectivity status and key validity.
+
+---
+
+## 🗂️ Project Structure
+
+```
+tasteprint/
+├── src/
+│   ├── app/
+│   │   ├── page.tsx              # Main gift finder UI (React client component)
+│   │   ├── layout.tsx            # Root layout
+│   │   └── api/
+│   │       ├── health/route.ts   # Health check endpoint
+│   │       ├── recommend/route.ts # Sync recommendation endpoint
+│   │       ├── stream/route.ts   # SSE streaming endpoint
+│   │       └── search/route.ts   # Entity search for typeahead
+│   ├── lib/
+│   │   ├── agent/
+│   │   │   ├── pipeline.ts       # Core recommendation pipeline (~1100 lines)
+│   │   │   ├── types.ts          # TypeScript types for the agent
+│   │   │   ├── actions.ts        # Refinement action handlers + note parser
+│   │   │   ├── explain.ts        # LLM / template explanation generator
+│   │   │   └── llm-note.ts       # LLM-driven note interpretation
+│   │   ├── qloo/
+│   │   │   ├── client.ts         # Qloo API client (retry, rate-limit, cache)
+│   │   │   └── types.ts          # Qloo API type definitions
+│   │   └── catalog.ts            # Catalog loader
+│   ├── data/
+│   │   └── catalog.json          # 63 curated products mapped to Qloo entities
+│   └── instrumentation.ts       # Server startup (catalog warm-up)
+├── .env.example
+├── package.json
+├── tsconfig.json
+└── LICENSE
+```
+
+---
+
+## 🛒 Catalog
+
+The demo catalog (`src/data/catalog.json`) contains **63 curated products** across 13 categories:
+
+| Category | Count | Examples |
+|----------|-------|---------|
+| Music | 16 | Vinyl LPs (Radiohead, Frank Ocean, Björk…) |
+| Reading | 11 | Books, graphic novels |
+| Film | 9 | Criterion Collection, box sets |
+| Art Print | 5 | Posters, art prints |
+| Stationery | 5 | Journals, notebooks |
+| Gaming | 4 | Video game collectibles |
+| Photography | 3 | Cameras, photo books |
+| Gift | 3 | Curated gift boxes |
+| Apparel | 2 | T-shirts, accessories |
+| Home | 2 | Home décor items |
+| Coffee | 1 | Specialty coffee |
+| Collectible | 1 | Limited-edition collectibles |
+| Music Tech | 1 | Audio equipment |
+
+**Price range:** $9 – $119
+
+Each product maps to a Qloo entity by name and type. Resolution to Qloo entity IDs happens at runtime and is cached in server memory. **No Qloo response data is stored in this repository.**
+
+---
+
+## 🚢 Deploying
+
+### Vercel (Recommended)
+
+1. Import the repository on [Vercel](https://vercel.com)
+2. Add the environment variables (`QLOO_API_KEY` at minimum)
+3. Deploy
+
+### Self-hosted
+
+```bash
+npm run build
+npm start
+```
+
+Works on any Node.js 18+ host.
+
+---
+
+## 📐 Design Decisions
+
+| Decision | Rationale |
+|----------|-----------|
+| **Stateless server** | All constraint state lives on the client — the server can be horizontally scaled or replaced without session affinity |
+| **Two-hop expansion** | A single hop stays too close to stated interests. The second hop through bridge entities surfaces genuinely surprising connections |
+| **Three lanes** | Safe / Surprise / Bundle covers the full confidence spectrum — from "can't go wrong" to "I had no idea" |
+| **MMR diversification** | The wild-card pick uses Maximal Marginal Relevance against the safe pick to guarantee it feels different |
+| **Optional LLM** | The app is fully functional without an LLM key. Templates and regex parsing handle the common cases; the LLM adds polish |
+| **SSE streaming** | The pipeline takes 3–8 seconds. Streaming keeps the user engaged with real-time stage updates and discoveries |
+
+---
+
+## 🏆 Built For
+
+**Qloo LLM Hackathon** — showcasing Qloo's taste intelligence API for cross-domain cultural discovery.
+
+## 📄 License
 
 MIT — see [LICENSE](LICENSE).
