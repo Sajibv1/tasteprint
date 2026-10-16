@@ -1,0 +1,1010 @@
+[
+  {
+    "id": "tp-001",
+    "title": "Abbey Road — Vinyl LP",
+    "brand": "Apple Records",
+    "price": 32,
+    "currency": "USD",
+    "image": "https://picsum.photos/seed/tasteprint-vinyl-abbey/640/640",
+    "buyUrl": "https://www.amazon.com/s?k=abbey+road+vinyl",
+    "category": "Music",
+    "description": "The remastered 180g vinyl of the Beatles' most iconic late-period record.",
+    "inventory": "in_stock",
+    "qloo": {
+      "query": "The Beatles",
+      "type": "urn:entity:artist"
+    }
+  },
+  {
+    "id": "tp-002",
+    "title": "In Rainbows — Vinyl LP",
+    "brand": "XL Recordings",
+    "price": 29,
+    "currency": "USD",
+    "image": "https://picsum.photos/seed/tasteprint-vinyl-rainbows/640/640",
+    "buyUrl": "https://www.amazon.com/s?k=in+rainbows+vinyl",
+    "category": "Music",
+    "description": "Radiohead's pay-what-you-want landmark, pressed on heavyweight vinyl.",
+    "inventory": "in_stock",
+    "qloo": {
+      "query": "Radiohead",
+      "type": "urn:entity:artist"
+    }
+  },
+  {
+    "id": "tp-003",
+    "title": "Blonde — Vinyl LP",
+    "brand": "Boys Don't Cry",
+    "price": 45,
+    "currency": "USD",
+    "image": "https://picsum.photos/seed/tasteprint-vinyl-blonde/640/640",
+    "buyUrl": "https://www.amazon.com/s?k=blonde+frank+ocean+vinyl",
+    "category": "Music",
+    "description": "Frank Ocean's genre-defining album, a collector's staple.",
+    "inventory": "low_stock",
+    "qloo": {
+      "query": "Frank Ocean",
+      "type": "urn:entity:artist"
+    }
+  },
+  {
+    "id": "tp-004",
+    "title": "IGOR — Vinyl LP",
+    "brand": "Columbia",
+    "price": 34,
+    "currency": "USD",
+    "image": "https://picsum.photos/seed/tasteprint-vinyl-igor/640/640",
+    "buyUrl": "https://www.amazon.com/s?k=igor+tyler+the+creator+vinyl",
+    "category": "Music",
+    "description": "Tyler, the Creator's Grammy-winning production showcase on wax.",
+    "inventory": "in_stock",
+    "qloo": {
+      "query": "Tyler, the Creator",
+      "type": "urn:entity:artist"
+    }
+  },
+  {
+    "id": "tp-005",
+    "title": "Spirited Away — Museum Art Print",
+    "brand": "Studio Ghibli",
+    "price": 28,
+    "currency": "USD",
+    "image": "https://picsum.photos/seed/tasteprint-print-spirited/640/640",
+    "buyUrl": "https://www.etsy.com/search?q=spirited+away+art+print",
+    "category": "Art Print",
+    "description": "Giclée print of the bathhouse scene on archival cotton paper.",
+    "inventory": "in_stock",
+    "qloo": {
+      "query": "Spirited Away",
+      "type": "urn:entity:movie"
+    }
+  },
+  {
+    "id": "tp-006",
+    "title": "Everything Everywhere All at Once — Screen Print",
+    "brand": "A24",
+    "price": 35,
+    "currency": "USD",
+    "image": "https://picsum.photos/seed/tasteprint-print-eeaao/640/640",
+    "buyUrl": "https://www.etsy.com/search?q=eeaao+poster",
+    "category": "Art Print",
+    "description": "Limited-run poster celebrating the Daniels' multiverse epic.",
+    "inventory": "in_stock",
+    "qloo": {
+      "query": "Everything Everywhere All at Once",
+      "type": "urn:entity:movie"
+    }
+  },
+  {
+    "id": "tp-007",
+    "title": "In the Mood for Love — Criterion Blu-ray",
+    "brand": "The Criterion Collection",
+    "price": 40,
+    "currency": "USD",
+    "image": "https://picsum.photos/seed/tasteprint-bluray-mood/640/640",
+    "buyUrl": "https://www.amazon.com/s?k=in+the+mood+for+love+criterion",
+    "category": "Film",
+    "description": "4K restoration of Wong Kar-wai's romantic masterpiece, with essays.",
+    "inventory": "in_stock",
+    "qloo": {
+      "query": "In the Mood for Love",
+      "type": "urn:entity:movie"
+    }
+  },
+  {
+    "id": "tp-008",
+    "title": "Dune — Deluxe Paperback",
+    "brand": "Ace",
+    "price": 18,
+    "currency": "USD",
+    "image": "https://picsum.photos/seed/tasteprint-book-dune/640/640",
+    "buyUrl": "https://www.amazon.com/s?k=dune+paperback",
+    "category": "Reading",
+    "description": "Herbert's sci-fi cornerstone in a deluxe movie tie-in edition.",
+    "inventory": "in_stock",
+    "qloo": {
+      "query": "Dune (Dune, #1)",
+      "type": "urn:entity:book"
+    }
+  },
+  {
+    "id": "tp-009",
+    "title": "Normal People — Paperback",
+    "brand": "Hogarth",
+    "price": 16,
+    "currency": "USD",
+    "image": "https://picsum.photos/seed/tasteprint-book-normal/640/640",
+    "buyUrl": "https://www.amazon.com/s?k=normal+people+sally+rooney",
+    "category": "Reading",
+    "description": "Sally Rooney's intimate modern love story, a book-club fixture.",
+    "inventory": "in_stock",
+    "qloo": {
+      "query": "Normal People",
+      "type": "urn:entity:book"
+    }
+  },
+  {
+    "id": "tp-010",
+    "title": "Klara and the Sun — Hardcover",
+    "brand": "Knopf",
+    "price": 17,
+    "currency": "USD",
+    "image": "https://picsum.photos/seed/tasteprint-book-klara/640/640",
+    "buyUrl": "https://www.amazon.com/s?k=klara+and+the+sun",
+    "category": "Reading",
+    "description": "Ishiguro's meditation on love and artificial minds.",
+    "inventory": "in_stock",
+    "qloo": {
+      "query": "Klara and the Sun",
+      "type": "urn:entity:book"
+    }
+  },
+  {
+    "id": "tp-011",
+    "title": "Wall Mounted CD Player",
+    "brand": "Muji",
+    "price": 108,
+    "currency": "USD",
+    "image": "https://picsum.photos/seed/tasteprint-cdplayer-muji/640/640",
+    "buyUrl": "https://www.amazon.com/s?k=muji+wall+mounted+cd+player",
+    "category": "Music Tech",
+    "description": "Fukasawa's pull-cord CD player — the quietest object in the room.",
+    "inventory": "in_stock",
+    "qloo": {
+      "query": "Muji",
+      "type": "urn:entity:brand"
+    }
+  },
+  {
+    "id": "tp-012",
+    "title": "Classic Notebook Set — Ruled",
+    "brand": "Moleskine",
+    "price": 24,
+    "currency": "USD",
+    "image": "https://picsum.photos/seed/tasteprint-notebook-set/640/640",
+    "buyUrl": "https://www.amazon.com/s?k=moleskine+notebook+set",
+    "category": "Stationery",
+    "description": "Three hardcover ruled notebooks for lists, lyrics, and sketches.",
+    "inventory": "in_stock",
+    "qloo": {
+      "query": "Moleskine",
+      "type": "urn:entity:brand"
+    }
+  },
+  {
+    "id": "tp-013",
+    "title": "Single Origin Coffee Subscription — 3 Months",
+    "brand": "Blue Bottle Coffee",
+    "price": 60,
+    "currency": "USD",
+    "image": "https://picsum.photos/seed/tasteprint-coffee-sub/640/640",
+    "buyUrl": "https://www.amazon.com/s?k=blue+bottle+coffee+subscription",
+    "category": "Coffee",
+    "description": "Rotating single-origin beans delivered monthly — a ritual, not a gift.",
+    "inventory": "in_stock",
+    "qloo": {
+      "query": "Blue Bottle Coffee",
+      "type": "urn:entity:brand"
+    }
+  },
+  {
+    "id": "tp-014",
+    "title": "UT Graphic Tee — Art Series",
+    "brand": "UNIQLO",
+    "price": 25,
+    "currency": "USD",
+    "image": "https://picsum.photos/seed/tasteprint-tee-ut/640/640",
+    "buyUrl": "https://www.uniqlo.com/us/en/search?q=UT",
+    "category": "Apparel",
+    "description": "Wearable art from the UT collaboration series.",
+    "inventory": "in_stock",
+    "qloo": {
+      "query": "UNIQLO",
+      "type": "urn:entity:brand"
+    }
+  },
+  {
+    "id": "tp-015",
+    "title": "BC02 Alarm Clock",
+    "brand": "Braun",
+    "price": 45,
+    "currency": "USD",
+    "image": "https://picsum.photos/seed/tasteprint-clock-braun/640/640",
+    "buyUrl": "https://www.amazon.com/s?k=braun+bc02+alarm+clock",
+    "category": "Home",
+    "description": "Dieter Rams lineage — the canonical bedside clock.",
+    "inventory": "in_stock",
+    "qloo": {
+      "query": "Braun",
+      "type": "urn:entity:brand"
+    }
+  },
+  {
+    "id": "tp-016",
+    "title": "Hades — Nintendo Switch",
+    "brand": "Supergiant Games",
+    "price": 25,
+    "currency": "USD",
+    "image": "https://picsum.photos/seed/tasteprint-game-hades/640/640",
+    "buyUrl": "https://www.amazon.com/s?k=hades+nintendo+switch",
+    "category": "Gaming",
+    "description": "The award-winning rogue-like dungeon crawler, physical edition.",
+    "inventory": "in_stock",
+    "qloo": {
+      "query": "Hades",
+      "type": "urn:entity:videogame"
+    }
+  },
+  {
+    "id": "tp-017",
+    "title": "My Neighbor Totoro — Plush",
+    "brand": "Studio Ghibli",
+    "price": 30,
+    "currency": "USD",
+    "image": "https://picsum.photos/seed/tasteprint-plush-totoro/640/640",
+    "buyUrl": "https://www.amazon.com/s?k=totoro+plush",
+    "category": "Collectible",
+    "description": "Official soft-toy Totoro, desk-sized.",
+    "inventory": "in_stock",
+    "qloo": {
+      "query": "My Neighbor Totoro",
+      "type": "urn:entity:movie"
+    }
+  },
+  {
+    "id": "tp-018",
+    "title": "Camera Strap — Leather",
+    "brand": "Leica",
+    "price": 90,
+    "currency": "USD",
+    "image": "https://picsum.photos/seed/tasteprint-strap-leica/640/640",
+    "buyUrl": "https://www.amazon.com/s?k=leica+camera+strap",
+    "category": "Photography",
+    "description": "Hand-finished leather strap for street photographers.",
+    "inventory": "in_stock",
+    "qloo": {
+      "query": "Leica Camera",
+      "type": "urn:entity:brand"
+    }
+  },
+  {
+    "id": "tp-019",
+    "title": "Homogenic — Vinyl LP",
+    "brand": "One Little Independent",
+    "price": 30,
+    "currency": "USD",
+    "image": "https://picsum.photos/seed/tasteprint-vinyl-homogenic/640/640",
+    "buyUrl": "https://www.amazon.com/s?k=bjork+homogenic+vinyl",
+    "category": "Music",
+    "description": "Björk's volcanic art-pop landmark, strings and beats in perfect tension.",
+    "inventory": "in_stock",
+    "qloo": {
+      "query": "Björk",
+      "type": "urn:entity:artist"
+    }
+  },
+  {
+    "id": "tp-020",
+    "title": "WHEN WE ALL FALL ASLEEP, WHERE DO WE GO? — Vinyl LP",
+    "brand": "Interscope",
+    "price": 30,
+    "currency": "USD",
+    "image": "https://picsum.photos/seed/tasteprint-vinyl-billie/640/640",
+    "buyUrl": "https://www.amazon.com/s?k=billie+eilish+vinyl",
+    "category": "Music",
+    "description": "Billie Eilish's bedroom-pop breakout, still her strangest and best.",
+    "inventory": "in_stock",
+    "qloo": {
+      "query": "Billie Eilish",
+      "type": "urn:entity:artist"
+    }
+  },
+  {
+    "id": "tp-021",
+    "title": "SOUR — Vinyl LP",
+    "brand": "Geffen",
+    "price": 28,
+    "currency": "USD",
+    "image": "https://picsum.photos/seed/tasteprint-vinyl-sour/640/640",
+    "buyUrl": "https://www.amazon.com/s?k=olivia+rodrigo+sour+vinyl",
+    "category": "Music",
+    "description": "Olivia Rodrigo's debut — heartbreak with the amps turned up.",
+    "inventory": "in_stock",
+    "qloo": {
+      "query": "Olivia Rodrigo",
+      "type": "urn:entity:artist"
+    }
+  },
+  {
+    "id": "tp-022",
+    "title": "Discovery — Vinyl LP",
+    "brand": "Parlophone",
+    "price": 32,
+    "currency": "USD",
+    "image": "https://picsum.photos/seed/tasteprint-vinyl-discovery/640/640",
+    "buyUrl": "https://www.amazon.com/s?k=daft+punk+discovery+vinyl",
+    "category": "Music",
+    "description": "Daft Punk's neon disco epic, remastered for vinyl.",
+    "inventory": "in_stock",
+    "qloo": {
+      "query": "Daft Punk",
+      "type": "urn:entity:artist"
+    }
+  },
+  {
+    "id": "tp-023",
+    "title": "To Pimp a Butterfly — Vinyl LP",
+    "brand": "Aftermath",
+    "price": 34,
+    "currency": "USD",
+    "image": "https://picsum.photos/seed/tasteprint-vinyl-tpab/640/640",
+    "buyUrl": "https://www.amazon.com/s?k=to+pimp+a+butterfly+vinyl",
+    "category": "Music",
+    "description": "Kendrick Lamar's jazz-funk masterwork, a modern essential.",
+    "inventory": "in_stock",
+    "qloo": {
+      "query": "Kendrick Lamar",
+      "type": "urn:entity:artist"
+    }
+  },
+  {
+    "id": "tp-024",
+    "title": "Kind of Blue — Vinyl LP",
+    "brand": "Columbia",
+    "price": 28,
+    "currency": "USD",
+    "image": "https://picsum.photos/seed/tasteprint-vinyl-kindofblue/640/640",
+    "buyUrl": "https://www.amazon.com/s?k=miles+davis+kind+of+blue+vinyl",
+    "category": "Music",
+    "description": "The best-selling jazz record of all time, in mono cut.",
+    "inventory": "in_stock",
+    "qloo": {
+      "query": "Miles Davis",
+      "type": "urn:entity:artist"
+    }
+  },
+  {
+    "id": "tp-025",
+    "title": "Howl's Moving Castle — Paperback",
+    "brand": "HarperCollins",
+    "price": 13,
+    "currency": "USD",
+    "image": "https://picsum.photos/seed/tasteprint-book-howl/640/640",
+    "buyUrl": "https://www.amazon.com/s?k=howls+moving+castle+book",
+    "category": "Reading",
+    "description": "Diana Wynne Jones' novel behind the Ghibli classic.",
+    "inventory": "in_stock",
+    "qloo": {
+      "query": "Howl's Moving Castle",
+      "type": "urn:entity:book"
+    }
+  },
+  {
+    "id": "tp-026",
+    "title": "The Left Hand of Darkness — Paperback",
+    "brand": "Ace",
+    "price": 16,
+    "currency": "USD",
+    "image": "https://picsum.photos/seed/tasteprint-book-lefthand/640/640",
+    "buyUrl": "https://www.amazon.com/s?k=the+left+hand+of+darkness",
+    "category": "Reading",
+    "description": "Le Guin's icy, humane landmark of speculative fiction.",
+    "inventory": "in_stock",
+    "qloo": {
+      "query": "The Left Hand of Darkness",
+      "type": "urn:entity:book"
+    }
+  },
+  {
+    "id": "tp-027",
+    "title": "The Three-Body Problem — Paperback",
+    "brand": "Tor",
+    "price": 17,
+    "currency": "USD",
+    "image": "https://picsum.photos/seed/tasteprint-book-threebody/640/640",
+    "buyUrl": "https://www.amazon.com/s?k=the+three+body+problem",
+    "category": "Reading",
+    "description": "Liu Cixin's cosmic-scale first contact epic.",
+    "inventory": "in_stock",
+    "qloo": {
+      "query": "The Three-Body Problem",
+      "type": "urn:entity:book"
+    }
+  },
+  {
+    "id": "tp-028",
+    "title": "Before the Coffee Gets Cold — Paperback",
+    "brand": "Hanover Square",
+    "price": 13,
+    "currency": "USD",
+    "image": "https://picsum.photos/seed/tasteprint-book-coffee/640/640",
+    "buyUrl": "https://www.amazon.com/s?k=before+the+coffee+gets+cold",
+    "category": "Reading",
+    "description": "A Tokyo café where you can revisit the past — briefly.",
+    "inventory": "in_stock",
+    "qloo": {
+      "query": "Before the Coffee Gets Cold",
+      "type": "urn:entity:book"
+    }
+  },
+  {
+    "id": "tp-029",
+    "title": "Convenience Store Woman — Paperback",
+    "brand": "Grove Press",
+    "price": 14,
+    "currency": "USD",
+    "image": "https://picsum.photos/seed/tasteprint-book-csw/640/640",
+    "buyUrl": "https://www.amazon.com/s?k=convenience+store+woman",
+    "category": "Reading",
+    "description": "Murata's deadpan, beloved novel of quiet defiance.",
+    "inventory": "in_stock",
+    "qloo": {
+      "query": "Convenience Store Woman",
+      "type": "urn:entity:book"
+    }
+  },
+  {
+    "id": "tp-030",
+    "title": "Norse Mythology — Paperback",
+    "brand": "W. W. Norton",
+    "price": 15,
+    "currency": "USD",
+    "image": "https://picsum.photos/seed/tasteprint-book-norse/640/640",
+    "buyUrl": "https://www.amazon.com/s?k=norse+mythology+gaiman",
+    "category": "Reading",
+    "description": "Gaiman retells the Norse myths with dry wit and thunder.",
+    "inventory": "in_stock",
+    "qloo": {
+      "query": "Norse Mythology",
+      "type": "urn:entity:book"
+    }
+  },
+  {
+    "id": "tp-031",
+    "title": "My Neighbor Totoro — Blu-ray",
+    "brand": "GKIDS",
+    "price": 25,
+    "currency": "USD",
+    "image": "https://picsum.photos/seed/tasteprint-bluray-totoro/640/640",
+    "buyUrl": "https://www.amazon.com/s?k=my+neighbor+totoro+blu-ray",
+    "category": "Film",
+    "description": "Miyazaki's gentle masterpiece, restored for home cinema.",
+    "inventory": "in_stock",
+    "qloo": {
+      "query": "My Neighbor Totoro",
+      "type": "urn:entity:movie"
+    }
+  },
+  {
+    "id": "tp-032",
+    "title": "Perfect Days — Blu-ray",
+    "brand": "The Criterion Collection",
+    "price": 30,
+    "currency": "USD",
+    "image": "https://picsum.photos/seed/tasteprint-bluray-perfectdays/640/640",
+    "buyUrl": "https://www.amazon.com/s?k=perfect+days+blu-ray",
+    "category": "Film",
+    "description": "Wenders' Tokyo toilet cleaner hymn to everyday beauty.",
+    "inventory": "in_stock",
+    "qloo": {
+      "query": "Perfect Days",
+      "type": "urn:entity:movie"
+    }
+  },
+  {
+    "id": "tp-033",
+    "title": "Past Lives — Blu-ray",
+    "brand": "A24",
+    "price": 25,
+    "currency": "USD",
+    "image": "https://picsum.photos/seed/tasteprint-bluray-pastlives/640/640",
+    "buyUrl": "https://www.amazon.com/s?k=past+lives+blu-ray",
+    "category": "Film",
+    "description": "Celine Song's aching what-if romance across two decades.",
+    "inventory": "in_stock",
+    "qloo": {
+      "query": "Past Lives",
+      "type": "urn:entity:movie"
+    }
+  },
+  {
+    "id": "tp-034",
+    "title": "Seven Samurai — Criterion Blu-ray",
+    "brand": "The Criterion Collection",
+    "price": 40,
+    "currency": "USD",
+    "image": "https://picsum.photos/seed/tasteprint-bluray-sevensamurai/640/640",
+    "buyUrl": "https://www.amazon.com/s?k=seven+samurai+criterion",
+    "category": "Film",
+    "description": "Kurosawa's epic that invented the team-up movie.",
+    "inventory": "in_stock",
+    "qloo": {
+      "query": "Seven Samurai",
+      "type": "urn:entity:movie"
+    }
+  },
+  {
+    "id": "tp-035",
+    "title": "Ni no Kuni: Wrath of the White Witch — Switch",
+    "brand": "Bandai Namco",
+    "price": 40,
+    "currency": "USD",
+    "image": "https://picsum.photos/seed/tasteprint-game-ninokuni/640/640",
+    "buyUrl": "https://www.amazon.com/s?k=ni+no+kuni+switch",
+    "category": "Gaming",
+    "description": "The JRPG with Studio Ghibli animation — a playable fairy tale.",
+    "inventory": "in_stock",
+    "qloo": {
+      "query": "Ni no Kuni: Wrath of the White Witch",
+      "type": "urn:entity:videogame"
+    }
+  },
+  {
+    "id": "tp-036",
+    "title": "Stardew Valley — Switch",
+    "brand": "ConcernedApe",
+    "price": 35,
+    "currency": "USD",
+    "image": "https://picsum.photos/seed/tasteprint-game-stardew/640/640",
+    "buyUrl": "https://www.amazon.com/s?k=stardew+valley+switch",
+    "category": "Gaming",
+    "description": "Farm, forage and befriend — the cozy game against which all are measured.",
+    "inventory": "in_stock",
+    "qloo": {
+      "query": "Stardew Valley",
+      "type": "urn:entity:videogame"
+    }
+  },
+  {
+    "id": "tp-037",
+    "title": "Celeste — Switch",
+    "brand": "Limited Run Games",
+    "price": 20,
+    "currency": "USD",
+    "image": "https://picsum.photos/seed/tasteprint-game-celeste/640/640",
+    "buyUrl": "https://www.amazon.com/s?k=celeste+switch",
+    "category": "Gaming",
+    "description": "A precision platformer about climbing mountains and anxiety.",
+    "inventory": "in_stock",
+    "qloo": {
+      "query": "Celeste",
+      "type": "urn:entity:videogame"
+    }
+  },
+  {
+    "id": "tp-038",
+    "title": "Polaroid Now+ Instant Camera",
+    "brand": "Polaroid",
+    "price": 119,
+    "currency": "USD",
+    "image": "https://picsum.photos/seed/tasteprint-camera-polaroid/640/640",
+    "buyUrl": "https://www.amazon.com/s?k=polaroid+now+plus",
+    "category": "Photography",
+    "description": "The icon lives — analog instant photos with app-controlled aperture tricks.",
+    "inventory": "in_stock",
+    "qloo": {
+      "query": "Polaroid",
+      "type": "urn:entity:brand"
+    }
+  },
+  {
+    "id": "tp-039",
+    "title": "Kodak Gold 200 — 3-Pack",
+    "brand": "Kodak",
+    "price": 19,
+    "currency": "USD",
+    "image": "https://picsum.photos/seed/tasteprint-film-kodak/640/640",
+    "buyUrl": "https://www.amazon.com/s?k=kodak+gold+200",
+    "category": "Photography",
+    "description": "Warm, forgiving 35mm film — three rolls of golden hour.",
+    "inventory": "in_stock",
+    "qloo": {
+      "query": "Eastman Kodak",
+      "type": "urn:entity:brand"
+    }
+  },
+  {
+    "id": "tp-040",
+    "title": "Happy Socks — Gift Box 4-Pack",
+    "brand": "Happy Socks",
+    "price": 45,
+    "currency": "USD",
+    "image": "https://picsum.photos/seed/tasteprint-socks-happy/640/640",
+    "buyUrl": "https://www.amazon.com/s?k=happy+socks+gift+box",
+    "category": "Apparel",
+    "description": "Four loud pairs in a proper gift box — small gift, big personality.",
+    "inventory": "in_stock",
+    "qloo": {
+      "query": "Happy Socks",
+      "type": "urn:entity:brand"
+    }
+  },
+  {
+    "id": "tp-041",
+    "title": "Art Sketchbook — Large",
+    "brand": "Moleskine",
+    "price": 26,
+    "currency": "USD",
+    "image": "https://picsum.photos/seed/tasteprint-sketchbook/640/640",
+    "buyUrl": "https://www.amazon.com/s?k=moleskine+art+sketchbook",
+    "category": "Stationery",
+    "description": "Heavyweight 165gsm pages that take ink, marker and abuse.",
+    "inventory": "in_stock",
+    "qloo": {
+      "query": "Moleskine",
+      "type": "urn:entity:brand"
+    }
+  },
+  {
+    "id": "tp-042",
+    "title": "Classic Wall Clock",
+    "brand": "Braun",
+    "price": 55,
+    "currency": "USD",
+    "image": "https://picsum.photos/seed/tasteprint-wallclock-braun/640/640",
+    "buyUrl": "https://www.amazon.com/s?k=braun+wall+clock",
+    "category": "Home",
+    "description": "The 1981 Rams classic — a wall that suddenly knows better.",
+    "inventory": "in_stock",
+    "qloo": {
+      "query": "Braun",
+      "type": "urn:entity:brand"
+    }
+  },
+  {
+    "id": "tp-043",
+    "title": "Ghibli Museum Postcard Collection",
+    "brand": "Studio Ghibli",
+    "price": 12,
+    "currency": "USD",
+    "image": "https://picsum.photos/seed/tasteprint-postcards-ghibli/640/640",
+    "buyUrl": "https://www.etsy.com/search?q=ghibli+postcard+set",
+    "category": "Gift",
+    "description": "A thick stack of museum-edition stills to send — or hoard.",
+    "inventory": "in_stock",
+    "qloo": {
+      "query": "Spirited Away",
+      "type": "urn:entity:movie"
+    }
+  },
+  {
+    "id": "tp-044",
+    "title": "In the Mood for Love — A3 Poster",
+    "brand": "The Criterion Collection",
+    "price": 18,
+    "currency": "USD",
+    "image": "https://picsum.photos/seed/tasteprint-poster-mood/640/640",
+    "buyUrl": "https://www.etsy.com/search?q=in+the+mood+for+love+poster",
+    "category": "Art Print",
+    "description": "The corridor poster — Wong Kar-wai's hallway of almost.",
+    "inventory": "in_stock",
+    "qloo": {
+      "query": "In the Mood for Love",
+      "type": "urn:entity:movie"
+    }
+  },
+  {
+    "id": "tp-045",
+    "title": "Cahier Journals — 3-Pack",
+    "brand": "Moleskine",
+    "price": 15,
+    "currency": "USD",
+    "image": "https://picsum.photos/seed/tasteprint-cahier/640/640",
+    "buyUrl": "https://www.amazon.com/s?k=moleskine+cahier+journals",
+    "category": "Stationery",
+    "description": "Lightweight stitch-bound notebooks — one per idea.",
+    "inventory": "in_stock",
+    "qloo": {
+      "query": "Moleskine",
+      "type": "urn:entity:brand"
+    }
+  },
+  {
+    "id": "tp-046",
+    "title": "Classic Logo Enamel Pin",
+    "brand": "Polaroid",
+    "price": 9,
+    "currency": "USD",
+    "image": "https://picsum.photos/seed/tasteprint-pin-polaroid/640/640",
+    "buyUrl": "https://www.etsy.com/search?q=polaroid+enamel+pin",
+    "category": "Gift",
+    "description": "The rainbow-stripe shutter logo, jacket-sized.",
+    "inventory": "in_stock",
+    "qloo": {
+      "query": "Polaroid",
+      "type": "urn:entity:brand"
+    }
+  },
+  {
+    "id": "tp-047",
+    "title": "Joker OST — Vinyl LP",
+    "brand": "WaterTower Music",
+    "price": 28,
+    "currency": "USD",
+    "image": "https://picsum.photos/seed/tasteprint-vinyl-joker/640/640",
+    "buyUrl": "https://www.amazon.com/s?k=joker+ost+vinyl",
+    "category": "Music",
+    "description": "Hildur Guðnadóttir's cello score — dread you can hum.",
+    "inventory": "in_stock",
+    "qloo": {
+      "query": "Hildur Guðnadóttir",
+      "type": "urn:entity:artist"
+    }
+  },
+  {
+    "id": "tp-048",
+    "title": "Conversations with Friends — Paperback",
+    "brand": "Hogarth",
+    "price": 16,
+    "currency": "USD",
+    "image": "https://picsum.photos/seed/tasteprint-book-cwf/640/640",
+    "buyUrl": "https://www.amazon.com/s?k=conversations+with+friends",
+    "category": "Reading",
+    "description": "Sally Rooney's debut — sharp, close, and unafraid.",
+    "inventory": "in_stock",
+    "qloo": {
+      "query": "Conversations with Friends",
+      "type": "urn:entity:book"
+    }
+  },
+  {
+    "id": "tp-049",
+    "title": "Chungking Express — Criterion Blu-ray",
+    "brand": "Criterion",
+    "price": 28,
+    "image": "https://picsum.photos/seed/tasteprint-chungking/640/640",
+    "buyUrl": "https://www.criterion.com/search?q=chungking+express",
+    "category": "Film",
+    "description": "Wong Kar-wai's caffeinated romance about two cops and the city that keeps moving.",
+    "qloo": {
+      "query": "Chungking Express",
+      "type": "urn:entity:movie"
+    },
+    "currency": "USD",
+    "inventory": "in_stock"
+  },
+  {
+    "id": "tp-050",
+    "title": "Joe Hisaishi — Symphonic Suite 2×LP",
+    "brand": "Milan Records",
+    "price": 45,
+    "image": "https://picsum.photos/seed/tasteprint-hisaishi/640/640",
+    "buyUrl": "https://www.amazon.com/s?k=joe+hisaishi+symphonic+suite",
+    "category": "Music",
+    "description": "The composer behind the Ghibli magic, live with the Royal Philharmonic.",
+    "qloo": {
+      "query": "Joe Hisaishi",
+      "type": "urn:entity:artist"
+    },
+    "currency": "USD",
+    "inventory": "in_stock"
+  },
+  {
+    "id": "tp-051",
+    "title": "Ryuichi Sakamoto — async 2×LP",
+    "brand": "Milan Records",
+    "price": 39,
+    "image": "https://picsum.photos/seed/tasteprint-async/640/640",
+    "buyUrl": "https://www.amazon.com/s?k=sakamoto+async+vinyl",
+    "category": "Music",
+    "description": "The late master's final ambient statement — rain sounds, glass, and silence.",
+    "qloo": {
+      "query": "Ryuichi Sakamoto",
+      "type": "urn:entity:artist"
+    },
+    "currency": "USD",
+    "inventory": "in_stock"
+  },
+  {
+    "id": "tp-052",
+    "title": "Ghost in the Shell — 4K Steelbook",
+    "brand": "FUNimation",
+    "price": 33,
+    "image": "https://picsum.photos/seed/tasteprint-gitss/640/640",
+    "buyUrl": "https://www.amazon.com/s?k=ghost+in+the+shell+4k+steelbook",
+    "category": "Film",
+    "description": "Oshii's cyberpunk landmark, remastered for the wall of one of those walls.",
+    "qloo": {
+      "query": "Ghost in the Shell",
+      "type": "urn:entity:movie"
+    },
+    "currency": "USD",
+    "inventory": "in_stock"
+  },
+  {
+    "id": "tp-053",
+    "title": "Paprika — Blu-ray",
+    "brand": "Sony Pictures",
+    "price": 25,
+    "image": "https://picsum.photos/seed/tasteprint-paprika/640/640",
+    "buyUrl": "https://www.amazon.com/s?k=paprika+satoshi+kon+blu-ray",
+    "category": "Film",
+    "description": "Satoshi Kon's dream-diving anime that predicted all this.",
+    "qloo": {
+      "query": "Paprika",
+      "type": "urn:entity:movie"
+    },
+    "currency": "USD",
+    "inventory": "in_stock"
+  },
+  {
+    "id": "tp-054",
+    "title": "Norwegian Wood — Deluxe Paperback",
+    "brand": "Vintage",
+    "price": 16,
+    "image": "https://picsum.photos/seed/tasteprint-norwegian/640/640",
+    "buyUrl": "https://www.amazon.com/s?k=norwegian+wood+murakami",
+    "category": "Reading",
+    "description": "Murakami's bittersweet coming-of-age; the one people gift to their first love.",
+    "qloo": {
+      "query": "Norwegian Wood",
+      "type": "urn:entity:book"
+    },
+    "currency": "USD",
+    "inventory": "in_stock"
+  },
+  {
+    "id": "tp-055",
+    "title": "Portishead — Dummy Vinyl LP",
+    "brand": "Go! Beat",
+    "price": 30,
+    "image": "https://picsum.photos/seed/tasteprint-dummy/640/640",
+    "buyUrl": "https://www.amazon.com/s?k=portishead+dummy+vinyl",
+    "category": "Music",
+    "description": "Bristol trip-hop's definitive statement; pairs with rainy-sunday moodiness.",
+    "qloo": {
+      "query": "Portishead",
+      "type": "urn:entity:artist"
+    },
+    "currency": "USD",
+    "inventory": "in_stock"
+  },
+  {
+    "id": "tp-056",
+    "title": "Aphex Twin — Selected Ambient Works 85–92",
+    "brand": "Apollo",
+    "price": 27,
+    "image": "https://picsum.photos/seed/tasteprint-saw85/640/640",
+    "buyUrl": "https://www.amazon.com/s?k=selected+ambient+works+85-92",
+    "category": "Music",
+    "description": "Bedroom-electronica mysticism; sounds like falling asleep in a server room.",
+    "qloo": {
+      "query": "Aphex Twin",
+      "type": "urn:entity:artist"
+    },
+    "currency": "USD",
+    "inventory": "in_stock"
+  },
+  {
+    "id": "tp-057",
+    "title": "MUBI — 6-Month Film Club Membership",
+    "brand": "MUBI",
+    "price": 60,
+    "image": "https://picsum.photos/seed/tasteprint-mubi/640/640",
+    "buyUrl": "https://mubi.com/subscribe",
+    "category": "Gift",
+    "description": "Hand-curated art-house streaming; for people who own In the Mood for Love on Criterion.",
+    "qloo": {
+      "query": "MUBI",
+      "type": "urn:entity:brand"
+    },
+    "currency": "USD",
+    "inventory": "in_stock"
+  },
+  {
+    "id": "tp-058",
+    "title": "Takashi Murakami — Flower Wall Print",
+    "brand": "Kaikai Kiki",
+    "price": 40,
+    "image": "https://picsum.photos/seed/tasteprint-murakami/640/640",
+    "buyUrl": "https://www.amazon.com/s?k=murakami+flower+poster",
+    "category": "Art Print",
+    "description": "Superflat smileys that turn any wall into a pop-art garden.",
+    "qloo": {
+      "query": "Takashi Murakami",
+      "type": "urn:entity:artist"
+    },
+    "currency": "USD",
+    "inventory": "in_stock"
+  },
+  {
+    "id": "tp-059",
+    "title": "Kiki's Delivery Service — Jiji Tote Bag",
+    "brand": "Studio Ghibli Shop",
+    "price": 22,
+    "image": "https://picsum.photos/seed/tasteprint-jiji/640/640",
+    "buyUrl": "https://www.amazon.com/s?k=jiji+tote+bag+ghibli",
+    "category": "Stationery",
+    "description": "Everyone's favorite black cat, now helping with library runs.",
+    "qloo": {
+      "query": "Kiki's Delivery Service",
+      "type": "urn:entity:movie"
+    },
+    "currency": "USD",
+    "inventory": "in_stock"
+  },
+  {
+    "id": "tp-060",
+    "title": "2046 — Criterion Blu-ray",
+    "brand": "Criterion",
+    "price": 32,
+    "image": "https://picsum.photos/seed/tasteprint-2046/640/640",
+    "buyUrl": "https://www.criterion.com/search?q=2046",
+    "category": "Film",
+    "description": "Wong Kar-wai's sequel-echo; the heartbreak companion to In the Mood for Love.",
+    "qloo": {
+      "query": "2046",
+      "type": "urn:entity:movie"
+    },
+    "currency": "USD",
+    "inventory": "in_stock"
+  },
+  {
+    "id": "tp-061",
+    "title": "Belle and Sebastian — If You're Feeling Sinister LP",
+    "brand": "Jeepster",
+    "price": 26,
+    "image": "https://picsum.photos/seed/tasteprint-bas/640/640",
+    "buyUrl": "https://www.amazon.com/s?k=belle+and+sebastian+sinister+vinyl",
+    "category": "Music",
+    "description": "The definitive tweepop shy-kid anthem record.",
+    "qloo": {
+      "query": "Belle and Sebastian",
+      "type": "urn:entity:artist"
+    },
+    "currency": "USD",
+    "inventory": "in_stock"
+  },
+  {
+    "id": "tp-062",
+    "title": "A24 — Past Lives Storyboard Journal",
+    "brand": "A24",
+    "price": 24,
+    "image": "https://picsum.photos/seed/tasteprint-pastlives-journal/640/640",
+    "buyUrl": "https://shop.a24films.com/",
+    "category": "Stationery",
+    "description": "Notebook for the letters you'll never send but should.",
+    "qloo": {
+      "query": "Past Lives",
+      "type": "urn:entity:movie"
+    },
+    "currency": "USD",
+    "inventory": "in_stock"
+  },
+  {
+    "id": "tp-063",
+    "title": "Kiki's Delivery Service — Sky Art Print",
+    "brand": "Studio Ghibli Shop",
+    "price": 19,
+    "image": "https://picsum.photos/seed/tasteprint-kikikite/640/640",
+    "buyUrl": "https://www.amazon.com/s?k=kiki+delivery+service+poster",
+    "category": "Art Print",
+    "description": "Cleared skies and a cat's tail wind — brightens any studio apartment.",
+    "qloo": {
+      "query": "Kiki's Delivery Service",
+      "type": "urn:entity:movie"
+    },
+    "currency": "USD",
+    "inventory": "in_stock"
+  }
+]

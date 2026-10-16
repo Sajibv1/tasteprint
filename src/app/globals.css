@@ -1,26 +1,97 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-paper: #fbfaf5;
+  --color-ink: #16192b;
+  --color-muted: #5b5e72;
+  --color-fog: #d9dae4;
+  --color-cobalt: #2036bd;
+  --color-cobalt-deep: #182a94;
+  --color-pink: #e84d9b;
+  --color-pink-deep: #c73a80;
+  --color-butter: #ffc53d;
+  --color-stamp: #e03a2f;
+  --font-sans: var(--font-archivo);
+  --font-mono: var(--font-plex-mono);
+  --font-display: var(--font-archivo-black);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+:root {
+  color-scheme: light;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: #fbfaf5;
+  color: #16192b;
+}
+
+:focus-visible {
+  outline: 2px solid #2036bd;
+  outline-offset: 2px;
+}
+
+::selection {
+  background: #ffc53d;
+  color: #16192b;
+}
+
+.stamp-in {
+  animation: stamp-in 0.5s cubic-bezier(0.2, 0.9, 0.3, 1.25) both;
+  animation-delay: var(--stamp-delay, 0ms);
+}
+
+@keyframes stamp-in {
+  from {
+    opacity: 0;
+    transform: rotate(-2deg) scale(1.18);
+  }
+  60% {
+    opacity: 1;
+    transform: rotate(-2deg) scale(0.97);
+  }
+  to {
+    opacity: 1;
+    transform: rotate(-2deg) scale(1);
+  }
+}
+
+.lane-in {
+  animation: lane-in 0.5s cubic-bezier(0.2, 0.8, 0.3, 1) both;
+  animation-delay: var(--lane-delay, 0ms);
+}
+
+@keyframes lane-in {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.blink {
+  animation: blink 1.1s steps(1) infinite;
+}
+
+@keyframes blink {
+  50% {
+    opacity: 0;
+  }
+}
+
+.receipt-cut {
+  background-image: linear-gradient(to right, rgba(22, 25, 43, 0.35) 0 55%, transparent 55% 100%);
+  background-size: 10px 1px;
+  background-repeat: repeat-x;
+  height: 1px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .stamp-in,
+  .lane-in,
+  .blink {
+    animation: none;
+  }
 }
