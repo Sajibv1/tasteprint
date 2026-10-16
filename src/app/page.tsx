@@ -100,14 +100,24 @@ interface EntityMatch {
   popularity: number;
 }
 
-interface BrowseItem {
-  id: string;
-  title: string;
-  brand: string;
-  price: number;
-  category: string;
-  image: string | null;
-}
+const CATEGORIES = [
+  "Music",
+  "Film",
+  "Reading",
+  "Gaming",
+  "Art Print",
+  "Music Tech",
+  "Apparel",
+  "Stationery",
+  "Home",
+  "Collectible",
+  "Photography",
+  "Gift",
+  "Coffee",
+  "Beauty",
+  "Outdoors",
+  "Tea",
+];
 
 function shortEntityType(urn: string): string {
   return urn.replace(/^urn:entity:/, "").replace(/_/g, " ");
@@ -359,27 +369,12 @@ export default function Home() {
   const [entityMatches, setEntityMatches] = useState<EntityMatch[]>([]);
   const [pickerOpen, setPickerOpen] = useState(false);
   const [pickerLoading, setPickerLoading] = useState(false);
-  const [pinnedIds, setPinnedIds] = useState<string[]>([]);
-  const [browserOpen, setBrowserOpen] = useState(false);
-  const [browseItems, setBrowseItems] = useState<BrowseItem[] | null>(null);
-  const [browseQuery, setBrowseQuery] = useState("");
-  const [browseCategory, setBrowseCategory] = useState("All");
-  const [browseLoading, setBrowseLoading] = useState(false);
+  const [selectedCategories, setSelectedCategories] = useState<string[]>([]);
   const resultsRef = useRef<HTMLDivElement>(null);
   const transcriptRef = useRef<HTMLOListElement>(null);
 
   const busy = status === "loading" || status === "refining";
   const pickerVisible = pickerOpen && !busy && draft.trim().replace(/\s+/g, " ").length >= 2;
-  const browseCategories = browseItems
-    ? ["All", ...Array.from(new Set(browseItems.map((item) => item.category))).sort()]
-    : ["All"];
-  const browseQueryLower = browseQuery.trim().toLowerCase();
-  const visibleBrowseItems = (browseItems ?? []).filter(
-    (item) =>
-      (browseCategory === "All" || item.category === browseCategory) &&
-      (browseQueryLower.length === 0 || `${item.title} ${item.brand}`.toLowerCase().includes(browseQueryLower)),
-  );
-  const browseTitleById = new Map((browseItems ?? []).map((item) => [item.id, item.title] as const));
 
   useEffect(() => {
     queueMicrotask(() => {
@@ -452,36 +447,10 @@ export default function Home() {
     setPickerOpen(false);
   }
 
-  useEffect(() => {
-    if (!browserOpen || browseItems !== null) return;
-    let cancelled = false;
-    fetch("/api/catalog")
-      .then((response) => {
-        if (!response.ok) throw new Error("catalog failed");
-        return response.json() as Promise<{ results?: BrowseItem[] }>;
-      })
-      .then((payload) => {
-        if (!cancelled) setBrowseItems(Array.isArray(payload.results) ? payload.results : []);
-      })
-      .catch(() => {
-        if (!cancelled) setBrowseItems([]);
-      })
-      .finally(() => {
-        if (!cancelled) setBrowseLoading(false);
-      });
-    return () => {
-      cancelled = true;
-    };
-  }, [browserOpen, browseItems]);
-
-  function togglePin(id: string) {
-    setPinnedIds((current) =>
-      current.includes(id) ? current.filter((entry) => entry !== id) : current.length >= 60 ? current : [...current, id],
+  function toggleCategory(category: string) {
+    setSelectedCategories((current) =>
+      current.includes(category) ? current.filter((entry) => entry !== category) : [...current, category],
     );
-  }
-
-  function clearPins() {
-    setPinnedIds([]);
   }
 
   function addInterest(value: string) {
@@ -519,7 +488,7 @@ export default function Home() {
       }),
       occasion: occasion || undefined,
       budget: { min: 0, max: budgetMax },
-      candidateItemIds: pinnedIds.length > 0 ? pinnedIds : undefined,
+      categories: selectedCategories.length > 0 ? selectedCategories : undefined,
     };
   }
 
@@ -662,7 +631,7 @@ export default function Home() {
     setOccasion(run.occasion);
     setBudgetMax(run.budgetMax);
     setOverrides({});
-    setPinnedIds([]);
+    setSelectedCategories([]);
   }
 
   const appliedBudget = constraints.budgetMax ?? budgetMax;
@@ -906,7 +875,7 @@ export default function Home() {
               disabled={interests.length === 0 || busy}
               className="w-full bg-cobalt px-5 py-4 font-semibold text-white transition hover:bg-cobalt-deep disabled:cursor-not-allowed disabled:opacity-40"
             >
-              {status === "loading" ? "Reading their taste…" : pinnedIds.length > 0 ? `Find gifts from ${pinnedIds.length} pinned` : "Find their gifts"}
+              {status === "loading" ? "Reading their taste…" : "Find their gifts"}
             </button>
             {interests.length === 0 && (
               <p className="text-xs leading-relaxed text-muted">Add at least one interest to enable the button.</p>
@@ -917,114 +886,32 @@ export default function Home() {
           </div>
         </div>
 
-        <div className="mt-6 border-2 border-dashed border-fog bg-white">
-          <button
-            type="button"
-            onClick={() => {
-              if (!browserOpen && browseItems === null && !browseLoading) setBrowseLoading(true);
-              setBrowserOpen((current) => !current);
-            }}
-            aria-expanded={browserOpen}
-            className="flex w-full items-center justify-between gap-3 px-5 py-3 text-left transition hover:bg-paper"
-          >
-            <span className="font-mono text-xs font-semibold uppercase tracking-[0.2em] text-ink">
-              Pin products <span className="font-normal normal-case tracking-normal text-muted">(optional)</span>
-            </span>
-            <span className="font-mono text-xs text-muted">
-              {pinnedIds.length > 0 ? `${pinnedIds.length} pinned` : browserOpen ? "hide −" : "browse the catalog +"}
-            </span>
-          </button>
-          {pinnedIds.length > 0 && (
-            <div className="flex flex-wrap items-center gap-2 border-t border-dashed border-fog px-5 py-3">
-              {pinnedIds.map((id) => (
-                <span
-                  key={id}
-                  className="inline-flex items-center gap-1.5 border border-ink bg-ink px-2.5 py-1 text-xs text-paper"
+        <div className="mt-6">
+          <span className="mb-2 block text-sm font-semibold text-ink">
+            Categories{" "}
+            <span className="font-normal text-muted">— leave empty to search everything</span>
+          </span>
+          <div className="flex flex-wrap gap-2">
+            {CATEGORIES.map((category) => {
+              const active = selectedCategories.includes(category);
+              return (
+                <button
+                  key={category}
+                  type="button"
+                  aria-pressed={active}
+                  disabled={busy}
+                  onClick={() => toggleCategory(category)}
+                  className={`border px-2.5 py-1.5 font-mono text-xs transition disabled:opacity-40 ${
+                    active
+                      ? "border-ink bg-ink text-paper"
+                      : "border-fog bg-paper text-muted hover:border-cobalt hover:text-cobalt"
+                  }`}
                 >
-                  {browseTitleById.get(id) ?? id}
-                  <button
-                    type="button"
-                    aria-label={`Unpin ${browseTitleById.get(id) ?? id}`}
-                    className="text-paper/60 hover:text-butter"
-                    onClick={() => togglePin(id)}
-                  >
-                    ×
-                  </button>
-                </span>
-              ))}
-              <button
-                type="button"
-                onClick={clearPins}
-                className="font-mono text-[10px] uppercase tracking-wider text-muted underline decoration-dotted underline-offset-4 hover:text-stamp"
-              >
-                clear all
-              </button>
-            </div>
-          )}
-          {browserOpen && (
-            <div className="border-t border-dashed border-fog px-5 py-4">
-              <p className="mb-3 text-xs leading-relaxed text-muted">
-                Pin 3 or more for the full three-lane spread — or pin nothing and the agent searches all{" "}
-                {browseItems ? browseItems.length : "171"} products.
-              </p>
-              <div className="mb-3 flex flex-col gap-2 sm:flex-row">
-                <input
-                  type="text"
-                  value={browseQuery}
-                  onChange={(event) => setBrowseQuery(event.target.value)}
-                  placeholder="search the catalog…"
-                  className="flex-1 border border-fog bg-paper px-3 py-2 text-sm text-ink outline-none placeholder:text-muted/70 focus:border-cobalt"
-                />
-                <select
-                  value={browseCategory}
-                  onChange={(event) => setBrowseCategory(event.target.value)}
-                  aria-label="Filter by category"
-                  className="border border-fog bg-paper px-3 py-2 font-mono text-xs text-ink outline-none focus:border-cobalt"
-                >
-                  {browseCategories.map((category) => (
-                    <option key={category} value={category}>
-                      {category}
-                    </option>
-                  ))}
-                </select>
-              </div>
-              {browseLoading && <p className="font-mono text-xs text-muted">loading the catalog…</p>}
-              {!browseLoading && browseItems !== null && (
-                <ul className="max-h-72 divide-y divide-fog/60 overflow-auto border border-fog">
-                  {visibleBrowseItems.map((item) => {
-                    const pinned = pinnedIds.includes(item.id);
-                    return (
-                      <li key={item.id}>
-                        <button
-                          type="button"
-                          onClick={() => togglePin(item.id)}
-                          aria-pressed={pinned}
-                          className="flex w-full items-center justify-between gap-3 px-4 py-2 text-left transition hover:bg-butter"
-                        >
-                          <span className="min-w-0 flex-1">
-                            <span className="block truncate text-sm font-semibold text-ink">{item.title}</span>
-                            <span className="block truncate font-mono text-[10px] uppercase tracking-wider text-muted">
-                              {item.brand} · ${item.price} · {item.category}
-                            </span>
-                          </span>
-                          <span
-                            className={`flex-none border px-2 py-0.5 font-mono text-xs ${
-                              pinned ? "border-ink bg-ink text-paper" : "border-fog text-muted"
-                            }`}
-                          >
-                            {pinned ? "✓" : "+"}
-                          </span>
-                        </button>
-                      </li>
-                    );
-                  })}
-                  {visibleBrowseItems.length === 0 && (
-                    <li className="px-4 py-3 font-mono text-xs text-muted">nothing matches that filter.</li>
-                  )}
-                </ul>
-              )}
-            </div>
-          )}
+                  {category}
+                </button>
+              );
+            })}
+          </div>
         </div>
       </section>
 

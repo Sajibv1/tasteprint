@@ -28,7 +28,7 @@ Each pick comes with a human-readable explanation grounded in the recipient's ta
 - **Taste-graph powered** — goes beyond keyword matching; uses Qloo's cultural knowledge graph spanning 700M+ entities
 - **Two-hop discovery** — finds gifts two degrees of separation away from stated interests
 - **Three recommendation lanes** — Safe / Surprise / Bundle picks with per-item affinity scores
-- **Pinnable shortlist** — optionally pin products before searching to constrain the agent to a shopper-chosen shortlist; pin nothing and it searches the full catalog
+- **Category filter** — optionally narrow the search to chosen product categories; leave empty to search everything
 - **Explainable results** — every pick shows *which* interests drove it, with contributor shares and "via" chains
 - **Interactive refinement** — boost/mute interests, adjust budget, change mood, mark items as "not for them", or type free-text notes
 - **Stateless server** — all constraint state lives on the client; the server stays stateless and re-runnable
@@ -106,7 +106,7 @@ flowchart TD
 | **Taste Expansion** | `GET /v2/insights` | Resolved entities used as `signal.interests.entities` across 4 discovery domains. `feature.explainability=true` enables contributor tracking |
 | **Second Hop** | `GET /v2/insights` | Top first-hop discoveries added to signal mix → expansion runs again. "Via" chains retained for explanation |
 | **Catalog Scoring** | `GET /v2/insights` | Candidate entity IDs batch-scored with `filter.results.entities` so each product gets a real affinity score |
-| **Lane Selection** | — | Safe lane: popularity + stock tilt. Wild card: MMR diversification against safe pick (niche affinity boosted). Bundle: budget-truncated search with category/type/brand diversity bonuses. Optional pinned shortlist (`candidateItemIds`) constrains the pool to shopper-chosen products |
+| **Lane Selection** | — | Safe lane: popularity + stock tilt. Wild card: MMR diversification against safe pick (niche affinity boosted). Bundle: budget-truncated search with category/type/brand diversity bonuses. Optional category filter (`categories`) constrains the pool to chosen product categories |
 | **Explanation** | — | LLM (optional) writes copy from structured evidence. Without an LLM key, built-in templates are used |
 
 ---

@@ -1046,36 +1046,21 @@ export async function recommend(input: RecommendRequest, options: RecommendOptio
   const scored = await scoreCatalog({ catalogEntities, signalIds, signalWeights, resolved, expansion, constraints, warnings, sink });
 
   const excludedIds = new Set([...constraints.avoidItemIds, ...constraints.priorItemIds]);
-  const candidateIds = Array.isArray(input.candidateItemIds)
-    ? [...new Set(input.candidateItemIds.filter((id) => typeof id === "string"))].slice(0, 60)
-    : [];
-  const candidateSet = candidateIds.length > 0 ? new Set(candidateIds) : undefined;
+  const categorySet =
+    Array.isArray(input.categories) && input.categories.length > 0
+      ? new Set(input.categories.filter((category) => typeof category === "string"))
+      : undefined;
   let pool = scored.filter(
     (entry) => entry.item.price <= budget.max && entry.item.price >= budget.min && !excludedIds.has(entry.item.id),
   );
-  if (candidateSet) {
-    const skipped = scored.filter(
-      (entry) => candidateSet.has(entry.item.id) && (entry.item.price < budget.min || entry.item.price > budget.max),
-    );
-    pool = pool.filter((entry) => candidateSet.has(entry.item.id));
-    if (skipped.length > 0) {
-      const titles = skipped
-        .map((entry) => entry.item.title)
-        .slice(0, 3)
-        .join("; ");
-      pushWarning(
-        warnings,
-        sink,
-        `Skipped ${skipped.length} pinned pick${skipped.length === 1 ? "" : "s"} outside the $${budget.min}–$${budget.max} budget: ${titles}${skipped.length > 3 ? "…" : ""}.`,
-      );
-    }
-    stage(sink, "select", `Shortlist mode — scoring only the ${candidateSet.size} pinned pick${candidateSet.size === 1 ? "" : "s"}`);
+  if (categorySet) {
+    pool = pool.filter((entry) => categorySet.has(entry.item.category));
   }
   if (pool.length === 0) {
     throw new QlooError(
       422,
-      candidateSet
-        ? `None of the pinned picks fit a $${budget.min}–$${budget.max} budget${excludedIds.size > 0 ? " after removing the picks you passed on" : ""}. Widen the range, unpin, or bring picks back into rotation.`
+      categorySet
+        ? `Nothing in ${[...categorySet].slice(0, 4).join(", ")}${categorySet.size > 4 ? ", …" : ""} fits a $${budget.min}–$${budget.max} budget${excludedIds.size > 0 ? " after removing the picks you passed on" : ""}. Widen the range, clear the categories, or bring picks back into rotation.`
         : `No catalog gifts fit a $${budget.min}–$${budget.max} budget${excludedIds.size > 0 ? " after removing the picks you passed on" : ""}. Widen the range or bring picks back into rotation.`,
     );
   }
