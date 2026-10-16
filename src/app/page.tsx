@@ -188,15 +188,31 @@ function GiftCard({
   onAvoid?: (item: GiftItem) => void;
   busy: boolean;
 }) {
+  const [imgFailed, setImgFailed] = useState(false);
   return (
     <article className="flex gap-3.5 border border-ink/15 bg-paper p-3.5">
-      <Image
-        src={item.image}
-        alt={item.title}
-        width={compact ? 160 : 288}
-        height={compact ? 160 : 288}
-        className={`${compact ? "size-16" : "size-24"} flex-none border border-ink/15 object-cover`}
-      />
+      {item.image && !imgFailed ? (
+        <Image
+          src={item.image}
+          alt={item.title}
+          width={compact ? 160 : 288}
+          height={compact ? 160 : 288}
+          onError={() => setImgFailed(true)}
+          className={`${compact ? "size-16" : "size-24"} flex-none border border-ink/15 object-cover`}
+        />
+      ) : (
+        <div
+          aria-hidden="true"
+          className={`${compact ? "size-16" : "size-24"} flex flex-none flex-col items-center justify-center gap-1 border border-ink/15 bg-ink px-1 text-paper`}
+        >
+          <span className={`font-display font-bold leading-none ${compact ? "text-lg" : "text-2xl"}`}>
+            {item.title.charAt(0).toUpperCase()}
+          </span>
+          <span className="text-center font-mono text-[8px] uppercase leading-tight tracking-wider opacity-70">
+            {item.entityType}
+          </span>
+        </div>
+      )}
       <div className="min-w-0 flex-1 space-y-2">
         <div className="flex flex-wrap items-center gap-2">
           <span className={`border px-1.5 py-0.5 font-mono text-[10px] uppercase tracking-wider ${SOURCE_CLASS[item.source]}`}>

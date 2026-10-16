@@ -2,856 +2,1027 @@
   "tp-001": {
     "entity_id": "996272B0-CB79-48D3-8B83-8ED34F2DE9AF",
     "name": "The Beatles",
-    "type": "urn:entity:artist"
+    "type": "urn:entity:artist",
+    "image": "https://images.qloo.com/i/996272B0-CB79-48D3-8B83-8ED34F2DE9AF-420x-auto.jpg"
   },
   "tp-002": {
     "entity_id": "70CAE5BF-2F4C-445C-A3E5-4EDACFC3591C",
     "name": "Radiohead",
-    "type": "urn:entity:artist"
+    "type": "urn:entity:artist",
+    "image": "https://images.qloo.com/i/70CAE5BF-2F4C-445C-A3E5-4EDACFC3591C-420x-auto.jpg"
   },
   "tp-003": {
     "entity_id": "2B134C93-39EB-4A08-A72D-5F8F1167FDAA",
     "name": "Frank Ocean",
-    "type": "urn:entity:artist"
+    "type": "urn:entity:artist",
+    "image": "https://images.qloo.com/i/2B134C93-39EB-4A08-A72D-5F8F1167FDAA-420x-auto.jpg"
   },
   "tp-004": {
     "entity_id": "375758AA-B0FA-4508-8EC1-D7FBFE3A4B3C",
     "name": "Tyler, the Creator",
-    "type": "urn:entity:artist"
+    "type": "urn:entity:artist",
+    "image": "https://images.qloo.com/i/375758AA-B0FA-4508-8EC1-D7FBFE3A4B3C-420x-auto.jpg"
   },
   "tp-005": {
     "entity_id": "9B33A620-68CA-49B3-BFCF-F09CCF8AD595",
     "name": "Spirited Away",
-    "type": "urn:entity:movie"
+    "type": "urn:entity:movie",
+    "image": "https://images.qloo.com/i/9B33A620-68CA-49B3-BFCF-F09CCF8AD595-420x-auto.jpg"
   },
   "tp-006": {
     "entity_id": "F0D354AA-BA7E-49D2-8ABA-9A8250F5C852",
     "name": "Everything Everywhere All at Once",
-    "type": "urn:entity:movie"
+    "type": "urn:entity:movie",
+    "image": "https://images.qloo.com/i/F0D354AA-BA7E-49D2-8ABA-9A8250F5C852-420x-auto.jpg"
   },
   "tp-007": {
     "entity_id": "900B6C69-9D86-4153-B8FD-4D6CD726FCF8",
     "name": "In the Mood for Love",
-    "type": "urn:entity:movie"
+    "type": "urn:entity:movie",
+    "image": "https://images.qloo.com/i/900B6C69-9D86-4153-B8FD-4D6CD726FCF8-420x-auto.jpg"
   },
   "tp-008": {
     "entity_id": "9BA85467-2189-46DC-BB98-4B25EE182A9D",
     "name": "Dune (Dune, #1)",
-    "type": "urn:entity:book"
+    "type": "urn:entity:book",
+    "image": "https://images.qloo.com/i/9BA85467-2189-46DC-BB98-4B25EE182A9D-420x-auto.jpg"
   },
   "tp-009": {
     "entity_id": "28D688C4-0760-4042-BEC1-F6EE75E71CC7",
     "name": "Normal People",
-    "type": "urn:entity:book"
+    "type": "urn:entity:book",
+    "image": "https://images.qloo.com/i/28D688C4-0760-4042-BEC1-F6EE75E71CC7-420x-auto.jpg"
   },
   "tp-010": {
     "entity_id": "504A59EF-54E1-4911-8015-8FA64FC6AA8C",
     "name": "Klara and the Sun",
-    "type": "urn:entity:book"
+    "type": "urn:entity:book",
+    "image": "https://images.qloo.com/i/504A59EF-54E1-4911-8015-8FA64FC6AA8C-420x-auto.jpg"
   },
   "tp-011": {
     "entity_id": "E12201A5-CC50-40AF-97AE-C54A2CA303F7",
     "name": "Muji",
-    "type": "urn:entity:brand"
+    "type": "urn:entity:brand",
+    "image": "https://images.qloo.com/i/E12201A5-CC50-40AF-97AE-C54A2CA303F7-420x-auto.jpg"
   },
   "tp-012": {
     "entity_id": "AB06A58F-6962-4663-80A7-EF7D9208969A",
     "name": "Moleskine",
-    "type": "urn:entity:brand"
+    "type": "urn:entity:brand",
+    "image": "https://images.qloo.com/i/AB06A58F-6962-4663-80A7-EF7D9208969A-420x-auto.jpg"
   },
   "tp-013": {
     "entity_id": "22B1BC87-CDFE-4340-86F8-8E0E6E1E6A7D",
     "name": "Blue Bottle Coffee",
-    "type": "urn:entity:brand"
+    "type": "urn:entity:brand",
+    "image": "https://images.qloo.com/i/22B1BC87-CDFE-4340-86F8-8E0E6E1E6A7D-420x-auto.jpg"
   },
   "tp-014": {
     "entity_id": "46C9F889-EC89-4715-A767-DEABACF52C41",
     "name": "Uniqlo",
-    "type": "urn:entity:brand"
+    "type": "urn:entity:brand",
+    "image": "https://images.qloo.com/i/46C9F889-EC89-4715-A767-DEABACF52C41-420x-auto.jpg"
   },
   "tp-015": {
     "entity_id": "E44E66C5-9AAE-4B58-8A2E-AC6EB6AAA2E4",
     "name": "Braun",
-    "type": "urn:entity:brand"
+    "type": "urn:entity:brand",
+    "image": "https://images.qloo.com/i/E44E66C5-9AAE-4B58-8A2E-AC6EB6AAA2E4-420x-auto.jpg"
   },
   "tp-016": {
     "entity_id": "BA00D00A-E4CD-48C0-A22E-CFC52039D618",
     "name": "Hades",
-    "type": "urn:entity:videogame"
+    "type": "urn:entity:videogame",
+    "image": "https://images.qloo.com/i/BA00D00A-E4CD-48C0-A22E-CFC52039D618-420x-auto.jpg"
   },
   "tp-017": {
     "entity_id": "E146CA3A-10FD-4C7F-ACFA-AD4E9955F08E",
     "name": "My Neighbor Totoro",
-    "type": "urn:entity:movie"
+    "type": "urn:entity:movie",
+    "image": "https://images.qloo.com/i/E146CA3A-10FD-4C7F-ACFA-AD4E9955F08E-420x-auto.jpg"
   },
   "tp-018": {
     "entity_id": "75105C50-F33A-4507-BAB8-E15A2A9B4596",
     "name": "Leica Camera",
-    "type": "urn:entity:brand"
+    "type": "urn:entity:brand",
+    "image": "https://images.qloo.com/i/75105C50-F33A-4507-BAB8-E15A2A9B4596-420x-auto.jpg"
   },
   "tp-019": {
     "entity_id": "01381184-B533-4E3C-B9DB-43A2FE326744",
     "name": "Björk",
-    "type": "urn:entity:artist"
+    "type": "urn:entity:artist",
+    "image": "https://images.qloo.com/i/01381184-B533-4E3C-B9DB-43A2FE326744-420x-auto.jpg"
   },
   "tp-020": {
     "entity_id": "D7BCE4CD-5135-4608-8A7D-78E08FFD52F3",
     "name": "Billie Eilish",
-    "type": "urn:entity:artist"
+    "type": "urn:entity:artist",
+    "image": "https://images.qloo.com/i/D7BCE4CD-5135-4608-8A7D-78E08FFD52F3-420x-auto.jpg"
   },
   "tp-021": {
     "entity_id": "087EF30C-3367-49B8-AC58-8B8C01D69DB6",
     "name": "Olivia Rodrigo",
-    "type": "urn:entity:artist"
+    "type": "urn:entity:artist",
+    "image": "https://images.qloo.com/i/087EF30C-3367-49B8-AC58-8B8C01D69DB6-420x-auto.jpg"
   },
   "tp-022": {
     "entity_id": "012EF80C-B187-4ECB-9C3D-9CA5228B503C",
     "name": "Daft Punk",
-    "type": "urn:entity:artist"
+    "type": "urn:entity:artist",
+    "image": "https://images.qloo.com/i/012EF80C-B187-4ECB-9C3D-9CA5228B503C-420x-auto.jpg"
   },
   "tp-023": {
     "entity_id": "C915A918-39C5-47A3-A101-D9FA1DECBD9C",
     "name": "Kendrick Lamar",
-    "type": "urn:entity:artist"
+    "type": "urn:entity:artist",
+    "image": "https://images.qloo.com/i/C915A918-39C5-47A3-A101-D9FA1DECBD9C-420x-auto.jpg"
   },
   "tp-024": {
     "entity_id": "578CFC26-B696-449A-9655-3FB270DDA725",
     "name": "Miles Davis",
-    "type": "urn:entity:artist"
+    "type": "urn:entity:artist",
+    "image": "https://images.qloo.com/i/578CFC26-B696-449A-9655-3FB270DDA725-420x-auto.jpg"
   },
   "tp-025": {
     "entity_id": "294C61BB-E196-4B3D-BB2C-E1950E045345",
     "name": "Howl’s Moving Castle (Howl’s Moving Castle, #1)",
-    "type": "urn:entity:book"
+    "type": "urn:entity:book",
+    "image": "https://images.qloo.com/i/294C61BB-E196-4B3D-BB2C-E1950E045345-420x-auto.jpg"
   },
   "tp-026": {
     "entity_id": "4D73C871-CC0F-4FC8-88CD-7C59B26E087E",
     "name": "The Left Hand of Darkness",
-    "type": "urn:entity:book"
+    "type": "urn:entity:book",
+    "image": "https://images.qloo.com/i/4D73C871-CC0F-4FC8-88CD-7C59B26E087E-420x-auto.jpg"
   },
   "tp-027": {
     "entity_id": "C83D215D-A38A-44D1-BD15-34D282C220AC",
     "name": "The Three-Body Problem (Remembrance of Earth’s Past, #1)",
-    "type": "urn:entity:book"
+    "type": "urn:entity:book",
+    "image": "https://images.qloo.com/i/C83D215D-A38A-44D1-BD15-34D282C220AC-420x-auto.jpg"
   },
   "tp-028": {
     "entity_id": "9D3666FF-D01A-4DF8-B4AF-B79A1F8BDC07",
     "name": "Before the Coffee Gets Cold (Before the Coffee Gets Cold, #1)",
-    "type": "urn:entity:book"
+    "type": "urn:entity:book",
+    "image": "https://images.qloo.com/i/9D3666FF-D01A-4DF8-B4AF-B79A1F8BDC07-420x-auto.jpg"
   },
   "tp-029": {
     "entity_id": "D48BE54C-B4ED-460B-BC8A-6EDFFFAD9AC6",
     "name": "Convenience Store Woman",
-    "type": "urn:entity:book"
+    "type": "urn:entity:book",
+    "image": "https://images.qloo.com/i/D48BE54C-B4ED-460B-BC8A-6EDFFFAD9AC6-420x-auto.jpg"
   },
   "tp-030": {
     "entity_id": "C3F696DC-62EA-4DDB-85F0-2312B52C791A",
     "name": "Norse Mythology",
-    "type": "urn:entity:book"
+    "type": "urn:entity:book",
+    "image": "https://images.qloo.com/i/C3F696DC-62EA-4DDB-85F0-2312B52C791A-420x-auto.jpg"
   },
   "tp-031": {
     "entity_id": "E146CA3A-10FD-4C7F-ACFA-AD4E9955F08E",
     "name": "My Neighbor Totoro",
-    "type": "urn:entity:movie"
+    "type": "urn:entity:movie",
+    "image": "https://images.qloo.com/i/E146CA3A-10FD-4C7F-ACFA-AD4E9955F08E-420x-auto.jpg"
   },
   "tp-032": {
     "entity_id": "B30DB61E-707C-421E-A1C4-1A912B7F067D",
     "name": "Perfect Days",
-    "type": "urn:entity:movie"
+    "type": "urn:entity:movie",
+    "image": "https://images.qloo.com/i/B30DB61E-707C-421E-A1C4-1A912B7F067D-420x-auto.jpg"
   },
   "tp-033": {
     "entity_id": "9A62B37E-9A6D-47DA-A6FD-9414FA7F7710",
     "name": "Past Lives",
-    "type": "urn:entity:movie"
+    "type": "urn:entity:movie",
+    "image": "https://images.qloo.com/i/9A62B37E-9A6D-47DA-A6FD-9414FA7F7710-420x-auto.jpg"
   },
   "tp-034": {
     "entity_id": "7F1163D3-D842-4121-AA13-68FA930E0F09",
     "name": "Seven Samurai",
-    "type": "urn:entity:movie"
+    "type": "urn:entity:movie",
+    "image": "https://images.qloo.com/i/7F1163D3-D842-4121-AA13-68FA930E0F09-420x-auto.jpg"
   },
   "tp-035": {
     "entity_id": "B27207BB-0263-47C1-81BC-36DDE7EA67E0",
     "name": "Ni no Kuni: Wrath of the White Witch",
-    "type": "urn:entity:videogame"
+    "type": "urn:entity:videogame",
+    "image": "https://images.qloo.com/i/B27207BB-0263-47C1-81BC-36DDE7EA67E0-420x-auto.jpg"
   },
   "tp-036": {
     "entity_id": "875DB771-9C4C-4DD0-9249-D2ABD95711F1",
     "name": "Stardew Valley",
-    "type": "urn:entity:videogame"
+    "type": "urn:entity:videogame",
+    "image": "https://images.qloo.com/i/875DB771-9C4C-4DD0-9249-D2ABD95711F1-420x-auto.jpg"
   },
   "tp-037": {
     "entity_id": "FC14952D-5C27-48D8-908A-044ABD07FEAF",
     "name": "Celeste",
-    "type": "urn:entity:videogame"
+    "type": "urn:entity:videogame",
+    "image": "https://images.qloo.com/i/FC14952D-5C27-48D8-908A-044ABD07FEAF-420x-auto.jpg"
   },
   "tp-038": {
     "entity_id": "62926E8D-2D7E-4428-819E-BF2477D3233F",
     "name": "Polaroid",
-    "type": "urn:entity:brand"
+    "type": "urn:entity:brand",
+    "image": "https://images.qloo.com/i/62926E8D-2D7E-4428-819E-BF2477D3233F-420x-auto.jpg"
   },
   "tp-039": {
     "entity_id": "CFADEF6E-D482-4813-898E-5F99E91ED568",
     "name": "Eastman Kodak",
-    "type": "urn:entity:brand"
+    "type": "urn:entity:brand",
+    "image": "https://images.qloo.com/i/CFADEF6E-D482-4813-898E-5F99E91ED568-420x-auto.jpg"
   },
   "tp-040": {
     "entity_id": "27689297-5DFB-42BC-8776-7CFF168AEB48",
     "name": "Happy Socks",
-    "type": "urn:entity:brand"
+    "type": "urn:entity:brand",
+    "image": "https://images.qloo.com/i/27689297-5DFB-42BC-8776-7CFF168AEB48-420x-auto.jpg"
   },
   "tp-041": {
     "entity_id": "AB06A58F-6962-4663-80A7-EF7D9208969A",
     "name": "Moleskine",
-    "type": "urn:entity:brand"
+    "type": "urn:entity:brand",
+    "image": "https://images.qloo.com/i/AB06A58F-6962-4663-80A7-EF7D9208969A-420x-auto.jpg"
   },
   "tp-042": {
     "entity_id": "E44E66C5-9AAE-4B58-8A2E-AC6EB6AAA2E4",
     "name": "Braun",
-    "type": "urn:entity:brand"
+    "type": "urn:entity:brand",
+    "image": "https://images.qloo.com/i/E44E66C5-9AAE-4B58-8A2E-AC6EB6AAA2E4-420x-auto.jpg"
   },
   "tp-043": {
     "entity_id": "9B33A620-68CA-49B3-BFCF-F09CCF8AD595",
     "name": "Spirited Away",
-    "type": "urn:entity:movie"
+    "type": "urn:entity:movie",
+    "image": "https://images.qloo.com/i/9B33A620-68CA-49B3-BFCF-F09CCF8AD595-420x-auto.jpg"
   },
   "tp-044": {
     "entity_id": "900B6C69-9D86-4153-B8FD-4D6CD726FCF8",
     "name": "In the Mood for Love",
-    "type": "urn:entity:movie"
+    "type": "urn:entity:movie",
+    "image": "https://images.qloo.com/i/900B6C69-9D86-4153-B8FD-4D6CD726FCF8-420x-auto.jpg"
   },
   "tp-045": {
     "entity_id": "AB06A58F-6962-4663-80A7-EF7D9208969A",
     "name": "Moleskine",
-    "type": "urn:entity:brand"
+    "type": "urn:entity:brand",
+    "image": "https://images.qloo.com/i/AB06A58F-6962-4663-80A7-EF7D9208969A-420x-auto.jpg"
   },
   "tp-046": {
     "entity_id": "62926E8D-2D7E-4428-819E-BF2477D3233F",
     "name": "Polaroid",
-    "type": "urn:entity:brand"
+    "type": "urn:entity:brand",
+    "image": "https://images.qloo.com/i/62926E8D-2D7E-4428-819E-BF2477D3233F-420x-auto.jpg"
   },
   "tp-047": {
     "entity_id": "24259855-E26C-43A3-93E5-5BB4E09ABBBF",
     "name": "Hildur Guðnadóttir",
-    "type": "urn:entity:artist"
+    "type": "urn:entity:artist",
+    "image": "https://images.qloo.com/i/24259855-E26C-43A3-93E5-5BB4E09ABBBF-420x-auto.jpg"
   },
   "tp-048": {
     "entity_id": "A193D8AC-FC7C-4382-9AFE-6638B637DCEB",
     "name": "Conversations with Friends",
-    "type": "urn:entity:book"
+    "type": "urn:entity:book",
+    "image": "https://images.qloo.com/i/A193D8AC-FC7C-4382-9AFE-6638B637DCEB-420x-auto.jpg"
   },
   "tp-049": {
     "entity_id": "D8D8F8A2-F1EC-494C-A384-302A90E6FEFA",
     "name": "Chungking Express",
-    "type": "urn:entity:movie"
+    "type": "urn:entity:movie",
+    "image": "https://images.qloo.com/i/D8D8F8A2-F1EC-494C-A384-302A90E6FEFA-420x-auto.jpg"
   },
   "tp-050": {
     "entity_id": "98C13C9A-CE61-4D31-8FE0-03FED0912172",
     "name": "Joe Hisaishi",
-    "type": "urn:entity:artist"
+    "type": "urn:entity:artist",
+    "image": "https://images.qloo.com/i/98C13C9A-CE61-4D31-8FE0-03FED0912172-420x-auto.jpg"
   },
   "tp-051": {
     "entity_id": "B0DEDE63-5DE5-4CE6-89A6-08C0DD2756DB",
     "name": "Ryuichi Sakamoto",
-    "type": "urn:entity:artist"
+    "type": "urn:entity:artist",
+    "image": "https://images.qloo.com/i/B0DEDE63-5DE5-4CE6-89A6-08C0DD2756DB-420x-auto.jpg"
   },
   "tp-052": {
     "entity_id": "71C3E00C-FBCE-4031-A1F1-E8B0442BCC7E",
     "name": "Ghost in the Shell",
-    "type": "urn:entity:movie"
+    "type": "urn:entity:movie",
+    "image": "https://images.qloo.com/i/71C3E00C-FBCE-4031-A1F1-E8B0442BCC7E-420x-auto.jpg"
   },
   "tp-053": {
     "entity_id": "D2A7599F-FB1E-44C1-8BE6-3CFE9438C574",
     "name": "Paprika",
-    "type": "urn:entity:movie"
+    "type": "urn:entity:movie",
+    "image": "https://images.qloo.com/i/D2A7599F-FB1E-44C1-8BE6-3CFE9438C574-420x-auto.jpg"
   },
   "tp-054": {
     "entity_id": "AB5E9CA9-E7A4-4D68-A641-FE2276C1C103",
     "name": "Norwegian Wood",
-    "type": "urn:entity:book"
+    "type": "urn:entity:book",
+    "image": "https://images.qloo.com/i/AB5E9CA9-E7A4-4D68-A641-FE2276C1C103-420x-auto.jpg"
   },
   "tp-055": {
     "entity_id": "045707A1-C8EF-443F-A882-1B97AC69DC9A",
     "name": "Portishead",
-    "type": "urn:entity:artist"
+    "type": "urn:entity:artist",
+    "image": "https://images.qloo.com/i/045707A1-C8EF-443F-A882-1B97AC69DC9A-420x-auto.jpg"
   },
   "tp-056": {
     "entity_id": "4278382F-4991-4D63-B207-942D86A26ACB",
     "name": "Aphex Twin",
-    "type": "urn:entity:artist"
+    "type": "urn:entity:artist",
+    "image": "https://images.qloo.com/i/4278382F-4991-4D63-B207-942D86A26ACB-420x-auto.jpg"
   },
   "tp-057": {
     "entity_id": "F89C9355-E612-4966-8E65-0B20CF3FD35B",
     "name": "MUBI",
-    "type": "urn:entity:brand"
+    "type": "urn:entity:brand",
+    "image": "https://images.qloo.com/i/F89C9355-E612-4966-8E65-0B20CF3FD35B-420x-auto.jpg"
   },
   "tp-058": {
     "entity_id": "51E8BF58-91F0-4A80-9F1C-4BC093024322",
     "name": "Takashi Murakami",
-    "type": "urn:entity:person"
+    "type": "urn:entity:person",
+    "image": "https://images.qloo.com/i/51E8BF58-91F0-4A80-9F1C-4BC093024322-420x-auto.jpg"
   },
   "tp-059": {
     "entity_id": "D712D169-BCE2-487F-8977-0CE9459125C3",
     "name": "Kiki's Delivery Service",
-    "type": "urn:entity:movie"
+    "type": "urn:entity:movie",
+    "image": "https://images.qloo.com/i/D712D169-BCE2-487F-8977-0CE9459125C3-420x-auto.jpg"
   },
   "tp-060": {
     "entity_id": "7098CA93-4BB0-4C80-9710-809668D8601B",
     "name": "2046",
-    "type": "urn:entity:movie"
+    "type": "urn:entity:movie",
+    "image": "https://images.qloo.com/i/7098CA93-4BB0-4C80-9710-809668D8601B-420x-auto.jpg"
   },
   "tp-061": {
     "entity_id": "7A49F169-3ABB-4AF7-977B-825ED88203E7",
     "name": "Belle and Sebastian",
-    "type": "urn:entity:artist"
+    "type": "urn:entity:artist",
+    "image": "https://images.qloo.com/i/7A49F169-3ABB-4AF7-977B-825ED88203E7-420x-auto.jpg"
   },
   "tp-062": {
     "entity_id": "9A62B37E-9A6D-47DA-A6FD-9414FA7F7710",
     "name": "Past Lives",
-    "type": "urn:entity:movie"
+    "type": "urn:entity:movie",
+    "image": "https://images.qloo.com/i/9A62B37E-9A6D-47DA-A6FD-9414FA7F7710-420x-auto.jpg"
   },
   "tp-063": {
     "entity_id": "D712D169-BCE2-487F-8977-0CE9459125C3",
     "name": "Kiki's Delivery Service",
-    "type": "urn:entity:movie"
+    "type": "urn:entity:movie",
+    "image": "https://images.qloo.com/i/D712D169-BCE2-487F-8977-0CE9459125C3-420x-auto.jpg"
   },
   "tp-064": {
     "entity_id": "70CAE5BF-2F4C-445C-A3E5-4EDACFC3591C",
     "name": "Radiohead",
-    "type": "urn:entity:artist"
+    "type": "urn:entity:artist",
+    "image": "https://images.qloo.com/i/70CAE5BF-2F4C-445C-A3E5-4EDACFC3591C-420x-auto.jpg"
   },
   "tp-065": {
     "entity_id": "B1414851-6A23-4C52-B647-2A0249B664F9",
     "name": "Fleetwood Mac",
-    "type": "urn:entity:artist"
+    "type": "urn:entity:artist",
+    "image": "https://images.qloo.com/i/B1414851-6A23-4C52-B647-2A0249B664F9-420x-auto.jpg"
   },
   "tp-066": {
     "entity_id": "62947437-2EC8-4C46-BE25-677E266DEB78",
     "name": "Pink Floyd",
-    "type": "urn:entity:artist"
+    "type": "urn:entity:artist",
+    "image": "https://images.qloo.com/i/62947437-2EC8-4C46-BE25-677E266DEB78-420x-auto.jpg"
   },
   "tp-067": {
     "entity_id": "6700295B-3DBB-4F55-A5B0-80C155EA1186",
     "name": "Nirvana",
-    "type": "urn:entity:artist"
+    "type": "urn:entity:artist",
+    "image": "https://images.qloo.com/i/6700295B-3DBB-4F55-A5B0-80C155EA1186-420x-auto.jpg"
   },
   "tp-068": {
     "entity_id": "F543075C-57C4-4AB9-B3B7-04A3D6C7C30A",
     "name": "Michael Jackson",
-    "type": "urn:entity:artist"
+    "type": "urn:entity:artist",
+    "image": "https://images.qloo.com/i/F543075C-57C4-4AB9-B3B7-04A3D6C7C30A-420x-auto.jpg"
   },
   "tp-069": {
     "entity_id": "F6754C46-B3E7-457F-8B7E-06C613597320",
     "name": "Beyoncé",
-    "type": "urn:entity:artist"
+    "type": "urn:entity:artist",
+    "image": "https://images.qloo.com/i/F6754C46-B3E7-457F-8B7E-06C613597320-420x-auto.jpg"
   },
   "tp-070": {
     "entity_id": "8B860B51-64BE-44FA-8B31-F2918B103736",
     "name": "Lauryn Hill",
-    "type": "urn:entity:artist"
+    "type": "urn:entity:artist",
+    "image": "https://images.qloo.com/i/8B860B51-64BE-44FA-8B31-F2918B103736-420x-auto.jpg"
   },
   "tp-071": {
     "entity_id": "1A9BE260-F41E-4592-9EAF-BDD6AE774F69",
     "name": "Joni Mitchell",
-    "type": "urn:entity:artist"
+    "type": "urn:entity:artist",
+    "image": "https://images.qloo.com/i/1A9BE260-F41E-4592-9EAF-BDD6AE774F69-420x-auto.jpg"
   },
   "tp-072": {
     "entity_id": "7C7B2D3A-FE7E-4507-8D00-183671B5177D",
     "name": "Marvin Gaye",
-    "type": "urn:entity:artist"
+    "type": "urn:entity:artist",
+    "image": "https://images.qloo.com/i/7C7B2D3A-FE7E-4507-8D00-183671B5177D-420x-auto.jpg"
   },
   "tp-073": {
     "entity_id": "02CD4C7F-C5A3-4AD2-B005-D0CBC07E1609",
     "name": "John Coltrane",
-    "type": "urn:entity:artist"
+    "type": "urn:entity:artist",
+    "image": "https://images.qloo.com/i/02CD4C7F-C5A3-4AD2-B005-D0CBC07E1609-420x-auto.jpg"
   },
   "tp-074": {
     "entity_id": "87A1DBD4-1C1B-4272-A1F7-FA7E3891D05E",
     "name": "The Velvet Underground",
-    "type": "urn:entity:artist"
+    "type": "urn:entity:artist",
+    "image": "https://images.qloo.com/i/87A1DBD4-1C1B-4272-A1F7-FA7E3891D05E-420x-auto.jpg"
   },
   "tp-075": {
     "entity_id": "36C11E0C-71A7-4D58-89C2-837179B12ED7",
     "name": "The Beach Boys",
-    "type": "urn:entity:artist"
+    "type": "urn:entity:artist",
+    "image": "https://images.qloo.com/i/36C11E0C-71A7-4D58-89C2-837179B12ED7-420x-auto.jpg"
   },
   "tp-076": {
     "entity_id": "120E288E-858F-4AC1-A825-736D5A16D65F",
     "name": "Bruce Springsteen",
-    "type": "urn:entity:artist"
+    "type": "urn:entity:artist",
+    "image": "https://images.qloo.com/i/120E288E-858F-4AC1-A825-736D5A16D65F-420x-auto.jpg"
   },
   "tp-077": {
     "entity_id": "7570CB15-9143-4901-BA9D-1C7AC6CC57B0",
     "name": "Eagles",
-    "type": "urn:entity:artist"
+    "type": "urn:entity:artist",
+    "image": "https://images.qloo.com/i/7570CB15-9143-4901-BA9D-1C7AC6CC57B0-420x-auto.jpg"
   },
   "tp-078": {
     "entity_id": "0E41BCDA-7C38-4F42-A7CA-22F0DFBDA082",
     "name": "Prince",
-    "type": "urn:entity:artist"
+    "type": "urn:entity:artist",
+    "image": "https://images.qloo.com/i/0E41BCDA-7C38-4F42-A7CA-22F0DFBDA082-420x-auto.jpg"
   },
   "tp-079": {
     "entity_id": "310CF871-2A1F-4CBE-8D30-40B95BAEC054",
     "name": "David Bowie",
-    "type": "urn:entity:artist"
+    "type": "urn:entity:artist",
+    "image": "https://images.qloo.com/i/310CF871-2A1F-4CBE-8D30-40B95BAEC054-420x-auto.jpg"
   },
   "tp-080": {
     "entity_id": "DFA0C571-5ADC-45CA-BA33-1AF68C698CA2",
     "name": "Stevie Wonder",
-    "type": "urn:entity:artist"
+    "type": "urn:entity:artist",
+    "image": "https://images.qloo.com/i/DFA0C571-5ADC-45CA-BA33-1AF68C698CA2-420x-auto.jpg"
   },
   "tp-081": {
     "entity_id": "70CAE5BF-2F4C-445C-A3E5-4EDACFC3591C",
     "name": "Radiohead",
-    "type": "urn:entity:artist"
+    "type": "urn:entity:artist",
+    "image": "https://images.qloo.com/i/70CAE5BF-2F4C-445C-A3E5-4EDACFC3591C-420x-auto.jpg"
   },
   "tp-082": {
     "entity_id": "012EF80C-B187-4ECB-9C3D-9CA5228B503C",
     "name": "Daft Punk",
-    "type": "urn:entity:artist"
+    "type": "urn:entity:artist",
+    "image": "https://images.qloo.com/i/012EF80C-B187-4ECB-9C3D-9CA5228B503C-420x-auto.jpg"
   },
   "tp-083": {
     "entity_id": "C915A918-39C5-47A3-A101-D9FA1DECBD9C",
     "name": "Kendrick Lamar",
-    "type": "urn:entity:artist"
+    "type": "urn:entity:artist",
+    "image": "https://images.qloo.com/i/C915A918-39C5-47A3-A101-D9FA1DECBD9C-420x-auto.jpg"
   },
   "tp-084": {
     "entity_id": "24012F7D-C125-4EB7-A661-6AF65523E43C",
     "name": "Adele",
-    "type": "urn:entity:artist"
+    "type": "urn:entity:artist",
+    "image": "https://images.qloo.com/i/24012F7D-C125-4EB7-A661-6AF65523E43C-420x-auto.jpg"
   },
   "tp-085": {
     "entity_id": "10AE6E44-D058-4C1D-818F-FF4B37D069CB",
     "name": "Amy Winehouse",
-    "type": "urn:entity:artist"
+    "type": "urn:entity:artist",
+    "image": "https://images.qloo.com/i/10AE6E44-D058-4C1D-818F-FF4B37D069CB-420x-auto.jpg"
   },
   "tp-086": {
     "entity_id": "A9C3CE3F-9A0C-47B3-8AF8-E75B252F86D8",
     "name": "The Weeknd",
-    "type": "urn:entity:artist"
+    "type": "urn:entity:artist",
+    "image": "https://images.qloo.com/i/A9C3CE3F-9A0C-47B3-8AF8-E75B252F86D8-420x-auto.jpg"
   },
   "tp-087": {
     "entity_id": "E2E58680-EE3F-4D1D-88B6-B79F87205B2C",
     "name": "SZA",
-    "type": "urn:entity:artist"
+    "type": "urn:entity:artist",
+    "image": "https://images.qloo.com/i/E2E58680-EE3F-4D1D-88B6-B79F87205B2C-420x-auto.jpg"
   },
   "tp-088": {
     "entity_id": "E2E58680-EE3F-4D1D-88B6-B79F87205B2C",
     "name": "SZA",
-    "type": "urn:entity:artist"
+    "type": "urn:entity:artist",
+    "image": "https://images.qloo.com/i/E2E58680-EE3F-4D1D-88B6-B79F87205B2C-420x-auto.jpg"
   },
   "tp-089": {
     "entity_id": "2B134C93-39EB-4A08-A72D-5F8F1167FDAA",
     "name": "Frank Ocean",
-    "type": "urn:entity:artist"
+    "type": "urn:entity:artist",
+    "image": "https://images.qloo.com/i/2B134C93-39EB-4A08-A72D-5F8F1167FDAA-420x-auto.jpg"
   },
   "tp-090": {
     "entity_id": "D1AE8792-9129-46E0-AEE7-2C3A81E91385",
     "name": "Tame Impala",
-    "type": "urn:entity:artist"
+    "type": "urn:entity:artist",
+    "image": "https://images.qloo.com/i/D1AE8792-9129-46E0-AEE7-2C3A81E91385-420x-auto.jpg"
   },
   "tp-091": {
     "entity_id": "375758AA-B0FA-4508-8EC1-D7FBFE3A4B3C",
     "name": "Tyler, the Creator",
-    "type": "urn:entity:artist"
+    "type": "urn:entity:artist",
+    "image": "https://images.qloo.com/i/375758AA-B0FA-4508-8EC1-D7FBFE3A4B3C-420x-auto.jpg"
   },
   "tp-092": {
     "entity_id": "3A02361C-987B-4F7E-9AAD-071C3853AD92",
     "name": "Blade Runner 2049",
-    "type": "urn:entity:movie"
+    "type": "urn:entity:movie",
+    "image": "https://images.qloo.com/i/3A02361C-987B-4F7E-9AAD-071C3853AD92-420x-auto.jpg"
   },
   "tp-093": {
     "entity_id": "C6046119-7760-4733-B84E-374E029B14DC",
     "name": "The Matrix",
-    "type": "urn:entity:movie"
+    "type": "urn:entity:movie",
+    "image": "https://images.qloo.com/i/C6046119-7760-4733-B84E-374E029B14DC-420x-auto.jpg"
   },
   "tp-094": {
     "entity_id": "B6DD7D76-1F1B-4171-AF2F-03FB0C66F6CB",
     "name": "Pulp Fiction",
-    "type": "urn:entity:movie"
+    "type": "urn:entity:movie",
+    "image": "https://images.qloo.com/i/B6DD7D76-1F1B-4171-AF2F-03FB0C66F6CB-420x-auto.jpg"
   },
   "tp-095": {
     "entity_id": "F99FB2EB-7253-4E9B-B982-D21D29BFB238",
     "name": "The Godfather",
-    "type": "urn:entity:movie"
+    "type": "urn:entity:movie",
+    "image": "https://images.qloo.com/i/F99FB2EB-7253-4E9B-B982-D21D29BFB238-420x-auto.jpg"
   },
   "tp-096": {
     "entity_id": "878A5D45-469C-4556-8494-963C2B1D3A95",
     "name": "Dune: Part Two",
-    "type": "urn:entity:movie"
+    "type": "urn:entity:movie",
+    "image": "https://images.qloo.com/i/878A5D45-469C-4556-8494-963C2B1D3A95-420x-auto.jpg"
   },
   "tp-097": {
     "entity_id": "A499EC25-7FF6-46DE-9DA5-3E78E99B9E26",
     "name": "Parasite",
-    "type": "urn:entity:movie"
+    "type": "urn:entity:movie",
+    "image": "https://images.qloo.com/i/A499EC25-7FF6-46DE-9DA5-3E78E99B9E26-420x-auto.jpg"
   },
   "tp-098": {
     "entity_id": "470553FA-42AD-435D-94BE-1078AFD6A2FD",
     "name": "Oppenheimer",
-    "type": "urn:entity:movie"
+    "type": "urn:entity:movie",
+    "image": "https://images.qloo.com/i/470553FA-42AD-435D-94BE-1078AFD6A2FD-420x-auto.jpg"
   },
   "tp-099": {
     "entity_id": "BAF6FB9E-7E2E-4008-944B-97C0CF430D41",
     "name": "Barbie",
-    "type": "urn:entity:movie"
+    "type": "urn:entity:movie",
+    "image": "https://images.qloo.com/i/BAF6FB9E-7E2E-4008-944B-97C0CF430D41-420x-auto.jpg"
   },
   "tp-100": {
     "entity_id": "0E84F600-B861-4A93-AC5E-6E1DF4AC5826",
     "name": "Akira",
-    "type": "urn:entity:movie"
+    "type": "urn:entity:movie",
+    "image": "https://images.qloo.com/i/0E84F600-B861-4A93-AC5E-6E1DF4AC5826-420x-auto.jpg"
   },
   "tp-101": {
     "entity_id": "0C397B97-645C-43D3-812D-8872E47C69AB",
     "name": "The Shawshank Redemption",
-    "type": "urn:entity:movie"
+    "type": "urn:entity:movie",
+    "image": "https://images.qloo.com/i/0C397B97-645C-43D3-812D-8872E47C69AB-420x-auto.jpg"
   },
   "tp-102": {
     "entity_id": "C2B5C855-2C57-45E4-B573-2BC939CA7FFA",
     "name": "Princess Mononoke",
-    "type": "urn:entity:movie"
+    "type": "urn:entity:movie",
+    "image": "https://images.qloo.com/i/C2B5C855-2C57-45E4-B573-2BC939CA7FFA-420x-auto.jpg"
   },
   "tp-103": {
     "entity_id": "9B33A620-68CA-49B3-BFCF-F09CCF8AD595",
     "name": "Spirited Away",
-    "type": "urn:entity:movie"
+    "type": "urn:entity:movie",
+    "image": "https://images.qloo.com/i/9B33A620-68CA-49B3-BFCF-F09CCF8AD595-420x-auto.jpg"
   },
   "tp-104": {
     "entity_id": "DF788007-B5EA-4F29-872B-96BCB8EEC42F",
     "name": "The Grand Budapest Hotel",
-    "type": "urn:entity:movie"
+    "type": "urn:entity:movie",
+    "image": "https://images.qloo.com/i/DF788007-B5EA-4F29-872B-96BCB8EEC42F-420x-auto.jpg"
   },
   "tp-105": {
     "entity_id": "65745A20-2FE5-44EC-8349-BDA0C8522CEB",
     "name": "Whiplash",
-    "type": "urn:entity:movie"
+    "type": "urn:entity:movie",
+    "image": "https://images.qloo.com/i/65745A20-2FE5-44EC-8349-BDA0C8522CEB-420x-auto.jpg"
   },
   "tp-106": {
     "entity_id": "4344F84A-69CE-46D1-B09C-02F31EC13117",
     "name": "Mad Max: Fury Road",
-    "type": "urn:entity:movie"
+    "type": "urn:entity:movie",
+    "image": "https://images.qloo.com/i/4344F84A-69CE-46D1-B09C-02F31EC13117-420x-auto.jpg"
   },
   "tp-107": {
     "entity_id": "73E550EF-654A-41EA-863C-E958002CF7BA",
     "name": "La La Land",
-    "type": "urn:entity:movie"
+    "type": "urn:entity:movie",
+    "image": "https://images.qloo.com/i/73E550EF-654A-41EA-863C-E958002CF7BA-420x-auto.jpg"
   },
   "tp-108": {
     "entity_id": "7CCA6DC8-1092-41E6-92CA-2C2F8AD0A822",
     "name": "Spider-Man: Into the Spider-Verse",
-    "type": "urn:entity:movie"
+    "type": "urn:entity:movie",
+    "image": "https://images.qloo.com/i/7CCA6DC8-1092-41E6-92CA-2C2F8AD0A822-420x-auto.jpg"
   },
   "tp-109": {
     "entity_id": "057DA9D9-399B-437E-8BCA-A80E499125EF",
     "name": "Interstellar",
-    "type": "urn:entity:movie"
+    "type": "urn:entity:movie",
+    "image": "https://images.qloo.com/i/057DA9D9-399B-437E-8BCA-A80E499125EF-420x-auto.jpg"
   },
   "tp-110": {
     "entity_id": "65EAC55F-6FDC-452D-A633-A9E9F2BBD45E",
     "name": "Succession",
-    "type": "urn:entity:tv_show"
+    "type": "urn:entity:tv_show",
+    "image": "https://images.qloo.com/i/65EAC55F-6FDC-452D-A633-A9E9F2BBD45E-420x-auto.jpg"
   },
   "tp-111": {
     "entity_id": "569F8294-72DA-4935-B9F2-4FC697AB2A1E",
     "name": "Severance",
-    "type": "urn:entity:tv_show"
+    "type": "urn:entity:tv_show",
+    "image": "https://images.qloo.com/i/569F8294-72DA-4935-B9F2-4FC697AB2A1E-420x-auto.jpg"
   },
   "tp-112": {
     "entity_id": "D03D0913-A7B9-4C46-BFEB-958C1B3FA387",
     "name": "Breaking Bad",
-    "type": "urn:entity:tv_show"
+    "type": "urn:entity:tv_show",
+    "image": "https://images.qloo.com/i/D03D0913-A7B9-4C46-BFEB-958C1B3FA387-420x-auto.jpg"
   },
   "tp-113": {
     "entity_id": "6CA05BAF-DC37-45D4-BED4-1BC9EA0B9B03",
     "name": "The Last of Us",
-    "type": "urn:entity:tv_show"
+    "type": "urn:entity:tv_show",
+    "image": "https://images.qloo.com/i/6CA05BAF-DC37-45D4-BED4-1BC9EA0B9B03-420x-auto.jpg"
   },
   "tp-114": {
     "entity_id": "DCA1F3CA-7A25-421C-BB4D-A864B6D53848",
     "name": "Ted Lasso",
-    "type": "urn:entity:tv_show"
+    "type": "urn:entity:tv_show",
+    "image": "https://images.qloo.com/i/DCA1F3CA-7A25-421C-BB4D-A864B6D53848-420x-auto.jpg"
   },
   "tp-115": {
     "entity_id": "07F1170E-BB69-4982-82C6-255F477EBBAD",
     "name": "Stranger Things",
-    "type": "urn:entity:tv_show"
+    "type": "urn:entity:tv_show",
+    "image": "https://images.qloo.com/i/07F1170E-BB69-4982-82C6-255F477EBBAD-420x-auto.jpg"
   },
   "tp-116": {
     "entity_id": "E5AE1F26-04CB-4CDD-BBA4-87FB6541F848",
     "name": "The Office",
-    "type": "urn:entity:tv_show"
+    "type": "urn:entity:tv_show",
+    "image": "https://images.qloo.com/i/E5AE1F26-04CB-4CDD-BBA4-87FB6541F848-420x-auto.jpg"
   },
   "tp-117": {
     "entity_id": "088692C7-5BF8-4663-BC58-60D03A1A2A5A",
     "name": "Avatar: The Last Airbender",
-    "type": "urn:entity:tv_show"
+    "type": "urn:entity:tv_show",
+    "image": "https://images.qloo.com/i/088692C7-5BF8-4663-BC58-60D03A1A2A5A-420x-auto.jpg"
   },
   "tp-118": {
     "entity_id": "7B75291D-103B-476A-91B5-81E7687D6A59",
     "name": "Project Hail Mary",
-    "type": "urn:entity:book"
+    "type": "urn:entity:book",
+    "image": "https://images.qloo.com/i/7B75291D-103B-476A-91B5-81E7687D6A59-420x-auto.jpg"
   },
   "tp-119": {
     "entity_id": "BAA77044-CB8B-48D0-8FBF-9828C04C8FE5",
     "name": "The Midnight Library",
-    "type": "urn:entity:book"
+    "type": "urn:entity:book",
+    "image": "https://images.qloo.com/i/BAA77044-CB8B-48D0-8FBF-9828C04C8FE5-420x-auto.jpg"
   },
   "tp-120": {
     "entity_id": "F077F4FE-A019-47C8-84BE-1313B9377DFB",
     "name": "Circe",
-    "type": "urn:entity:book"
+    "type": "urn:entity:book",
+    "image": "https://images.qloo.com/i/F077F4FE-A019-47C8-84BE-1313B9377DFB-420x-auto.jpg"
   },
   "tp-121": {
     "entity_id": "FA07222D-7A5D-45BA-925E-A868795D1EB9",
     "name": "The Song of Achilles",
-    "type": "urn:entity:book"
+    "type": "urn:entity:book",
+    "image": "https://images.qloo.com/i/FA07222D-7A5D-45BA-925E-A868795D1EB9-420x-auto.jpg"
   },
   "tp-122": {
     "entity_id": "3B2B395B-19E7-4C6C-9C6F-BC6E86CD99CA",
     "name": "Tomorrow, and Tomorrow, and Tomorrow",
-    "type": "urn:entity:book"
+    "type": "urn:entity:book",
+    "image": "https://images.qloo.com/i/3B2B395B-19E7-4C6C-9C6F-BC6E86CD99CA-420x-auto.jpg"
   },
   "tp-123": {
     "entity_id": "CB169202-6806-4255-A4EE-CBDCB5E67A57",
     "name": "A Gentleman in Moscow",
-    "type": "urn:entity:book"
+    "type": "urn:entity:book",
+    "image": "https://images.qloo.com/i/CB169202-6806-4255-A4EE-CBDCB5E67A57-420x-auto.jpg"
   },
   "tp-124": {
     "entity_id": "B85DCB85-BE23-44D9-83D4-AC50C162381D",
     "name": "Babel",
-    "type": "urn:entity:book"
+    "type": "urn:entity:book",
+    "image": "https://images.qloo.com/i/B85DCB85-BE23-44D9-83D4-AC50C162381D-420x-auto.jpg"
   },
   "tp-125": {
     "entity_id": "56226C4E-C096-468A-AC26-FDE6982D4C32",
     "name": "Fourth Wing (The Empyrean, #1)",
-    "type": "urn:entity:book"
+    "type": "urn:entity:book",
+    "image": "https://images.qloo.com/i/56226C4E-C096-468A-AC26-FDE6982D4C32-420x-auto.jpg"
   },
   "tp-126": {
     "entity_id": "F453DBD0-8FF1-4209-ADC3-D2DEDC16FF8C",
     "name": "Demon Copperhead",
-    "type": "urn:entity:book"
+    "type": "urn:entity:book",
+    "image": "https://images.qloo.com/i/F453DBD0-8FF1-4209-ADC3-D2DEDC16FF8C-420x-auto.jpg"
   },
   "tp-127": {
     "entity_id": "4C819B44-C9A9-4228-A1E6-5BB724629459",
     "name": "James",
-    "type": "urn:entity:book"
+    "type": "urn:entity:book",
+    "image": "https://images.qloo.com/i/4C819B44-C9A9-4228-A1E6-5BB724629459-420x-auto.jpg"
   },
   "tp-128": {
     "entity_id": "9BF56D8A-61DF-4712-B4A0-0815FC6BFAEE",
     "name": "Intermezzo",
-    "type": "urn:entity:book"
+    "type": "urn:entity:book",
+    "image": "https://images.qloo.com/i/9BF56D8A-61DF-4712-B4A0-0815FC6BFAEE-420x-auto.jpg"
   },
   "tp-129": {
     "entity_id": "59BBE8FA-319C-44EC-A776-E7056ECBA1F7",
     "name": "Tom Lake",
-    "type": "urn:entity:book"
+    "type": "urn:entity:book",
+    "image": "https://images.qloo.com/i/59BBE8FA-319C-44EC-A776-E7056ECBA1F7-420x-auto.jpg"
   },
   "tp-130": {
     "entity_id": "C3FF9DCB-D986-4675-88E1-3331272E880C",
     "name": "The Creative Act: A Way of Being",
-    "type": "urn:entity:book"
+    "type": "urn:entity:book",
+    "image": "https://images.qloo.com/i/C3FF9DCB-D986-4675-88E1-3331272E880C-420x-auto.jpg"
   },
   "tp-131": {
     "entity_id": "2344E76F-35FD-48C9-9B38-0D32A33AF9E1",
     "name": "Atomic Habits: An Easy & Proven Way to Build Good Habits & Break Bad Ones",
-    "type": "urn:entity:book"
+    "type": "urn:entity:book",
+    "image": "https://images.qloo.com/i/2344E76F-35FD-48C9-9B38-0D32A33AF9E1-420x-auto.jpg"
   },
   "tp-132": {
     "entity_id": "50CC7BEF-F150-4DEC-B2AE-150244C475DC",
     "name": "The Name of the Wind (The Kingkiller Chronicle, #1)",
-    "type": "urn:entity:book"
+    "type": "urn:entity:book",
+    "image": "https://images.qloo.com/i/50CC7BEF-F150-4DEC-B2AE-150244C475DC-420x-auto.jpg"
   },
   "tp-133": {
     "entity_id": "55908017-4CFD-4688-9A7E-7B1FF04B171D",
     "name": "Piranesi",
-    "type": "urn:entity:book"
+    "type": "urn:entity:book",
+    "image": "https://images.qloo.com/i/55908017-4CFD-4688-9A7E-7B1FF04B171D-420x-auto.jpg"
   },
   "tp-134": {
     "entity_id": "4AA88F8D-893D-468F-9483-32FECCC3A3AA",
     "name": "Remarkably Bright Creatures",
-    "type": "urn:entity:book"
+    "type": "urn:entity:book",
+    "image": "https://images.qloo.com/i/4AA88F8D-893D-468F-9483-32FECCC3A3AA-420x-auto.jpg"
   },
   "tp-135": {
     "entity_id": "E83EDB0A-4A70-493C-A1DE-44D991F07AFB",
     "name": "The Women",
-    "type": "urn:entity:book"
+    "type": "urn:entity:book",
+    "image": "https://images.qloo.com/i/E83EDB0A-4A70-493C-A1DE-44D991F07AFB-420x-auto.jpg"
   },
   "tp-136": {
     "entity_id": "AAAC40FD-1321-4ED4-8EA9-7CB8BD77F350",
     "name": "Amazon",
-    "type": "urn:entity:brand"
+    "type": "urn:entity:brand",
+    "image": "https://images.qloo.com/i/AAAC40FD-1321-4ED4-8EA9-7CB8BD77F350-420x-auto.jpg"
   },
   "tp-137": {
     "entity_id": "C9D94F56-EC13-4C8E-A749-158DC835BE33",
     "name": "Audio-Technica",
-    "type": "urn:entity:brand"
+    "type": "urn:entity:brand",
+    "image": "https://images.qloo.com/i/C9D94F56-EC13-4C8E-A749-158DC835BE33-420x-auto.jpg"
   },
   "tp-138": {
     "entity_id": "EEF4E3E1-163F-430F-97F7-4162DC950DC9",
     "name": "Koss",
-    "type": "urn:entity:artist"
+    "type": "urn:entity:artist",
+    "image": "https://images.qloo.com/i/EEF4E3E1-163F-430F-97F7-4162DC950DC9-420x-auto.jpg"
   },
   "tp-139": {
     "entity_id": "8EA998B6-B9B0-4EF8-BFD3-7C1E3AFADF63",
     "name": "Marshall Headphones",
-    "type": "urn:entity:brand"
+    "type": "urn:entity:brand",
+    "image": "https://images.qloo.com/i/8EA998B6-B9B0-4EF8-BFD3-7C1E3AFADF63-420x-auto.jpg"
   },
   "tp-140": {
     "entity_id": "05E0AA5C-FAC6-4709-B5ED-017E207B8ABD",
     "name": "Jbl",
-    "type": "urn:entity:brand"
+    "type": "urn:entity:brand",
+    "image": "https://images.qloo.com/i/05E0AA5C-FAC6-4709-B5ED-017E207B8ABD-420x-auto.jpg"
   },
   "tp-141": {
     "entity_id": "AA620FF2-87D7-43EC-BFAE-36631D076D8D",
     "name": "Sony",
-    "type": "urn:entity:brand"
+    "type": "urn:entity:brand",
+    "image": "https://images.qloo.com/i/AA620FF2-87D7-43EC-BFAE-36631D076D8D-420x-auto.jpg"
   },
   "tp-142": {
     "entity_id": "9847B888-65A3-404C-82DB-80F37DB5DF59",
     "name": "Sonos",
-    "type": "urn:entity:brand"
+    "type": "urn:entity:brand",
+    "image": "https://images.qloo.com/i/9847B888-65A3-404C-82DB-80F37DB5DF59-420x-auto.jpg"
   },
   "tp-143": {
     "entity_id": "7AA732B2-128C-42BC-93B7-CD6909055FE4",
     "name": "Fujifilm",
-    "type": "urn:entity:brand"
+    "type": "urn:entity:brand",
+    "image": "https://images.qloo.com/i/7AA732B2-128C-42BC-93B7-CD6909055FE4-420x-auto.jpg"
   },
   "tp-144": {
     "entity_id": "C70CE2B8-0AD1-4150-BF18-5A6347F2E860",
     "name": "Nike",
-    "type": "urn:entity:brand"
+    "type": "urn:entity:brand",
+    "image": "https://images.qloo.com/i/C70CE2B8-0AD1-4150-BF18-5A6347F2E860-420x-auto.jpg"
   },
   "tp-145": {
     "entity_id": "FCEA7CA1-1D40-4680-B337-E74594D9BCF1",
     "name": "Adidas",
-    "type": "urn:entity:brand"
+    "type": "urn:entity:brand",
+    "image": "https://images.qloo.com/i/FCEA7CA1-1D40-4680-B337-E74594D9BCF1-420x-auto.jpg"
   },
   "tp-146": {
     "entity_id": "D271BA64-5A65-42E3-ADF2-7342222248BD",
     "name": "New Balance",
-    "type": "urn:entity:brand"
+    "type": "urn:entity:brand",
+    "image": "https://images.qloo.com/i/D271BA64-5A65-42E3-ADF2-7342222248BD-420x-auto.jpg"
   },
   "tp-147": {
     "entity_id": "DB4CE34E-3A63-4947-946F-9D52502C5762",
     "name": "Patagonia",
-    "type": "urn:entity:brand"
+    "type": "urn:entity:brand",
+    "image": "https://images.qloo.com/i/DB4CE34E-3A63-4947-946F-9D52502C5762-420x-auto.jpg"
   },
   "tp-148": {
     "entity_id": "B2A2238B-5FDC-46CD-B6F9-A32DB1474C70",
     "name": "Arc'teryx",
-    "type": "urn:entity:brand"
+    "type": "urn:entity:brand",
+    "image": "https://images.qloo.com/i/B2A2238B-5FDC-46CD-B6F9-A32DB1474C70-420x-auto.jpg"
   },
   "tp-149": {
     "entity_id": "32F867B9-E6DF-44C3-BCE4-40160C7ED5E4",
     "name": "Aesop",
-    "type": "urn:entity:brand"
+    "type": "urn:entity:brand",
+    "image": "https://images.qloo.com/i/32F867B9-E6DF-44C3-BCE4-40160C7ED5E4-420x-auto.jpg"
   },
   "tp-150": {
     "entity_id": "EE6E5064-E9B8-4EB2-AD63-2E082EBF7726",
     "name": "Diptyque",
-    "type": "urn:entity:brand"
+    "type": "urn:entity:brand",
+    "image": "https://images.qloo.com/i/EE6E5064-E9B8-4EB2-AD63-2E082EBF7726-420x-auto.jpg"
   },
   "tp-151": {
     "entity_id": "25C88914-2BC2-4E6B-A787-A8DD2DD4F45E",
     "name": "Le Labo Fragrances",
-    "type": "urn:entity:brand"
+    "type": "urn:entity:brand",
+    "image": "https://images.qloo.com/i/25C88914-2BC2-4E6B-A787-A8DD2DD4F45E-420x-auto.jpg"
   },
   "tp-152": {
     "entity_id": "742FBE1B-B70F-471F-AD07-A55C9A903628",
     "name": "Glossier",
-    "type": "urn:entity:brand"
+    "type": "urn:entity:brand",
+    "image": "https://images.qloo.com/i/742FBE1B-B70F-471F-AD07-A55C9A903628-420x-auto.jpg"
   },
   "tp-153": {
     "entity_id": "7E9A2E74-1CB5-43E9-8B74-69CA8283BFBD",
     "name": "IKEA",
-    "type": "urn:entity:brand"
+    "type": "urn:entity:brand",
+    "image": "https://images.qloo.com/i/7E9A2E74-1CB5-43E9-8B74-69CA8283BFBD-420x-auto.jpg"
   },
   "tp-154": {
     "entity_id": "4F94C666-5FFA-4A42-8453-24C2F779EC36",
     "name": "Urban Outfitters",
-    "type": "urn:entity:brand"
+    "type": "urn:entity:brand",
+    "image": "https://images.qloo.com/i/4F94C666-5FFA-4A42-8453-24C2F779EC36-420x-auto.jpg"
   },
   "tp-155": {
     "entity_id": "AA9DBB9A-DEE1-4D84-BC26-0FEBB34BB41B",
     "name": "YETI",
-    "type": "urn:entity:brand"
+    "type": "urn:entity:brand",
+    "image": "https://images.qloo.com/i/AA9DBB9A-DEE1-4D84-BC26-0FEBB34BB41B-420x-auto.jpg"
   },
   "tp-156": {
     "entity_id": "C5E85462-1B81-40FF-A7B4-849DEE5120E9",
     "name": "The Lego Group",
-    "type": "urn:entity:brand"
+    "type": "urn:entity:brand",
+    "image": "https://images.qloo.com/i/C5E85462-1B81-40FF-A7B4-849DEE5120E9-420x-auto.jpg"
   },
   "tp-157": {
     "entity_id": "D5B78065-6DBB-4DDB-80DF-6495B9B1006B",
     "name": "Apple Inc",
-    "type": "urn:entity:brand"
+    "type": "urn:entity:brand",
+    "image": "https://images.qloo.com/i/D5B78065-6DBB-4DDB-80DF-6495B9B1006B-420x-auto.jpg"
   },
   "tp-158": {
     "entity_id": "6244B8AB-9CBC-42DC-9918-FA07B372A23E",
-    "name": "Breville  ",
-    "type": "urn:entity:brand"
+    "name": "Breville",
+    "type": "urn:entity:brand",
+    "image": "https://images.qloo.com/i/6244B8AB-9CBC-42DC-9918-FA07B372A23E-420x-auto.jpg"
   },
   "tp-159": {
     "entity_id": "A99A2E2D-CFA4-4A6F-A270-FD768398AD9E",
     "name": "Nespresso",
-    "type": "urn:entity:brand"
+    "type": "urn:entity:brand",
+    "image": "https://images.qloo.com/i/A99A2E2D-CFA4-4A6F-A270-FD768398AD9E-420x-auto.jpg"
   },
   "tp-160": {
     "entity_id": "240ED88A-F5D6-4706-8035-3E3E520B550B",
     "name": "Twinings Tea",
-    "type": "urn:entity:brand"
+    "type": "urn:entity:brand",
+    "image": "https://images.qloo.com/i/240ED88A-F5D6-4706-8035-3E3E520B550B-420x-auto.jpg"
   },
   "tp-161": {
     "entity_id": "F4370AF5-3171-48C7-95DB-38ED25B1F80C",
     "name": "Hollow Knight",
-    "type": "urn:entity:videogame"
+    "type": "urn:entity:videogame",
+    "image": "https://images.qloo.com/i/F4370AF5-3171-48C7-95DB-38ED25B1F80C-420x-auto.jpg"
   },
   "tp-162": {
     "entity_id": "87DEB0A5-16F8-4245-97C8-6521C34EBFFA",
     "name": "Baldur's Gate 3",
-    "type": "urn:entity:videogame"
+    "type": "urn:entity:videogame",
+    "image": "https://images.qloo.com/i/87DEB0A5-16F8-4245-97C8-6521C34EBFFA-420x-auto.jpg"
   },
   "tp-163": {
     "entity_id": "46CBADC5-F4A6-4E97-93B2-959066C9F608",
     "name": "Elden Ring",
-    "type": "urn:entity:videogame"
+    "type": "urn:entity:videogame",
+    "image": "https://images.qloo.com/i/46CBADC5-F4A6-4E97-93B2-959066C9F608-420x-auto.jpg"
   },
   "tp-164": {
     "entity_id": "D69C3F76-27B5-4CAA-AB06-B1D5B75AF5BE",
     "name": "The Legend of Zelda: Tears of the Kingdom",
-    "type": "urn:entity:videogame"
+    "type": "urn:entity:videogame",
+    "image": "https://images.qloo.com/i/D69C3F76-27B5-4CAA-AB06-B1D5B75AF5BE-420x-auto.jpg"
   },
   "tp-165": {
     "entity_id": "08663BD2-E267-4C7F-9895-86410F67867C",
     "name": "Animal Crossing: New Horizons",
-    "type": "urn:entity:videogame"
+    "type": "urn:entity:videogame",
+    "image": "https://images.qloo.com/i/08663BD2-E267-4C7F-9895-86410F67867C-420x-auto.jpg"
   },
   "tp-166": {
     "entity_id": "CDBDE254-71F0-4640-8D04-5373BEAE5278",
     "name": "Minecraft",
-    "type": "urn:entity:videogame"
+    "type": "urn:entity:videogame",
+    "image": "https://images.qloo.com/i/CDBDE254-71F0-4640-8D04-5373BEAE5278-420x-auto.jpg"
   },
   "tp-167": {
     "entity_id": "FFD31D42-DF50-4B60-932C-7497C8E73A80",
     "name": "Nintendo",
-    "type": "urn:entity:brand"
+    "type": "urn:entity:brand",
+    "image": "https://images.qloo.com/i/FFD31D42-DF50-4B60-932C-7497C8E73A80-420x-auto.jpg"
   },
   "tp-168": {
     "entity_id": "1E74E760-63C9-48E9-89A0-6716C9C14E8B",
     "name": "Playstation",
-    "type": "urn:entity:brand"
+    "type": "urn:entity:brand",
+    "image": "https://images.qloo.com/i/1E74E760-63C9-48E9-89A0-6716C9C14E8B-420x-auto.jpg"
   },
   "tp-169": {
     "entity_id": "057DA9D9-399B-437E-8BCA-A80E499125EF",
     "name": "Interstellar",
-    "type": "urn:entity:movie"
+    "type": "urn:entity:movie",
+    "image": "https://images.qloo.com/i/057DA9D9-399B-437E-8BCA-A80E499125EF-420x-auto.jpg"
   },
   "tp-170": {
     "entity_id": "3A02361C-987B-4F7E-9AAD-071C3853AD92",
     "name": "Blade Runner 2049",
-    "type": "urn:entity:movie"
+    "type": "urn:entity:movie",
+    "image": "https://images.qloo.com/i/3A02361C-987B-4F7E-9AAD-071C3853AD92-420x-auto.jpg"
   },
   "tp-171": {
     "entity_id": "E146CA3A-10FD-4C7F-ACFA-AD4E9955F08E",
     "name": "My Neighbor Totoro",
-    "type": "urn:entity:movie"
+    "type": "urn:entity:movie",
+    "image": "https://images.qloo.com/i/E146CA3A-10FD-4C7F-ACFA-AD4E9955F08E-420x-auto.jpg"
   }
 }

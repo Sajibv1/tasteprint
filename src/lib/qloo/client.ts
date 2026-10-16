@@ -159,6 +159,15 @@ export function normalizeEntities(list: unknown): QlooEntity[] {
     .filter((entity) => entity.entity_id.length > 0 && entity.name.length > 0);
 }
 
+export function entityImageUrl(entity: QlooEntity): string | null {
+  const raw = entity.properties?.image;
+  const url =
+    typeof raw === "string" ? raw : raw !== null && typeof raw === "object" ? (raw as { url?: unknown }).url : undefined;
+  if (typeof url !== "string") return null;
+  const clean = url.trim();
+  return clean.startsWith("https://") ? clean : null;
+}
+
 export interface SearchOptions {
   types?: string[];
   take?: number;

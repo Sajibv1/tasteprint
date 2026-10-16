@@ -14,7 +14,7 @@ export const QLOO_ENTITY_TYPES = [
 export type QlooEntityType = (typeof QLOO_ENTITY_TYPES)[number];
 
 export interface QlooEntityProperties {
-  image?: string;
+  image?: string | { url?: string; [key: string]: unknown };
   description?: string;
   akas?: string[];
   [key: string]: unknown;

@@ -70,6 +70,14 @@ function decodeEntities(value) {
     .replace(/&#39;/g, "'");
 }
 
+function imageUrlOf(entity) {
+  const raw = entity?.properties?.image;
+  const url = typeof raw === "string" ? raw : raw !== null && typeof raw === "object" ? raw.url : undefined;
+  if (typeof url !== "string") return undefined;
+  const clean = url.trim();
+  return clean.startsWith("https://") ? clean : undefined;
+}
+
 function pick(results, query) {
   const norm = normalize(query);
   const exacts = results.filter((entity) => normalize(entity.name) === norm);
@@ -114,7 +122,13 @@ for (const item of catalog) {
     report.push(`${item.id} NO-RESULT query=${item.qloo.query}`);
     continue;
   }
-  mapping[item.id] = { entity_id: entity.entity_id, name: decodeEntities(entity.name).trim(), type: typeOf(entity) };
+  const image = imageUrlOf(entity);
+  mapping[item.id] = {
+    entity_id: entity.entity_id,
+    name: decodeEntities(entity.name).trim(),
+    type: typeOf(entity),
+    ...(image ? { image } : {}),
+  };
   if (match !== "exact" || normalize(entity.name) !== normalize(item.qloo.query)) {
     report.push(`${item.id} ${match.toUpperCase()} query=${item.qloo.query} -> ${entity.name} (${typeOf(entity)})`);
   }

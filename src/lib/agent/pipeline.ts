@@ -1,6 +1,6 @@
 import { catalog, type CatalogItem } from "@/lib/catalog";
 import catalogEntityMap from "@/data/catalog-entities.json";
-import { getInsights, searchEntities, QlooError, type InsightsOptions } from "@/lib/qloo/client";
+import { entityImageUrl, getInsights, searchEntities, QlooError, type InsightsOptions } from "@/lib/qloo/client";
 import type { QlooEntity } from "@/lib/qloo/types";
 import { buildLaneExplanations, itemReason, defaultHeadline } from "./explain";
 import type {
@@ -70,7 +70,7 @@ interface NormalizedConstraints {
 
 const catalogEntityCache = new Map<string, QlooEntity>();
 
-const STATIC_ENTITY_MAP = catalogEntityMap as Record<string, { entity_id: string; name: string; type: string }>;
+const STATIC_ENTITY_MAP = catalogEntityMap as Record<string, { entity_id: string; name: string; type: string; image?: string }>;
 
 const RECENT_WILDCARD_TTL_MS = 30 * 60 * 1000;
 const RECENT_PICK_TTL_MS = 10 * 60 * 1000;
@@ -428,7 +428,12 @@ async function resolveCatalogEntities(context: CatalogResolutionContext = {}): P
     if (catalogEntityCache.has(item.id)) continue;
     const mapped = STATIC_ENTITY_MAP[item.id];
     if (mapped?.entity_id) {
-      catalogEntityCache.set(item.id, { entity_id: mapped.entity_id, name: mapped.name, type: mapped.type } as QlooEntity);
+      catalogEntityCache.set(item.id, {
+        entity_id: mapped.entity_id,
+        name: mapped.name,
+        type: mapped.type,
+        properties: mapped.image ? { image: { url: mapped.image } } : undefined,
+      } as QlooEntity);
     }
   }
   const freeHits = new Map<string, QlooEntity>();
@@ -975,7 +980,7 @@ function toGiftItem(entry: ScoredItem): GiftItem {
     brand: entry.item.brand,
     price: entry.item.price,
     currency: entry.item.currency,
-    image: entry.item.image,
+    image: entityImageUrl(entry.entity),
     buyUrl: entry.item.buyUrl,
     category: entry.item.category,
     description: entry.item.description,

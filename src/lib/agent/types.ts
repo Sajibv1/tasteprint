@@ -75,7 +75,7 @@ export interface GiftItem {
   brand: string;
   price: number;
   currency: string;
-  image: string;
+  image: string | null;
   buyUrl: string;
   category: string;
   description: string;
