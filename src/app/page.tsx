@@ -1060,6 +1060,31 @@ export default function Home() {
             ))}
           </section>
 
+          {result.shelf.length > 0 && (
+            <section className="border-2 border-ink bg-white p-5">
+              <header className="flex flex-wrap items-baseline justify-between gap-2">
+                <h3 className="font-display text-xl leading-tight text-ink">Closest to their taste</h3>
+                <span className="font-mono text-[10px] uppercase tracking-wider text-muted">
+                  pure affinity order · {result.shelf.length} more
+                </span>
+              </header>
+              <p className="mt-1 text-sm text-muted">
+                The highest-scoring products before curation — when a lane feels off, the answer is usually here.
+              </p>
+              <div className="mt-4 grid gap-4 md:grid-cols-2">
+                {result.shelf.map((item) => (
+                  <GiftCard
+                    key={item.id}
+                    item={item}
+                    compact
+                    onAvoid={(picked) => void refine({ kind: "avoid", itemIds: [picked.id] })}
+                    busy={busy}
+                  />
+                ))}
+              </div>
+            </section>
+          )}
+
           <section className="border-2 border-ink bg-white">
             <header className="border-b-2 border-ink bg-ink px-5 py-3">
               <span className="font-mono text-xs font-semibold uppercase tracking-[0.2em] text-paper">

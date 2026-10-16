@@ -127,5 +127,6 @@ export interface RecommendResult {
   tasteMap: TasteMapEntry[];
   connections: TasteConnection[];
   picks: GiftPick[];
+  shelf: GiftItem[];
   warnings: string[];
 }

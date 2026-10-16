@@ -1,4 +1,5 @@
 import { catalog, type CatalogItem } from "@/lib/catalog";
+import catalogEntityMap from "@/data/catalog-entities.json";
 import { getInsights, searchEntities, QlooError, type InsightsOptions } from "@/lib/qloo/client";
 import type { QlooEntity } from "@/lib/qloo/types";
 import { buildLaneExplanations, itemReason, defaultHeadline } from "./explain";
@@ -68,6 +69,8 @@ interface NormalizedConstraints {
 }
 
 const catalogEntityCache = new Map<string, QlooEntity>();
+
+const STATIC_ENTITY_MAP = catalogEntityMap as Record<string, { entity_id: string; name: string; type: string }>;
 
 const RECENT_WILDCARD_TTL_MS = 30 * 60 * 1000;
 const RECENT_PICK_TTL_MS = 10 * 60 * 1000;
@@ -210,7 +213,9 @@ async function resolveInterests(
         sameName = entities.filter((entity) => entity.name.toLowerCase() === name.toLowerCase());
         requestedType = undefined;
       }
-      const entity = sameName[0] ?? [...entities].sort((a, b) => popularityOf(b) - popularityOf(a))[0];
+      const entity =
+        [...sameName].sort((a, b) => popularityOf(b) - popularityOf(a))[0] ??
+        [...entities].sort((a, b) => popularityOf(b) - popularityOf(a))[0];
       if (!entity) throw new Error(`No Qloo match for "${name}"`);
 
       const alternates: InterestAlternate[] = [];
@@ -417,6 +422,15 @@ interface CatalogResolutionContext {
 const refKey = (type: string, name: string) => `${type}|${name.toLowerCase()}`;
 
 async function resolveCatalogEntities(context: CatalogResolutionContext = {}): Promise<Map<string, QlooEntity>> {
+  // Build-time mapping first: pre-resolved entity IDs for the whole catalog,
+  // so a cold start doesn't pay ~170 entity searches.
+  for (const item of catalog) {
+    if (catalogEntityCache.has(item.id)) continue;
+    const mapped = STATIC_ENTITY_MAP[item.id];
+    if (mapped?.entity_id) {
+      catalogEntityCache.set(item.id, { entity_id: mapped.entity_id, name: mapped.name, type: mapped.type } as QlooEntity);
+    }
+  }
   const freeHits = new Map<string, QlooEntity>();
   for (const entry of context.expansion?.values() ?? []) {
     freeHits.set(refKey(entry.entity.type, entry.entity.name), entry.entity);
@@ -439,8 +453,8 @@ async function resolveCatalogEntities(context: CatalogResolutionContext = {}): P
           try {
             const entities = await searchEntities(item.qloo.query, { types: [item.qloo.type], take: 5 });
             const normalized = item.qloo.query.toLowerCase().replace(/[\u2018\u2019]/g, "'").trim();
-            const exact = entities.find((entity) => entity.name.toLowerCase() === normalized);
             const ranked = [...entities].sort((a, b) => popularityOf(b) - popularityOf(a));
+            const exact = ranked.find((entity) => entity.name.toLowerCase() === normalized);
             const strong = ranked.find((entity) => popularityOf(entity) >= 0.1);
             const entity = exact ?? strong ?? ranked[0];
             if (entity) catalogEntityCache.set(item.id, entity);
@@ -559,8 +573,8 @@ function weightNudge(names: string[], constraints: NormalizedConstraints): numbe
     if (constraints.boost.has(key)) boosted += 1;
     if (constraints.mute.has(key)) muted += 1;
   }
-  let multiplier = 1 + 0.09 * Math.min(boosted, 2);
-  if (muted > 0) multiplier *= muted >= Math.max(1, names.length) ? 0.82 : 0.94;
+  let multiplier = 1 + 0.15 * Math.min(boosted, 2);
+  if (muted > 0) multiplier *= muted >= Math.max(1, names.length) ? 0.75 : 0.9;
   return multiplier;
 }
 
@@ -597,6 +611,7 @@ async function scoreCatalog(params: {
   }
 
   const apiAffinity = new Map<string, number>();
+  const apiEntities = new Map<string, QlooEntity>();
   const influence = new Map<string, number>();
   let anyApiScore = false;
 
@@ -623,6 +638,7 @@ async function scoreCatalog(params: {
         for (const entity of response.results.entities) {
           if (typeof entity.affinity === "number") {
             apiAffinity.set(entity.entity_id, clamp01(entity.affinity));
+            if (!apiEntities.has(entity.entity_id)) apiEntities.set(entity.entity_id, entity);
             anyApiScore = true;
           }
         }
@@ -637,6 +653,9 @@ async function scoreCatalog(params: {
   for (const item of catalog) {
     const entity = catalogEntities.get(item.id);
     if (!entity) continue;
+    // Prefer the API-scored entity: it carries per-item explainability
+    // (query.explainability) so contributor shares are evidence, not fallback.
+    const scoredEntity = apiEntities.get(entity.entity_id) ?? entity;
     const isDirect = directIds.has(entity.entity_id);
     const expansionEntry = expansion.get(entity.entity_id);
     const apiScore = apiAffinity.get(entity.entity_id);
@@ -650,7 +669,7 @@ async function scoreCatalog(params: {
       : expansionEntry?.via?.from
         ? [expansionEntry.via.from]
         : [];
-    const contributors = contributorShares(entity, nameById, viaById, baseNames.length > 0 ? baseNames : resolved.slice(0, 3).map((entry) => entry.input));
+    const contributors = contributorShares(scoredEntity, nameById, viaById, baseNames.length > 0 ? baseNames : resolved.slice(0, 3).map((entry) => entry.input));
     const namesForWeight = Array.from(
       new Set([...baseNames, ...contributors.flatMap((entry) => [entry.name, entry.via ?? ""].filter(Boolean))]),
     );
@@ -662,7 +681,7 @@ async function scoreCatalog(params: {
           ? baseNames
           : resolved.slice(0, 3).map((entry) => entry.input);
     const source: ScoredItem["source"] = isDirect ? "direct" : expansionEntry ? "discovery" : "adjacent";
-    scored.push({ item, entity, affinity: appliedAffinity, origin, source, matchedInterests, contributors: contributors.length > 0 ? contributors : undefined, hops: expansionEntry?.hops });
+    scored.push({ item, entity: scoredEntity, affinity: appliedAffinity, origin, source, matchedInterests, contributors: contributors.length > 0 ? contributors : undefined, hops: expansionEntry?.hops });
   }
 
   if (!anyApiScore) {
@@ -690,7 +709,7 @@ function sortByAffinity(list: ScoredItem[]): ScoredItem[] {
 
 function safeScore(entry: ScoredItem): number {
   const pop = popularityOf(entry.entity);
-  return entry.affinity * (1 + 0.04 * pop) + 0.008 * stockRank(entry.item.inventory);
+  return entry.affinity * (1 + 0.02 * pop) + 0.008 * stockRank(entry.item.inventory);
 }
 
 function itemSimilarity(a: ScoredItem, b: ScoredItem): number {
@@ -1080,6 +1099,12 @@ export async function recommend(input: RecommendRequest, options: RecommendOptio
     totalPrice: items.reduce((sum, entry) => sum + entry.item.price, 0),
   }));
 
+  const laneItemIds = new Set(lanes.flatMap(({ items }) => items.map((entry) => entry.item.id)));
+  const shelf = sortByAffinity(pool)
+    .filter((entry) => !laneItemIds.has(entry.item.id))
+    .slice(0, 8)
+    .map(toGiftItem);
+
   const tasteMap: TasteMapEntry[] = [];
   const perTypeCount = new Map<string, number>();
   const byAffinity = Array.from(expansion.values()).sort((a, b) => b.affinity - a.affinity);
@@ -1129,6 +1154,7 @@ export async function recommend(input: RecommendRequest, options: RecommendOptio
     tasteMap,
     connections,
     picks,
+    shelf,
     warnings,
   };
 }

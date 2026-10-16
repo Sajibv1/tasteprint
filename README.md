@@ -63,7 +63,7 @@ flowchart LR
     end
 
     subgraph Data["Data Layer"]
-        CAT["Product Catalog\n(63 items)"]
+        CAT["Product Catalog\n(171 items)"]
         CACHE["In-Memory Cache"]
     end
 
@@ -300,7 +300,7 @@ tasteprint/
 │   │   │   └── types.ts          # Qloo API type definitions
 │   │   └── catalog.ts            # Catalog loader
 │   ├── data/
-│   │   └── catalog.json          # 63 curated products mapped to Qloo entities
+│   │   └── catalog.json          # 171 curated products mapped to Qloo entities
 │   └── instrumentation.ts       # Server startup (catalog warm-up)
 ├── .env.example
 ├── package.json
@@ -312,27 +312,30 @@ tasteprint/
 
 ## 🛒 Catalog
 
-The demo catalog (`src/data/catalog.json`) contains **63 curated products** across 13 categories:
+The demo catalog (`src/data/catalog.json`) contains **171 curated products** across 16 categories:
 
 | Category | Count | Examples |
 |----------|-------|---------|
-| Music | 16 | Vinyl LPs (Radiohead, Frank Ocean, Björk…) |
-| Reading | 11 | Books, graphic novels |
-| Film | 9 | Criterion Collection, box sets |
-| Art Print | 5 | Posters, art prints |
+| Music | 44 | Vinyl LPs (Radiohead, Frank Ocean, Björk, Miles Davis, Beyoncé…) |
+| Reading | 30 | Books, hardcovers, e-readers |
+| Film | 32 | Criterion Collection, 4K UHD, box sets, TV series |
+| Art Print | 9 | Posters, art prints |
 | Stationery | 5 | Journals, notebooks |
-| Gaming | 4 | Video game collectibles |
-| Photography | 3 | Cameras, photo books |
-| Gift | 3 | Curated gift boxes |
-| Apparel | 2 | T-shirts, accessories |
-| Home | 2 | Home décor items |
-| Coffee | 1 | Specialty coffee |
-| Collectible | 1 | Limited-edition collectibles |
-| Music Tech | 1 | Audio equipment |
+| Gaming | 12 | Switch/PS5 games, controllers, consoles |
+| Photography | 4 | Cameras, film |
+| Gift | 4 | Memberships, gadgets |
+| Apparel | 7 | Sneakers, fleece, beanies |
+| Home | 5 | Lamps, candles, décor |
+| Coffee | 3 | Grinders, brewers |
+| Collectible | 4 | LEGO, figures, plush |
+| Music Tech | 7 | Turntables, headphones, speakers |
+| Beauty | 3 | Fragrance, skincare |
+| Outdoors | 1 | Drinkware |
+| Tea | 1 | Tea collections |
 
-**Price range:** $9 – $119
+**Price range:** $9 – $199
 
-Each product maps to a Qloo entity by name and type. Resolution to Qloo entity IDs happens at runtime and is cached in server memory. **No Qloo response data is stored in this repository.**
+Each product maps to a Qloo entity by name and type. Entity IDs are pre-resolved at build time (`npm run catalog:resolve` writes `src/data/catalog-entities.json`, which is checked in) so a cold start doesn't pay ~170 entity searches; unmapped items fall back to runtime resolution with a server-memory cache. **No bulk Qloo response data is stored in this repository.**
 
 ---
 
