@@ -54,7 +54,8 @@ async function planFrom(body: StreamBody): Promise<{ plan?: RunPlan; error?: str
   let actions: RefineAction[] = [body.action];
   const shopperNote = body.action.kind === "note" ? body.action.text : undefined;
   if (body.action.kind === "note") {
-    actions = (await interpretNote(body.action.text, request.interests ?? [])) ?? noteToActions(body.action.text, request.interests ?? []);
+    const llmActions = await interpretNote(body.action.text, request.interests ?? []);
+    actions = llmActions && llmActions.length > 0 ? llmActions : noteToActions(body.action.text, request.interests ?? []);
   }
   let constraints: Partial<SessionConstraints> = { ...emptyConstraints(), ...body.constraints };
   const notes: string[] = [];
