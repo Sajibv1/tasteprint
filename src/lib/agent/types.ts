@@ -11,6 +11,7 @@ export interface RecommendRequest {
   budget?: { min?: number; max?: number };
   occasion?: string;
   notes?: string;
+  candidateItemIds?: string[];
 }
 
 // ---------- refinement loop ----------
