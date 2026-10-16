@@ -35,6 +35,7 @@ interface ResolvedInterest {
   input: string;
   entity: QlooEntity;
   alternates: InterestAlternate[];
+  candidates: InterestAlternate[];
 }
 
 interface ExpansionEntry {
@@ -220,7 +221,18 @@ async function resolveInterests(
         alternates.push({ type: candidate.type, name: candidate.name, popularity: popularityOf(candidate) });
       }
       alternates.sort((a, b) => b.popularity - a.popularity);
-      return { input: name, entity, alternates: alternates.slice(0, 3), exact: sameName.length > 0, overrideDropped: Boolean(type) && !requestedType };
+
+      const candidates: InterestAlternate[] = [];
+      if (sameName.length === 0) {
+        const seenIds = new Set<string>([entity.entity_id]);
+        for (const candidate of entities) {
+          if (seenIds.has(candidate.entity_id)) continue;
+          seenIds.add(candidate.entity_id);
+          candidates.push({ type: candidate.type, name: candidate.name, popularity: popularityOf(candidate) });
+          if (candidates.length >= 3) break;
+        }
+      }
+      return { input: name, entity, alternates: alternates.slice(0, 3), candidates, exact: sameName.length > 0, overrideDropped: Boolean(type) && !requestedType };
     }),
   );
 
@@ -1105,6 +1117,13 @@ export async function recommend(input: RecommendRequest, options: RecommendOptio
         type: shortType(alternate.type),
         name: alternate.name,
         popularity: Math.round(alternate.popularity * 100) / 100,
+        urn: alternate.type,
+      })),
+      candidates: entry.candidates.map((candidate) => ({
+        type: shortType(candidate.type),
+        name: candidate.name,
+        popularity: Math.round(candidate.popularity * 100) / 100,
+        urn: candidate.type,
       })),
     })),
     tasteMap,

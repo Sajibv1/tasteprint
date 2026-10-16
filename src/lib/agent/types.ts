@@ -119,10 +119,11 @@ export interface InterestAlternate {
   type: string;
   name: string;
   popularity: number;
+  urn?: string;
 }
 
 export interface RecommendResult {
-  resolvedInterests: { input: string; matchedName: string; type: string; alternates: InterestAlternate[] }[];
+  resolvedInterests: { input: string; matchedName: string; type: string; alternates: InterestAlternate[]; candidates: InterestAlternate[] }[];
   tasteMap: TasteMapEntry[];
   connections: TasteConnection[];
   picks: GiftPick[];

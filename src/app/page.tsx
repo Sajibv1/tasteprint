@@ -88,6 +88,22 @@ function buildRecentRun(seed: { recipientName: string; occasion: string; interes
   return { id: `r${Date.now()}`, ts: Date.now(), ...seed };
 }
 
+interface InterestOverride {
+  type?: string;
+  name?: string;
+}
+
+interface EntityMatch {
+  id: string;
+  name: string;
+  type: string;
+  popularity: number;
+}
+
+function shortEntityType(urn: string): string {
+  return urn.replace(/^urn:entity:/, "").replace(/_/g, " ");
+}
+
 const RECENTS_KEY = "tasteprint.runs.v1";
 
 function shareEncode(payload: Record<string, unknown>): string {
@@ -305,7 +321,7 @@ export default function Home() {
   const [recipientName, setRecipientName] = useState("");
   const [occasion, setOccasion] = useState("");
   const [budgetMax, setBudgetMax] = useState(100);
-  const [overrides, setOverrides] = useState<Record<string, string>>({});
+  const [overrides, setOverrides] = useState<Record<string, InterestOverride>>({});
   const [constraints, setConstraints] = useState<SessionConstraints>(emptyConstraints);
   const [status, setStatus] = useState<"idle" | "loading" | "refining" | "done" | "error">("idle");
   const [transcript, setTranscript] = useState<AgentEvent[]>([]);
@@ -315,10 +331,14 @@ export default function Home() {
   const [refineLog, setRefineLog] = useState<string[]>([]);
   const [recents, setRecents] = useState<RecentRun[]>([]);
   const [share, setShare] = useState<string>("");
+  const [entityMatches, setEntityMatches] = useState<EntityMatch[]>([]);
+  const [pickerOpen, setPickerOpen] = useState(false);
+  const [pickerLoading, setPickerLoading] = useState(false);
   const resultsRef = useRef<HTMLDivElement>(null);
   const transcriptRef = useRef<HTMLOListElement>(null);
 
   const busy = status === "loading" || status === "refining";
+  const pickerVisible = pickerOpen && !busy && draft.trim().replace(/\s+/g, " ").length >= 2;
 
   useEffect(() => {
     queueMicrotask(() => {
@@ -358,6 +378,39 @@ export default function Home() {
     transcriptRef.current.scrollTop = transcriptRef.current.scrollHeight;
   }, [transcript, status]);
 
+  useEffect(() => {
+    const clean = draft.trim().replace(/\s+/g, " ");
+    if (clean.length < 2 || busy) return;
+    const controller = new AbortController();
+    const timer = setTimeout(async () => {
+      try {
+        const response = await fetch(`/api/search?q=${encodeURIComponent(clean)}`, { signal: controller.signal });
+        if (!response.ok) throw new Error("search failed");
+        const payload = (await response.json()) as { results?: EntityMatch[] };
+        if (controller.signal.aborted) return;
+        const results = Array.isArray(payload.results) ? payload.results : [];
+        setEntityMatches(results);
+        setPickerOpen(results.length > 0);
+      } catch {
+        // aborted or offline — the picker is a nicety, typing still works
+      } finally {
+        if (!controller.signal.aborted) setPickerLoading(false);
+      }
+    }, 300);
+    return () => {
+      controller.abort();
+      clearTimeout(timer);
+    };
+  }, [draft, busy]);
+
+  function pickEntity(match: EntityMatch) {
+    const clean = match.name.trim().replace(/\s+/g, " ");
+    addInterest(clean);
+    setOverrides((current) => ({ ...current, [clean]: { type: match.type } }));
+    setEntityMatches([]);
+    setPickerOpen(false);
+  }
+
   function addInterest(value: string) {
     const clean = value.trim().replace(/\s+/g, " ");
     if (!clean) return;
@@ -366,6 +419,12 @@ export default function Home() {
         ? current
         : [...current, clean],
     );
+    setOverrides((current) => {
+      if (!current[clean]) return current;
+      const next = { ...current };
+      delete next[clean];
+      return next;
+    });
     setDraft("");
   }
 
@@ -381,7 +440,10 @@ export default function Home() {
   function buildRequest() {
     return {
       recipientName: recipientName.trim() || undefined,
-      interests: interests.map((name) => (overrides[name] ? { name, type: overrides[name] } : name)),
+      interests: interests.map((name) => {
+        const override = overrides[name];
+        return override ? { name: override.name ?? name, type: override.type } : name;
+      }),
       occasion: occasion || undefined,
       budget: { min: 0, max: budgetMax },
     };
@@ -468,7 +530,7 @@ export default function Home() {
     });
   }
 
-  async function startRecommend(effectiveOverrides: Record<string, string>) {
+  async function startRecommend(effectiveOverrides: Record<string, InterestOverride>) {
     if (interests.length === 0 || busy) return;
     const merged = { ...overrides, ...effectiveOverrides };
     if (effectiveOverrides && Object.keys(effectiveOverrides).length > 0) setOverrides(merged);
@@ -525,6 +587,7 @@ export default function Home() {
     setInterests(run.interests);
     setOccasion(run.occasion);
     setBudgetMax(run.budgetMax);
+    setOverrides({});
   }
 
   const appliedBudget = constraints.budgetMax ?? budgetMax;
@@ -602,34 +665,74 @@ export default function Home() {
               <label htmlFor="interest-input" className="mb-2 block text-sm font-semibold text-ink">
                 What do they love?
               </label>
-              <div className="flex flex-wrap gap-2 border border-fog bg-paper p-3">
-                {interests.map((interest) => (
-                  <span key={interest} className="inline-flex items-center gap-1.5 bg-ink px-3 py-1.5 text-sm text-paper">
-                    {interest}
-                    <button
-                      type="button"
-                      aria-label={`Remove ${interest}`}
-                      className="text-paper/60 hover:text-butter"
-                      onClick={() => removeInterest(interest)}
-                    >
-                      ×
-                    </button>
-                  </span>
-                ))}
-                <input
-                  id="interest-input"
-                  value={draft}
-                  onChange={(event) => setDraft(event.target.value)}
-                  onKeyDown={(event) => {
-                    if (event.key === "Enter" || event.key === ",") {
-                      event.preventDefault();
-                      addInterest(draft);
-                    }
-                  }}
-                  onBlur={() => addInterest(draft)}
-                  placeholder={interests.length === 0 ? "an artist, film, book, show or brand…" : "add another…"}
-                  className="min-w-[12rem] flex-1 bg-transparent px-1 py-1.5 text-sm text-ink outline-none placeholder:text-muted/70"
-                />
+              <div className="relative">
+                <div className="flex flex-wrap gap-2 border border-fog bg-paper p-3">
+                  {interests.map((interest) => (
+                    <span key={interest} className="inline-flex items-center gap-1.5 bg-ink px-3 py-1.5 text-sm text-paper">
+                      {interest}
+                      <button
+                        type="button"
+                        aria-label={`Remove ${interest}`}
+                        className="text-paper/60 hover:text-butter"
+                        onClick={() => removeInterest(interest)}
+                      >
+                        ×
+                      </button>
+                    </span>
+                  ))}
+                  <input
+                    id="interest-input"
+                    value={draft}
+                    onChange={(event) => {
+                      const value = event.target.value;
+                      setDraft(value);
+                      const clean = value.trim().replace(/\s+/g, " ");
+                      if (clean.length >= 2 && !busy) setPickerLoading(true);
+                    }}
+                    onKeyDown={(event) => {
+                      if (event.key === "Enter" || event.key === ",") {
+                        event.preventDefault();
+                        addInterest(draft);
+                      } else if (event.key === "Escape") {
+                        setPickerOpen(false);
+                      }
+                    }}
+                    onBlur={() => addInterest(draft)}
+                    placeholder={interests.length === 0 ? "an artist, film, book, show or brand…" : "add another…"}
+                    className="min-w-[12rem] flex-1 bg-transparent px-1 py-1.5 text-sm text-ink outline-none placeholder:text-muted/70"
+                  />
+                </div>
+                {pickerVisible && (
+                  <ul className="absolute left-0 right-0 top-full z-20 mt-1 max-h-64 overflow-auto border border-ink bg-paper shadow-[6px_6px_0_rgba(17,17,17,0.08)]">
+                    <li className="flex items-center justify-between border-b border-fog px-3 py-1.5">
+                      <span className="font-mono text-[10px] uppercase tracking-wider text-muted">matching Qloo nodes — pick the exact one</span>
+                      {pickerLoading && <span className="font-mono text-[10px] text-muted">…</span>}
+                    </li>
+                    {entityMatches.map((match) => (
+                      <li key={match.id}>
+                        <button
+                          type="button"
+                          onMouseDown={(event) => event.preventDefault()}
+                          onClick={() => pickEntity(match)}
+                          className="flex w-full items-center justify-between gap-3 px-3 py-2 text-left transition hover:bg-butter"
+                        >
+                          <span className="min-w-0 flex-1 truncate text-sm font-semibold text-ink">{match.name}</span>
+                          <span className="flex flex-none items-center gap-2">
+                            {match.popularity > 0 && (
+                              <span className="font-mono text-[10px] text-muted">{Math.round(match.popularity * 100)}% pop</span>
+                            )}
+                            <span className="border border-ink/20 px-1.5 py-0.5 font-mono text-[10px] uppercase tracking-wider text-muted">
+                              {shortEntityType(match.type)}
+                            </span>
+                          </span>
+                        </button>
+                      </li>
+                    ))}
+                    {entityMatches.length === 0 && (
+                      <li className="px-3 py-2 font-mono text-xs text-muted">searching Qloo&apos;s index…</li>
+                    )}
+                  </ul>
+                )}
               </div>
               <div className="mt-3 flex flex-wrap gap-2">
                 {SUGGESTIONS.filter((suggestion) => !interests.some((entry) => entry.toLowerCase() === suggestion.toLowerCase()))
@@ -849,11 +952,26 @@ export default function Home() {
                         <button
                           key={alternate.type}
                           type="button"
+                          disabled={busy}
                           title={`Re-run with "${entry.input}" matched as ${alternate.type}`}
-                          onClick={() => startRecommend({ [entry.input]: alternate.type })}
-                          className="font-mono text-[10px] uppercase tracking-wider text-pink-deep underline decoration-dotted underline-offset-2 hover:text-pink"
+                          onClick={() => startRecommend({ [entry.input]: { type: alternate.urn ?? alternate.type } })}
+                          className="font-mono text-[10px] uppercase tracking-wider text-pink-deep underline decoration-dotted underline-offset-2 hover:text-pink disabled:opacity-40"
                         >
                           also {alternate.type}?
+                        </button>
+                      ))}
+                      {entry.candidates.map((candidate) => (
+                        <button
+                          key={`${candidate.name}-${candidate.type}`}
+                          type="button"
+                          disabled={busy}
+                          title={`Couldn't confirm "${entry.input}" in Qloo — re-run as "${candidate.name}" (${candidate.type})`}
+                          onClick={() =>
+                            startRecommend({ [entry.input]: { type: candidate.urn ?? candidate.type, name: candidate.name } })
+                          }
+                          className="border border-stamp px-1.5 py-0.5 font-mono text-[10px] uppercase tracking-wider text-stamp transition hover:bg-stamp hover:text-paper disabled:opacity-40"
+                        >
+                          did you mean {candidate.name}?
                         </button>
                       ))}
                     </div>

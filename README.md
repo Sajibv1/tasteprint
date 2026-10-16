@@ -13,7 +13,7 @@ Each pick comes with an explanation grounded in the recipient's taste signals.
 ## How it works
 
 1. **Taste intake** — the shopper adds the recipient's interests (artists, movies, shows, books, brands), a budget, and an occasion.
-2. **Entity resolution** — each interest is resolved to a Qloo entity via `GET /search`.
+2. **Entity resolution** — each interest is resolved to a Qloo entity via `GET /search`. As you type, a picker (`GET /api/search`) shows the matching Qloo nodes — name, type, popularity — so ambiguous names ("Dune" is a film, a book, an artist, an album…) can be pinned to the exact node. If a match was fuzzy, the result offers "did you mean" candidates to correct it in one click.
 3. **Taste expansion** — the resolved entities are used as `signal.interests.entities` on `GET /v2/insights` to expand taste across four discovery domains (artists, brands, books, movies), with `feature.explainability=true`.
 4. **Second hop** — the top first-hop discoveries are added to the signal mix and expansion runs again, so picks can be two degrees away from what the shopper typed, with the "via" chain retained for explanation.
 5. **Catalog scoring** — every catalog item maps to a Qloo entity; candidate entity IDs are batch-scored with `filter.results.entities` so each product gets a real affinity score against the recipient's taste. Per-pick contributor shares come from Qloo's explainability payload.
