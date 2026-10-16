@@ -16,15 +16,22 @@ export function noteToActions(text: string, interests: (string | { name: string 
   const actions: RefineAction[] = [];
   const names = interests.map((entry) => (typeof entry === "string" ? entry : entry.name)).filter(Boolean);
 
-  const budgetMatch = text.match(NOTE_MB);
-  if (budgetMatch) {
-    const action = clampBudgetAction(Number(budgetMatch[1]));
-    if (action) actions.push(action);
-  }
+  let floor: number | undefined;
   const floorMatch = text.match(NOTE_MORE_THAN);
   if (floorMatch) {
     const value = Math.round(Number(floorMatch[2]));
-    if (value >= 5 && value <= 10_000) actions.push({ kind: "budget", newMin: value });
+    if (value >= 5 && value <= 10_000) {
+      floor = value;
+      actions.push({ kind: "budget", newMin: value });
+    }
+  }
+  const budgetMatch = text.match(NOTE_MB);
+  if (budgetMatch) {
+    const value = Math.round(Number(budgetMatch[1]));
+    if (Number.isFinite(value) && value !== floor) {
+      const action = clampBudgetAction(value);
+      if (action) actions.push(action);
+    }
   }
   if (NOTE_ADVENTUROUS.test(text)) actions.push({ kind: "mood", mood: "adventurous" });
   else if (NOTE_GROUNDED.test(text)) actions.push({ kind: "mood", mood: "grounded" });
