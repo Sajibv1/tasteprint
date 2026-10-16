@@ -68,7 +68,9 @@ export function applyRefinement(
     case "budget":
       if (action.newMin !== undefined) next.budgetMin = Math.max(0, Math.round(action.newMin));
       if (action.newMax !== undefined) next.budgetMax = Math.max(5, Math.round(action.newMax));
-      notes.push(`budget set to $${next.budgetMin ?? 0}–$${next.budgetMax ?? "?"}`);
+      if (next.budgetMin !== undefined && next.budgetMax === undefined) notes.push(`budget floor set to $${next.budgetMin}`);
+      else if (next.budgetMax !== undefined && next.budgetMin === undefined) notes.push(`budget capped at $${next.budgetMax}`);
+      else notes.push(`budget set to $${next.budgetMin ?? 0}–$${next.budgetMax ?? "?"}`);
       break;
 
     case "avoid":
