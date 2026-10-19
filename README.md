@@ -16,9 +16,9 @@ Every search delivers **three distinct angles** on the same person:
 
 | Lane | What it does |
 |------|-------------|
-| 🟢 **Safe Bet** | The gift with the strongest affinity to what they already love |
-| 🩷 **Wild Card** | A cross-domain discovery from Qloo's graph they'd never find themselves |
-| 🟡 **The Bundle** | A multi-item set that tells one taste story across categories, within budget |
+| 🟢 **The Sure Thing** | The gift with the strongest affinity to what they already love |
+| 🩷 **The Unexpected** | A cross-domain discovery from Qloo's graph they'd never find themselves |
+| 🟡 **Better Together** | A multi-item set that tells one taste story across categories, within budget |
 
 ---
 
@@ -27,7 +27,7 @@ Every search delivers **three distinct angles** on the same person:
 Most hackathon projects wrap an API in a fixed sequence: `resolve → expand → score → select`. Tasteprint is fundamentally different:
 
 1. **Autonomous Tool-Calling Loop (`agent.ts`):**  
-   The LLM drives the hunt in an open loop up to 8 bounded steps, calling discrete tools:
+   The LLM drives the hunt in an open loop up to 14 bounded steps, calling discrete tools:
    - `resolve_entity`: Disambiguates free-text interests across 700M+ entities (e.g. film vs book).
    - `expand_taste`: Explores multi-domain neighbors; decides whether hop-1 affinity density justifies a second-hop bridge.
    - `score_candidates`: Computes statistical affinity vectors between recipient taste graph and real catalog products.
@@ -35,25 +35,29 @@ Most hackathon projects wrap an API in a fixed sequence: `resolve → expand →
    - `select_lanes`: Commits the final Safe Bet, Wild Card, and Bundle.
 2. **Re-planning on Constraint Violations:**  
    If a proposed bundle blows the budget, the agent receives the error, re-evaluates the candidate pool, and re-plans with cheaper items or a 2-item bundle.
-3. **Live Radial Taste Graph (`TasteGraph.tsx`):**  
-   Rather than rendering a flat list, Tasteprint draws an interactive SVG radial graph as discoveries stream in over SSE (`Recipient → Direct Seeds → Hop 1 → Hop 2`), showing real affinity percentages and `via` attribution chains.
+3. **Live 3D Taste Constellation (`TasteConstellation.tsx`):**  
+    Rather than rendering a flat list, Tasteprint renders a three.js "taste constellation" as discoveries stream in over SSE — orbitable in 3D (mouse or keyboard), with real affinity percentages, `via` attribution chains, node coloring by domain, and a reduced-motion pause. A WebGL-free SVG diagram plus a list view guarantee the graph degrades gracefully on any device.
 4. **Fail-Safe Fallback Pipeline (`pipeline.ts`):**  
    If no LLM key is configured, rate limits fire, or the agent loop exhausts its steps, the system transparently falls back to our deterministic pipeline so the demo never dies on stage.
 5. **Adversarial Invariant Eval Harness (`npm run eval`):**  
    10 fixed adversarial recipient profiles tested against catalog authenticity, per-lane budget compliance, category divergence (wild card $\neq$ safe category), and zero cross-lane duplication.
 6. **Hardened Demo Replay Mode (`TASTEPRINT_REPLAY=1`):**  
-   Instant offline playback from recorded golden fixtures (`demo-scenarios.json`) ensuring stage demonstrations never hang under network or rate-limiting delays.
+   Instant offline playback from recorded golden fixtures (`demo-scenarios.json`) ensuring stage demonstrations never hang under network or rate-limiting delays. The two sample profiles (Priya, Devon) play back with realistic pacing from the UI, and any replay can be handed off to a live retry in one click. Re-record fixtures after catalog changes with `npm run demo:record`.
 
 ---
 
 ## ✨ Key Features
 
 - **LLM Tool Loop** — autonomous reasoning over Qloo tools with real-time SSE progress events
-- **Interactive Taste Graph** — radial SVG visualization of two-hop cultural connections
+- **Interactive 3D Taste Constellation** — three.js visualization of two-hop cultural connections, with SVG/list fallbacks for reduced motion and no WebGL
+- **Culturally Broad Catalog** — 241 real products across 22 categories, spanning Afrobeats to Ethio-jazz, Nigerian literature to Korean cinema, Kyoto matcha to Malian mud cloth
+- **Deep-Black Editorial Design** — self-hosted Manrope, film-poster typography, responsive down to 375 px, `prefers-reduced-motion` aware
+- **Sample Profile Playback** — recorded "golden" searches (Priya, Devon) demo the full agent experience offline, plus a replay-first live retry
+- **Saved Gifts Shortlist** — heart any pick into a persistent local shortlist with a copy-to-clipboard summary
 - **Voice Refinement** — Web Speech API integration to refine gifts using your natural shopper voice
 - **Real Product Links** — direct product pages and honest store labeling (`Find on Amazon ↗`, `Shop A24 ↗`, `Shop Criterion ↗`)
 - **Automated Invariant Eval** — `npm run eval` gates quality across 10 adversarial profiles
-- **Stateless Client Architecture** — full session refinement state persists in the browser URL
+- **Stateless Client Architecture** — refinement state and taste profiles persist in the sharable URL
 - **Fail-Safe Fast Path** — seamless fallback to deterministic pipeline if LLM is unavailable
 
 ## 🏗️ Architecture
@@ -72,7 +76,8 @@ flowchart LR
     end
 
     subgraph Agent["Recommendation Agent"]
-        PIPE["Pipeline"]
+        AGENT["LLM Tool Loop"]
+        PIPE["Deterministic Pipeline\n(fallback)"]
         ACT["Refinement Actions"]
         EXP["Explanation Engine"]
     end
@@ -83,14 +88,17 @@ flowchart LR
     end
 
     subgraph Data["Data Layer"]
-        CAT["Product Catalog\n(171 items)"]
+        CAT["Product Catalog\n(241 items, 22 categories)"]
         CACHE["In-Memory Cache"]
     end
 
     UI -->|SSE| STREAM
     UI -->|POST| REC
     UI -->|GET| SEARCH
-    STREAM --> PIPE
+    UI -->|3D canvas| CONST["Taste Constellation"]
+    STREAM --> AGENT
+    AGENT -->|handoff| PIPE
+    REC --> AGENT
     REC --> PIPE
     SEARCH --> QLOO
     PIPE --> ACT
@@ -98,6 +106,7 @@ flowchart LR
     PIPE --> QLOO
     EXP --> LLM
     PIPE --> CAT
+    AGENT --> QLOO
     QLOO --> CACHE
 ```
 
@@ -156,6 +165,7 @@ flowchart LR
 | **Framework** | [Next.js 16](https://nextjs.org) (App Router) |
 | **Language** | TypeScript 5 |
 | **UI** | React 19 + Tailwind CSS 4 |
+| **3D Graph** | three.js + OrbitControls (SVG fallback) |
 | **Taste Intelligence** | [Qloo API](https://qloo.com) (`hackathon.api.qloo.com`) |
 | **Explanation Copy** | Any OpenAI-compatible LLM (optional) |
 | **Deployment** | Vercel / any Node.js host |
@@ -173,7 +183,7 @@ flowchart LR
 
 ```bash
 # Clone the repository
-git clone https://github.com/your-username/tasteprint.git
+git clone https://github.com/Sajibv1/tasteprint.git
 cd tasteprint
 
 # Install dependencies
@@ -268,7 +278,9 @@ The same agent over **Server-Sent Events** — streams real-time progress events
 | `warning` | Non-fatal issue (e.g., a domain failed) |
 | `agent-note` | Internal agent observation |
 | `selection` | Lane selection summary |
-| `result` | Final payload with picks + merged constraints |
+| `clarification` | Agent asks the shopper to disambiguate (question + option buttons) |
+| `dossier` | Cultural taste dossier (title, narrative, keywords) for the results header |
+| `result` | Final payload with picks + shelf + merged constraints |
 
 **Refinement Actions:**
 
@@ -313,31 +325,63 @@ npm run eval -- --engine=pipeline
 tasteprint/
 ├── src/
 │   ├── app/
-│   │   ├── page.tsx              # Main gift finder UI (React client component)
-│   │   ├── layout.tsx            # Root layout
+│   │   ├── page.tsx              # Server component: catalog + section data
+│   │   ├── layout.tsx            # Root layout (self-hosted Manrope)
+│   │   ├── globals.css           # Deep-black editorial design system
+│   │   ├── fonts/                # Manrope variable font + OFL license
 │   │   └── api/
 │   │       ├── health/route.ts   # Health check endpoint
 │   │       ├── recommend/route.ts # Sync recommendation endpoint
-│   │       ├── stream/route.ts   # SSE streaming endpoint
+│   │       ├── stream/route.ts   # SSE streaming endpoint (agent + replay)
 │   │       ├── eval/route.ts     # Recommendation eval endpoint
 │   │       └── search/route.ts   # Entity search for typeahead
+│   ├── components/
+│   │   ├── TasteprintApp.tsx     # Client app shell: intake, SSE, results
+│   │   ├── TasteConstellation.tsx# three.js taste graph (orbit/keyboard)
+│   │   ├── TasteGraph.tsx        # Graph wrapper: 3D / list toggle + inspector
+│   │   ├── ConstellationFallback.tsx # SVG diagram when WebGL is unavailable
+│   │   ├── Hero.tsx              # Landing hero with live constellation
+│   │   ├── Collection.tsx        # Browsable collection preview
+│   │   ├── HowItWorks.tsx        # Pipeline explainer section
+│   │   ├── GiftShelf.tsx         # Ranked discovery shelf (filter/sort/search)
+│   │   ├── GiftCard.tsx          # Gift card: media, affinity, save, avoid
+│   │   ├── SavedGifts.tsx        # localStorage shortlist + dialog + toast
+│   │   ├── AgentActivity.tsx     # Live agent progress feed (cancelable)
+│   │   ├── LaneCard.tsx          # Safe / Unexpected / Bundle lane cards
+│   │   ├── VoiceNoteInput.tsx    # Web Speech API refinement input
+│   │   └── …                     # Icon, ProductImage, ContributorBar, …
 │   ├── lib/
 │   │   ├── agent/
-│   │   │   ├── pipeline.ts       # Core recommendation pipeline (~1100 lines)
 │   │   │   ├── agent.ts          # LLM-directed Qloo tool loop
+│   │   │   ├── pipeline.ts       # Deterministic recommendation pipeline
 │   │   │   ├── tools.ts          # Guarded agent tool implementations
+│   │   │   ├── discovery.ts      # Category/entity-diverse ranking
+│   │   │   ├── replay.ts         # Recorded golden-run playback
+│   │   │   ├── eval-profiles.ts  # Adversarial eval profiles
 │   │   │   ├── invariants.ts     # Engine-independent result checks
 │   │   │   ├── types.ts          # TypeScript types for the agent
 │   │   │   ├── actions.ts        # Refinement action handlers + note parser
 │   │   │   ├── explain.ts        # LLM / template explanation generator
 │   │   │   └── llm-note.ts       # LLM-driven note interpretation
+│   │   ├── agent-stream.ts       # SSE reader (chunk/CRLF-safe) + replay pacing
+│   │   ├── taste-graph.ts        # Constellation layout + hero graph data
+│   │   ├── gift-media.ts         # Product vs. cultural imagery selection
+│   │   ├── demo-profiles.ts      # Recorded sample profiles (Priya, Devon)
 │   │   ├── qloo/
 │   │   │   ├── client.ts         # Qloo API client (retry, rate-limit, cache)
 │   │   │   └── types.ts          # Qloo API type definitions
-│   │   └── catalog.ts            # Catalog loader
+│   │   └── catalog.ts            # Catalog loader (base + curated rows)
 │   ├── data/
-│   │   └── catalog.json          # 171 curated products mapped to Qloo entities
-│   └── instrumentation.ts       # Server startup (catalog warm-up)
+│   │   ├── catalog.json          # 161 products, each mapped to a Qloo entity
+│   │   ├── curated-gifts.ts      # 80 additional formats on verified entities
+│   │   ├── catalog-entities.json # Pre-resolved Qloo entity IDs (checked in)
+│   │   └── demo-scenarios.json   # Recorded golden runs for offline replay
+│   └── instrumentation.ts        # Server startup (catalog warm-up)
+├── scripts/
+│   ├── resolve-catalog.mjs       # Qloo entity resolution (merges, checked in)
+│   ├── eval.mjs                  # Invariant eval runner
+│   └── record-scenarios.mjs      # Re-record demo replay fixtures
+├── docs/                         # DESIGN.md, DEMO_SCRIPT.md
 ├── .env.example
 ├── package.json
 ├── tsconfig.json
@@ -348,30 +392,36 @@ tasteprint/
 
 ## 🛒 Catalog
 
-The demo catalog (`src/data/catalog.json`) contains **171 curated products** across 16 categories:
+The catalog is **241 real products across 22 categories** (161 entries in `src/data/catalog.json` plus 80 extra formats in `src/data/curated-gifts.ts`), spanning Western indie classics to rarely-surfaced global culture — the breadth is deliberate, so a Fela Kuti listener gets Fela-adjacent picks rather than a default white-brand gadget:
 
 | Category | Count | Examples |
 |----------|-------|---------|
-| Music | 44 | Vinyl LPs (Radiohead, Frank Ocean, Björk, Miles Davis, Beyoncé…) |
-| Reading | 30 | Books, hardcovers, e-readers |
-| Film | 32 | Criterion Collection, 4K UHD, box sets, TV series |
-| Art Print | 9 | Posters, art prints |
-| Stationery | 5 | Journals, notebooks |
+| Reading | 54 | Global fiction and nonfiction (*Things Fall Apart*, *Pachinko*, *Persepolis*), hardcovers, e-reader |
+| Vinyl | 41 | Afrobeats, Ethio-jazz, bossa nova, qawwali, city pop, K-pop, flamenco (Fela Kuti, Ravi Shankar, BTS…) |
+| Cinema | 25 | World cinema and Criterion editions (*Pather Panchali*, *RRR*, *Squid Game*, *City of God*…) |
+| Stationery | 12 | Yūzen washi letter sets, journals, notebooks |
 | Gaming | 12 | Switch/PS5 games, controllers, consoles |
-| Photography | 4 | Cameras, film |
-| Gift | 4 | Memberships, gadgets |
+| Art Print | 10 | Posters, art prints, collectible postcards |
+| Home | 8 | Lamps, candles, décor, Iittala glassware |
+| Audio Gear | 7 | Turntables, headphones, speakers |
 | Apparel | 7 | Sneakers, fleece, beanies |
-| Home | 5 | Lamps, candles, décor |
-| Coffee | 3 | Grinders, brewers |
-| Collectible | 4 | LEGO, figures, plush |
-| Music Tech | 7 | Turntables, headphones, speakers |
-| Beauty | 3 | Fragrance, skincare |
-| Outdoors | 1 | Drinkware |
-| Tea | 1 | Tea collections |
+| Photography | 7 | Cameras, film |
+| Kitchen | 7 | Tagines, cocottes, spice tins, molinillo sets |
+| Coffee | 6 | Grinders, brewers, pour-over sets |
+| Collectible | 6 | LEGO, figures, Oaxacan alebrijes |
+| Beauty | 6 | K-beauty, fragrance, skincare |
+| Tea | 6 | Matcha ceremony sets, Moroccan glasses, tea chests |
+| Tabletop | 6 | Chess, go, mahjong, dominoes, carrom, lotería |
+| Creative Kits | 5 | Craft kits |
+| Gift | 4 | Memberships, tasting boxes |
+| Instruments | 4 | Kora, oud, ukulele, tabla |
+| Textiles | 4 | Malian mud cloth, Anatolian kilim, kente, Marimekko |
+| Outdoors | 3 | Drinkware |
+| Experiences | 1 | Class voucher |
 
 **Price range:** $9 – $199
 
-Each product maps to a Qloo entity by name and type. Product artwork is the mapped entity's own image from Qloo's graph (album art, posters, covers, brand marks); items without entity artwork render an initial tile instead of a stock photo. Entity IDs are pre-resolved at build time (`npm run catalog:resolve` writes `src/data/catalog-entities.json`, which is checked in) so a cold start doesn't pay ~170 entity searches; unmapped items fall back to runtime resolution with a server-memory cache. **No bulk Qloo response data is stored in this repository.**
+Each product maps to a Qloo entity by name and type. Product artwork is the mapped entity's own image from Qloo's graph (album art, posters, covers, brand marks); items without entity artwork render an initial tile instead of a stock photo. Entity IDs are pre-resolved (`npm run catalog:resolve` merges into `src/data/catalog-entities.json`, which is checked in) so a cold start doesn't pay ~240 entity searches; unmapped items fall back to runtime resolution with a server-memory cache. **No bulk Qloo response data is stored in this repository.**
 
 ---
 
