@@ -8,7 +8,7 @@
 # 🎁 Tasteprint — Autonomous Gift Discovery Agent
 
 > *"A deterministic pipeline is not an agent. An agent reasons, plans, uses tools, handles surprises, and adapts to the shopper."*  
-> **Built for the Qloo AI Agent Hackathon.**
+> **Built for the Qloo Agentic Hackathon.**
 
 Tasteprint is an autonomous AI gift agent that discovers thoughtful, unexpected gifts by navigating a person's **cultural taste graph**. Instead of rigid keyword matching, an LLM agent uses [Qloo](https://qloo.com)'s cultural intelligence API as discrete tools to reason across music, film, TV, books, and brands — matching recipient taste to real products in a curated catalog.
 
@@ -459,7 +459,7 @@ Works on any Node.js 18+ host.
 
 ## 🏆 Built For
 
-**Qloo LLM Hackathon** — showcasing Qloo's taste intelligence API for cross-domain cultural discovery.
+**Qloo Agentic Hackathon** — showcasing Qloo's taste intelligence API for cross-domain cultural discovery.
 
 ## 📄 License
 
