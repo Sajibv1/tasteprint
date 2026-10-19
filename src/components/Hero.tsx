@@ -1,6 +1,5 @@
 "use client";
 
-import Image from "next/image";
 import dynamic from "next/dynamic";
 import { HERO_GRAPH } from "@/lib/taste-graph";
 import { ConstellationFallback } from "./ConstellationFallback";
@@ -22,7 +21,6 @@ export function Hero() {
     </div>
     <div className="hero-art">
       <TasteConstellation data={HERO_GRAPH} hero />
-      <div className="hero-record"><div className="hero-record-sleeve"><Image src="/images/in-rainbows.jpg" alt="Radiohead's In Rainbows album artwork" width={146} height={146} priority /><div className="vinyl-disc" /></div><div><span>On repeat, for a reason.</span><strong>It starts with what they love.</strong></div></div>
       <p className="hero-art-caption">An illustration of a connected taste.</p>
     </div>
     <div className="hero-bottom"><span>Every interest is a starting point.</span><div><span><Icon name="headphones" size={15} />Music</span><span><Icon name="film" size={15} />Cinema</span><span><Icon name="book" size={15} />Books</span><span><Icon name="camera" size={15} />Design</span><span><Icon name="spark" size={15} />And beyond</span></div></div>

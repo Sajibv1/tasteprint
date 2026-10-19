@@ -98,14 +98,6 @@ h1, h2, h3, h4, p { margin: 0; }
 .hero-proof p { padding-left: 22px; border-left: 1px solid #37342e; color: #8e8a82; font-size: 10px; line-height: 1.7; }
 .hero-art { position: relative; min-width: 0; height: 590px; align-self: start; animation: hero-reveal 1.2s ease both; }
 .hero-art-caption { position: absolute; bottom: 7px; width: 100%; text-align: center; color: #87837b; font-size: 10px; }
-.hero-record { position: absolute; left: 8px; bottom: 54px; display: flex; align-items: center; gap: 22px; pointer-events: none; z-index: 4; }
-.hero-record-sleeve { position: relative; width: 112px; height: 112px; transform: rotate(-9deg); }
-.hero-record-sleeve > img { position: relative; width: 100%; height: 100%; object-fit: cover; border: 1px solid #a8957833; z-index: 1; box-shadow: 0 15px 35px #000b; }
-.vinyl-disc { position: absolute; top: 3px; left: 30px; width: 106px; height: 106px; border: 1px solid #333; border-radius: 50%; background: repeating-radial-gradient(circle at center, #121213 0 2px, #29292a 3px, #121213 4px); }
-.vinyl-disc::after { content: ""; position: absolute; inset: 35%; border-radius: 50%; background: #a06b33; border: 10px solid #b8803d; }
-.hero-record > div:last-child { margin-left: 14px; margin-top: 5px; }
-.hero-record span { display: block; font-size: 10px; color: #a7a195; margin-bottom: 6px; }
-.hero-record strong { font-size: 11px; font-weight: 500; color: #e2dacc; }
 .hero-bottom { grid-column: 1 / -1; display: flex; align-items: center; justify-content: space-between; padding: 23px 0 25px; border-top: 1px solid #282723; border-bottom: 1px solid #282723; gap: 24px; margin-top: 16px; }
 .hero-bottom > span { color: #b9b2a5; font-size: 12px; }
 .hero-bottom > div { display: flex; align-items: center; gap: 28px; }
@@ -533,10 +525,6 @@ input[type="range"]::-moz-range-thumb { width: 10px; height: 10px; border-radius
   .hero h1 { font-size: 81px; letter-spacing: -4.5px; }
   .hero-art { height: 545px; }
   .hero-description { max-width: 330px; font-size: 14px; }
-  .hero-record { left: 0; bottom: 60px; gap: 11px; }
-  .hero-record-sleeve { width: 87px; height: 87px; }
-  .vinyl-disc { width: 82px; height: 82px; left: 21px; }
-  .hero-record strong { font-size: 9px; }
   .hero-record span { font-size: 9px; }
   .hero-bottom > div { gap: 19px; }
   .form-main { padding: 28px; }
