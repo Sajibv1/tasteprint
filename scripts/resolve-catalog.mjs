@@ -2,6 +2,10 @@
 // src/data/catalog-entities.json so the server doesn't pay ~170 /search
 // calls on every cold start. Re-run after editing catalog.json.
 //
+// Merges into the existing mapping instead of replacing it: curated gift rows
+// in src/data/curated-gifts.ts reference legacy tp-* entries that were resolved
+// from earlier catalog revisions and are not re-listed in catalog.json.
+//
 // Usage: QLOO_API_KEY=... node scripts/resolve-catalog.mjs
 // (.env.local is read automatically when run from the repo root.)
 import { readFileSync, writeFileSync } from "node:fs";
@@ -100,7 +104,13 @@ function typeOf(entity) {
 }
 
 const catalog = JSON.parse(readFileSync("src/data/catalog.json", "utf8"));
-const mapping = {};
+let mapping = {};
+try {
+  mapping = JSON.parse(readFileSync("src/data/catalog-entities.json", "utf8"));
+  if (typeof mapping !== "object" || mapping === null || Array.isArray(mapping)) mapping = {};
+} catch {
+  // no existing mapping file — start fresh
+}
 const report = [];
 
 for (const item of catalog) {

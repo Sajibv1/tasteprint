@@ -1,8 +1,8 @@
-import { catalog, type CatalogItem } from "@/lib/catalog";
-import catalogEntityMap from "@/data/catalog-entities.json";
+import { catalog, catalogImage, mappedCatalogEntity, type CatalogItem } from "@/lib/catalog";
 import { entityImageUrl, getInsights, searchEntities, QlooError, type InsightsOptions } from "@/lib/qloo/client";
 import type { QlooEntity } from "@/lib/qloo/types";
 import { buildLaneExplanations, itemReason, defaultHeadline } from "./explain";
+import { diverseDiscoveries } from "./discovery";
 import type {
   Contributor,
   GiftItem,
@@ -17,6 +17,7 @@ import type {
   StageName,
   TasteConnection,
   TasteMapEntry,
+  TasteDossier,
 } from "./types";
 
 const INTEREST_SEARCH_TYPES = [
@@ -69,8 +70,6 @@ interface NormalizedConstraints {
 }
 
 const catalogEntityCache = new Map<string, QlooEntity>();
-
-const STATIC_ENTITY_MAP = catalogEntityMap as Record<string, { entity_id: string; name: string; type: string; image?: string }>;
 
 const RECENT_WILDCARD_TTL_MS = 30 * 60 * 1000;
 const RECENT_PICK_TTL_MS = 10 * 60 * 1000;
@@ -426,7 +425,7 @@ async function resolveCatalogEntities(context: CatalogResolutionContext = {}): P
   // so a cold start doesn't pay ~170 entity searches.
   for (const item of catalog) {
     if (catalogEntityCache.has(item.id)) continue;
-    const mapped = STATIC_ENTITY_MAP[item.id];
+    const mapped = mappedCatalogEntity(item);
     if (mapped?.entity_id) {
       catalogEntityCache.set(item.id, {
         entity_id: mapped.entity_id,
@@ -980,7 +979,7 @@ function toGiftItem(entry: ScoredItem): GiftItem {
     brand: entry.item.brand,
     price: entry.item.price,
     currency: entry.item.currency,
-    image: entityImageUrl(entry.entity),
+    ...catalogImage(entry.item, entityImageUrl(entry.entity)),
     buyUrl: entry.item.buyUrl,
     category: entry.item.category,
     description: entry.item.description,
@@ -1001,6 +1000,17 @@ export interface RecommendOptions {
   sink?: ProgressSink;
   constraints?: Partial<SessionConstraints>;
   shopperNote?: string;
+}
+
+export function buildFallbackDossier(request: RecommendRequest, tasteMap: TasteMapEntry[]): TasteDossier {
+  const name = request.recipientName?.trim() || "The recipient";
+  const seeds = (request.interests || []).map((i) => (typeof i === "string" ? i : i.name)).join(", ");
+  const topDiscoveries = tasteMap.slice(0, 3).map((t) => t.entityName).join(", ");
+  return {
+    title: `Cultural Fingerprint: ${seeds}`,
+    narrative: `${name}'s taste profile connects ${seeds} into an intentional aesthetic of emotional depth and distinctive craftsmanship. In Qloo's cultural knowledge graph, these signals bridge into ${topDiscoveries}, proving that what they value is a shared artistic sensibility rather than a single genre.`,
+    keywords: ["Atmospheric Intimacy", "Artistic Depth", "Cultural Affinity", "Curated Taste"],
+  };
 }
 
 export async function recommend(input: RecommendRequest, options: RecommendOptions = {}): Promise<RecommendResult> {
@@ -1114,10 +1124,10 @@ export async function recommend(input: RecommendRequest, options: RecommendOptio
   }));
 
   const laneItemIds = new Set(lanes.flatMap(({ items }) => items.map((entry) => entry.item.id)));
-  const shelf = sortByAffinity(pool)
-    .filter((entry) => !laneItemIds.has(entry.item.id))
-    .slice(0, 8)
-    .map(toGiftItem);
+  const shelf = diverseDiscoveries(
+    sortByAffinity(pool).filter((entry) => !laneItemIds.has(entry.item.id)),
+    (entry) => ({ id: entry.item.id, category: entry.item.category, entity: entry.entity.entity_id, affinity: entry.affinity }),
+  ).map(toGiftItem);
 
   const tasteMap: TasteMapEntry[] = [];
   const perTypeCount = new Map<string, number>();
@@ -1170,6 +1180,7 @@ export async function recommend(input: RecommendRequest, options: RecommendOptio
     picks,
     shelf,
     warnings,
+    dossier: buildFallbackDossier(input, tasteMap),
   };
 }
 

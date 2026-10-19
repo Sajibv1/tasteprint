@@ -218,7 +218,7 @@ export async function getInsights(options: InsightsOptions): Promise<QlooInsight
     "signal.interests.entities": options.signalEntities,
     "signal.interests.tags": options.signalTags,
     "signal.interests.entities.weight":
-      options.signalWeight ?? (options.signalWeights && options.signalEntities ? options.signalWeights.join(",") : undefined),
+      options.signalWeight ?? (options.signalWeights && options.signalWeights.length === 1 ? options.signalWeights[0] : undefined),
     "signal.demographics.audiences": options.audiences,
     "filter.results.entities": options.resultEntities,
     "filter.exclude.entities": options.excludeEntities,

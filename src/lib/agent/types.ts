@@ -39,7 +39,9 @@ export type RefineAction =
   | { kind: "reset-picks" }
   | { kind: "mood"; mood: SessionMood | "clear" }
   | { kind: "boost"; interest: string; op: "boost" | "mute" | "clear" }
-  | { kind: "note"; text: string };
+  | { kind: "note"; text: string }
+  | { kind: "clarify"; key: string; value: string; label?: string }
+  | { kind: "chat"; message: string };
 
 export interface AppliedRefinement {
   constraints: SessionConstraints;
@@ -50,8 +52,24 @@ export interface AppliedRefinement {
 
 export type StageName = "start" | "resolve" | "expand" | "hop2" | "score" | "select" | "explain" | "done";
 
+export interface ClarificationOption {
+  label: string;
+  value: string;
+  detail?: string;
+}
+
+export interface TasteDossier {
+  title: string;
+  narrative: string;
+  keywords: string[];
+}
+
 export type AgentEvent =
   | { type: "stage"; stage: StageName; label: string; detail?: string }
+  | { type: "thought"; content: string }
+  | { type: "agent-step"; tool: string; summary: string; reason?: string }
+  | { type: "clarification"; question: string; options: ClarificationOption[]; key: string }
+  | { type: "dossier"; dossier: TasteDossier }
   | { type: "interest"; input: string; matchedName: string; entityType: string; note?: string }
   | { type: "expansion"; entityType: string; name: string; affinityPct: number; hops: number; via?: string }
   | { type: "warning"; message: string }
@@ -77,6 +95,7 @@ export interface GiftItem {
   price: number;
   currency: string;
   image: string | null;
+  imageKind?: "product" | "cultural" | "editorial";
   buyUrl: string;
   category: string;
   description: string;
@@ -114,6 +133,7 @@ export interface TasteConnection {
   via?: string;
   affinityPct: number;
   hops: number;
+  bridgeStory?: string;
 }
 
 export interface InterestAlternate {
@@ -123,6 +143,8 @@ export interface InterestAlternate {
   urn?: string;
 }
 
+export type RunMode = "agent" | "pipeline" | "replay";
+
 export interface RecommendResult {
   resolvedInterests: { input: string; matchedName: string; type: string; alternates: InterestAlternate[]; candidates: InterestAlternate[] }[];
   tasteMap: TasteMapEntry[];
@@ -130,4 +152,8 @@ export interface RecommendResult {
   picks: GiftPick[];
   shelf: GiftItem[];
   warnings: string[];
+  /** Cultural Taste Dossier synthesizing the recipient's aesthetic fingerprint */
+  dossier?: TasteDossier;
+  /** Which engine produced this result — surfaced in the UI and the eval harness. */
+  mode?: RunMode;
 }

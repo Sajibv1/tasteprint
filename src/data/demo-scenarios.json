@@ -1,0 +1,3256 @@
+[
+  {
+    "id": "persona-ghibli",
+    "label": "Priya — Björk, Studio Ghibli, Sally Rooney ($80 Birthday)",
+    "request": {
+      "recipientName": "Priya",
+      "interests": [
+        "Björk",
+        "Studio Ghibli",
+        "Sally Rooney"
+      ],
+      "occasion": "Birthday",
+      "budgetMax": 80
+    },
+    "events": [
+      {
+        "type": "stage",
+        "stage": "start",
+        "label": "Planning the gift hunt",
+        "detail": "agent mode"
+      },
+      {
+        "type": "agent-step",
+        "tool": "resolve_entity",
+        "summary": "resolve “Björk” as artist",
+        "reason": "Primary Icelandic avant-pop musician, likely the artist."
+      },
+      {
+        "type": "stage",
+        "stage": "resolve",
+        "label": "Resolving “Björk” against Qloo's entity index",
+        "detail": "looking for artist"
+      },
+      {
+        "type": "interest",
+        "input": "Björk",
+        "matchedName": "Björk",
+        "entityType": "artist"
+      },
+      {
+        "type": "agent-note",
+        "message": "agent unavailable (LLM 429: {\"error\":{\"message\":\"Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01jx86106tfv79hw45) — using the deterministic pipeline"
+      },
+      {
+        "type": "stage",
+        "stage": "start",
+        "label": "Starting the taste reading"
+      },
+      {
+        "type": "stage",
+        "stage": "resolve",
+        "label": "Resolving interests against Qloo's entity index",
+        "detail": "Björk · Studio Ghibli · Sally Rooney"
+      },
+      {
+        "type": "interest",
+        "input": "Björk",
+        "matchedName": "Björk",
+        "entityType": "artist"
+      },
+      {
+        "type": "interest",
+        "input": "Studio Ghibli",
+        "matchedName": "Studio Ghibli",
+        "entityType": "artist"
+      },
+      {
+        "type": "interest",
+        "input": "Sally Rooney",
+        "matchedName": "Sally Rooney",
+        "entityType": "person"
+      },
+      {
+        "type": "stage",
+        "stage": "expand",
+        "label": "Expanding taste across music, brands, books and film",
+        "detail": "3 seed signals · four discovery domains"
+      },
+      {
+        "type": "expansion",
+        "entityType": "artist",
+        "name": "Fiona Apple",
+        "affinityPct": 93,
+        "hops": 1
+      },
+      {
+        "type": "expansion",
+        "entityType": "artist",
+        "name": "Kate Bush",
+        "affinityPct": 92,
+        "hops": 1
+      },
+      {
+        "type": "expansion",
+        "entityType": "brand",
+        "name": "SchulzMuseum",
+        "affinityPct": 90,
+        "hops": 1
+      },
+      {
+        "type": "expansion",
+        "entityType": "brand",
+        "name": "IKEA",
+        "affinityPct": 90,
+        "hops": 1
+      },
+      {
+        "type": "expansion",
+        "entityType": "book",
+        "name": "The Dawsonwood Diaries: In the Beginning",
+        "affinityPct": 87,
+        "hops": 1
+      },
+      {
+        "type": "expansion",
+        "entityType": "book",
+        "name": "Baby Teeth",
+        "affinityPct": 86,
+        "hops": 1
+      },
+      {
+        "type": "expansion",
+        "entityType": "movie",
+        "name": "Colorful",
+        "affinityPct": 91,
+        "hops": 1
+      },
+      {
+        "type": "expansion",
+        "entityType": "movie",
+        "name": "A Silent Voice: The Movie",
+        "affinityPct": 91,
+        "hops": 1
+      },
+      {
+        "type": "stage",
+        "stage": "hop2",
+        "label": "Second hop — chasing connections through the newly discovered taste",
+        "detail": "6 bridges: Fiona Apple, Kate Bush, The Sugarcubes…"
+      },
+      {
+        "type": "expansion",
+        "entityType": "artist",
+        "name": "Japanese Breakfast",
+        "affinityPct": 94,
+        "hops": 2,
+        "via": "Rina Sawayama"
+      },
+      {
+        "type": "expansion",
+        "entityType": "artist",
+        "name": "Weyes Blood",
+        "affinityPct": 94,
+        "hops": 2,
+        "via": "Rina Sawayama"
+      },
+      {
+        "type": "expansion",
+        "entityType": "brand",
+        "name": "Urban Outfitters",
+        "affinityPct": 94,
+        "hops": 2,
+        "via": "Fiona Apple"
+      },
+      {
+        "type": "expansion",
+        "entityType": "brand",
+        "name": "Warby Parker",
+        "affinityPct": 92,
+        "hops": 2,
+        "via": "Fiona Apple"
+      },
+      {
+        "type": "expansion",
+        "entityType": "book",
+        "name": "Call Me By Your Name (Call Me By Your Name, #1)",
+        "affinityPct": 87,
+        "hops": 2,
+        "via": "Rina Sawayama"
+      },
+      {
+        "type": "expansion",
+        "entityType": "book",
+        "name": "The Uncensored Picture of Dorian Gray",
+        "affinityPct": 86,
+        "hops": 2,
+        "via": "Rina Sawayama"
+      },
+      {
+        "type": "expansion",
+        "entityType": "movie",
+        "name": "Lady Bird",
+        "affinityPct": 92,
+        "hops": 2,
+        "via": "Kate Bush"
+      },
+      {
+        "type": "expansion",
+        "entityType": "movie",
+        "name": "Call Me by Your Name",
+        "affinityPct": 91,
+        "hops": 2,
+        "via": "Kate Bush"
+      },
+      {
+        "type": "stage",
+        "stage": "score",
+        "label": "Scoring every catalog product against their taste",
+        "detail": "95 products mapped to Qloo entities"
+      },
+      {
+        "type": "stage",
+        "stage": "select",
+        "label": "Selecting the three lanes",
+        "detail": "77 eligible items · budget $0–$80"
+      },
+      {
+        "type": "selection",
+        "lane": "safe",
+        "headline": "Closest to their taste",
+        "titles": [
+          "UT Graphic Tee — Art Series"
+        ]
+      },
+      {
+        "type": "selection",
+        "lane": "surprise",
+        "headline": "The unexpected connection",
+        "titles": [
+          "Woven Wall Tapestry"
+        ]
+      },
+      {
+        "type": "selection",
+        "lane": "bundle",
+        "headline": "One taste story, three chapters",
+        "titles": [
+          "Cahier Journals — 3-Pack",
+          "Kiki's Delivery Service — Sky Art Print",
+          "The Office — Trivia Game"
+        ]
+      },
+      {
+        "type": "stage",
+        "stage": "explain",
+        "label": "Writing the receipt copy",
+        "detail": "grounded in the resolved taste signals"
+      },
+      {
+        "type": "result",
+        "result": {
+          "resolvedInterests": [
+            {
+              "input": "Björk",
+              "matchedName": "Björk",
+              "type": "artist",
+              "alternates": [
+                {
+                  "type": "person",
+                  "name": "Björk",
+                  "popularity": 0.96,
+                  "urn": "urn:entity:person"
+                }
+              ],
+              "candidates": []
+            },
+            {
+              "input": "Studio Ghibli",
+              "matchedName": "Studio Ghibli",
+              "type": "artist",
+              "alternates": [],
+              "candidates": []
+            },
+            {
+              "input": "Sally Rooney",
+              "matchedName": "Sally Rooney",
+              "type": "person",
+              "alternates": [],
+              "candidates": []
+            }
+          ],
+          "tasteMap": [
+            {
+              "type": "artist",
+              "entityName": "Japanese Breakfast",
+              "affinityPct": 94,
+              "hops": 2,
+              "via": "Rina Sawayama"
+            },
+            {
+              "type": "artist",
+              "entityName": "Weyes Blood",
+              "affinityPct": 94,
+              "hops": 2,
+              "via": "Rina Sawayama"
+            },
+            {
+              "type": "brand",
+              "entityName": "Urban Outfitters",
+              "affinityPct": 94,
+              "hops": 2,
+              "via": "Fiona Apple"
+            },
+            {
+              "type": "artist",
+              "entityName": "Kelsey Lu",
+              "affinityPct": 93,
+              "hops": 2,
+              "via": "Rina Sawayama"
+            },
+            {
+              "type": "brand",
+              "entityName": "Warby Parker",
+              "affinityPct": 92,
+              "hops": 2,
+              "via": "Fiona Apple"
+            },
+            {
+              "type": "brand",
+              "entityName": "Dr. Martens",
+              "affinityPct": 92,
+              "hops": 2,
+              "via": "Fiona Apple"
+            },
+            {
+              "type": "movie",
+              "entityName": "Lady Bird",
+              "affinityPct": 92,
+              "hops": 2,
+              "via": "Kate Bush"
+            },
+            {
+              "type": "movie",
+              "entityName": "Call Me by Your Name",
+              "affinityPct": 91,
+              "hops": 2,
+              "via": "Kate Bush"
+            },
+            {
+              "type": "movie",
+              "entityName": "Colorful",
+              "affinityPct": 91,
+              "hops": 1
+            },
+            {
+              "type": "book",
+              "entityName": "Call Me By Your Name (Call Me By Your Name, #1)",
+              "affinityPct": 87,
+              "hops": 2,
+              "via": "Rina Sawayama"
+            },
+            {
+              "type": "book",
+              "entityName": "The Dawsonwood Diaries: In the Beginning",
+              "affinityPct": 87,
+              "hops": 1
+            },
+            {
+              "type": "book",
+              "entityName": "The Uncensored Picture of Dorian Gray",
+              "affinityPct": 86,
+              "hops": 2,
+              "via": "Rina Sawayama"
+            }
+          ],
+          "connections": [
+            {
+              "from": "Björk",
+              "to": "Japanese Breakfast",
+              "via": "Rina Sawayama",
+              "affinityPct": 94,
+              "hops": 2
+            },
+            {
+              "from": "Björk",
+              "to": "Weyes Blood",
+              "via": "Rina Sawayama",
+              "affinityPct": 94,
+              "hops": 2
+            },
+            {
+              "from": "Björk",
+              "to": "Urban Outfitters",
+              "via": "Fiona Apple",
+              "affinityPct": 94,
+              "hops": 2
+            },
+            {
+              "from": "Björk",
+              "to": "Kelsey Lu",
+              "via": "Rina Sawayama",
+              "affinityPct": 93,
+              "hops": 2
+            },
+            {
+              "from": "Björk",
+              "to": "Magdalena Bay",
+              "via": "Rina Sawayama",
+              "affinityPct": 93,
+              "hops": 2
+            },
+            {
+              "from": "Björk",
+              "to": "Slayyyter",
+              "via": "Rina Sawayama",
+              "affinityPct": 93,
+              "hops": 2
+            }
+          ],
+          "picks": [
+            {
+              "lane": "safe",
+              "headline": "Closest to their taste",
+              "explanation": "Of everything scored, UT Graphic Tee — Art Series lands closest to what they already love — a 89% affinity with their taste in Björk, Studio Ghibli and Sally Rooney across Qloo's graph. It is the pick that is almost impossible to get wrong.",
+              "items": [
+                {
+                  "id": "tp-014",
+                  "title": "UT Graphic Tee — Art Series",
+                  "brand": "UNIQLO",
+                  "price": 25,
+                  "currency": "USD",
+                  "image": "https://images.qloo.com/i/46C9F889-EC89-4715-A767-DEABACF52C41-420x-auto.jpg",
+                  "buyUrl": "https://www.uniqlo.com/us/en/search?q=UT",
+                  "category": "Apparel",
+                  "description": "Wearable art from the UT collaboration series.",
+                  "inventory": "in_stock",
+                  "entityName": "Uniqlo",
+                  "entityType": "brand",
+                  "affinity": 0.8924856913680119,
+                  "affinityPct": 89,
+                  "source": "discovery",
+                  "matchedInterests": [
+                    "Björk",
+                    "Studio Ghibli",
+                    "Sally Rooney"
+                  ],
+                  "contributors": [
+                    {
+                      "name": "Björk",
+                      "sharePct": 37
+                    },
+                    {
+                      "name": "Studio Ghibli",
+                      "sharePct": 35
+                    },
+                    {
+                      "name": "Sally Rooney",
+                      "sharePct": 28
+                    }
+                  ],
+                  "hops": 1,
+                  "reason": "Discovered by connecting their interests to Uniqlo (89% affinity)."
+                }
+              ],
+              "totalPrice": 25
+            },
+            {
+              "lane": "surprise",
+              "headline": "The unexpected connection",
+              "explanation": "This one is a leap: Qloo's taste graph links their love of Björk, Studio Ghibli and Sally Rooney to Urban Outfitters at 84%. It sits outside their usual orbit, which is exactly why it will feel like you know them better than they expected.",
+              "items": [
+                {
+                  "id": "tp-154",
+                  "title": "Woven Wall Tapestry",
+                  "brand": "Urban Outfitters",
+                  "price": 39,
+                  "currency": "USD",
+                  "image": "https://images.qloo.com/i/4F94C666-5FFA-4A42-8453-24C2F779EC36-420x-auto.jpg",
+                  "buyUrl": "https://www.amazon.com/s?k=urban+outfitters+tapestry",
+                  "category": "Home",
+                  "description": "Dorm-room gallery in one hang.",
+                  "inventory": "in_stock",
+                  "entityName": "Urban Outfitters",
+                  "entityType": "brand",
+                  "affinity": 0.8405797308433771,
+                  "affinityPct": 84,
+                  "source": "discovery",
+                  "matchedInterests": [
+                    "Björk",
+                    "Sally Rooney",
+                    "Studio Ghibli"
+                  ],
+                  "contributors": [
+                    {
+                      "name": "Björk",
+                      "sharePct": 38
+                    },
+                    {
+                      "name": "Sally Rooney",
+                      "sharePct": 33
+                    },
+                    {
+                      "name": "Studio Ghibli",
+                      "sharePct": 29
+                    }
+                  ],
+                  "hops": 2,
+                  "reason": "Discovered by connecting their interests to Urban Outfitters (84% affinity)."
+                }
+              ],
+              "totalPrice": 39
+            },
+            {
+              "lane": "bundle",
+              "headline": "One taste story, three chapters",
+              "explanation": "A curated 3-piece set spanning Stationery, Art Print and Gaming — each piece anchored in a different corner of their taste (Björk, Studio Ghibli and Sally Rooney), and together a complete unboxing moment.",
+              "items": [
+                {
+                  "id": "tp-045",
+                  "title": "Cahier Journals — 3-Pack",
+                  "brand": "Moleskine",
+                  "price": 15,
+                  "currency": "USD",
+                  "image": "https://images.qloo.com/i/AB06A58F-6962-4663-80A7-EF7D9208969A-420x-auto.jpg",
+                  "buyUrl": "https://www.amazon.com/s?k=moleskine+cahier+journals",
+                  "category": "Stationery",
+                  "description": "Lightweight stitch-bound notebooks — one per idea.",
+                  "inventory": "in_stock",
+                  "entityName": "Moleskine",
+                  "entityType": "brand",
+                  "affinity": 0.8897993381090219,
+                  "affinityPct": 89,
+                  "source": "adjacent",
+                  "matchedInterests": [
+                    "Björk",
+                    "Sally Rooney",
+                    "Studio Ghibli"
+                  ],
+                  "contributors": [
+                    {
+                      "name": "Björk",
+                      "sharePct": 36
+                    },
+                    {
+                      "name": "Sally Rooney",
+                      "sharePct": 34
+                    },
+                    {
+                      "name": "Studio Ghibli",
+                      "sharePct": 29
+                    }
+                  ],
+                  "reason": "A cross-domain connection surfaced by Qloo's graph (89% affinity)."
+                },
+                {
+                  "id": "tp-063",
+                  "title": "Kiki's Delivery Service — Sky Art Print",
+                  "brand": "Studio Ghibli Shop",
+                  "price": 19,
+                  "currency": "USD",
+                  "image": "https://images.qloo.com/i/D712D169-BCE2-487F-8977-0CE9459125C3-420x-auto.jpg",
+                  "buyUrl": "https://www.amazon.com/s?k=kiki+delivery+service+poster",
+                  "category": "Art Print",
+                  "description": "Cleared skies and a cat's tail wind — brightens any studio apartment.",
+                  "inventory": "in_stock",
+                  "entityName": "Kiki's Delivery Service",
+                  "entityType": "movie",
+                  "affinity": 0.8544615501365714,
+                  "affinityPct": 85,
+                  "source": "adjacent",
+                  "matchedInterests": [
+                    "Studio Ghibli",
+                    "Björk",
+                    "Sally Rooney"
+                  ],
+                  "contributors": [
+                    {
+                      "name": "Studio Ghibli",
+                      "sharePct": 42
+                    },
+                    {
+                      "name": "Björk",
+                      "sharePct": 33
+                    },
+                    {
+                      "name": "Sally Rooney",
+                      "sharePct": 25
+                    }
+                  ],
+                  "reason": "A cross-domain connection surfaced by Qloo's graph (85% affinity)."
+                },
+                {
+                  "id": "tp-116",
+                  "title": "The Office — Trivia Game",
+                  "brand": "Cardinal",
+                  "price": 24,
+                  "currency": "USD",
+                  "image": "https://images.qloo.com/i/E5AE1F26-04CB-4CDD-BBA4-87FB6541F848-420x-auto.jpg",
+                  "buyUrl": "https://www.amazon.com/s?k=the+office+trivia+game",
+                  "category": "Gaming",
+                  "description": "Bears, beets, Battlestar questions.",
+                  "inventory": "in_stock",
+                  "entityName": "The Office",
+                  "entityType": "tv show",
+                  "affinity": 0.8287148705309575,
+                  "affinityPct": 83,
+                  "source": "adjacent",
+                  "matchedInterests": [
+                    "Sally Rooney",
+                    "Björk",
+                    "Studio Ghibli"
+                  ],
+                  "contributors": [
+                    {
+                      "name": "Sally Rooney",
+                      "sharePct": 34
+                    },
+                    {
+                      "name": "Björk",
+                      "sharePct": 34
+                    },
+                    {
+                      "name": "Studio Ghibli",
+                      "sharePct": 33
+                    }
+                  ],
+                  "reason": "A cross-domain connection surfaced by Qloo's graph (83% affinity)."
+                }
+              ],
+              "totalPrice": 58
+            }
+          ],
+          "shelf": [
+            {
+              "id": "tp-115",
+              "title": "Stranger Things — Demogorgon Figure",
+              "brand": "Funko",
+              "price": 14,
+              "currency": "USD",
+              "image": "https://images.qloo.com/i/07F1170E-BB69-4982-82C6-255F477EBBAD-420x-auto.jpg",
+              "buyUrl": "https://www.amazon.com/s?k=stranger+things+funko",
+              "category": "Collectible",
+              "description": "Hawkins horror, pocket-sized.",
+              "inventory": "in_stock",
+              "entityName": "Stranger Things",
+              "entityType": "tv show",
+              "affinity": 0.9018797968079445,
+              "affinityPct": 90,
+              "source": "adjacent",
+              "matchedInterests": [
+                "Björk",
+                "Sally Rooney",
+                "Studio Ghibli"
+              ],
+              "contributors": [
+                {
+                  "name": "Björk",
+                  "sharePct": 37
+                },
+                {
+                  "name": "Sally Rooney",
+                  "sharePct": 33
+                },
+                {
+                  "name": "Studio Ghibli",
+                  "sharePct": 29
+                }
+              ],
+              "reason": "A cross-domain connection surfaced by Qloo's graph (90% affinity)."
+            },
+            {
+              "id": "tp-153",
+              "title": "Fado Table Lamp",
+              "brand": "IKEA",
+              "price": 35,
+              "currency": "USD",
+              "image": "https://images.qloo.com/i/7E9A2E74-1CB5-43E9-8B74-69CA8283BFBD-420x-auto.jpg",
+              "buyUrl": "https://www.amazon.com/s?k=ikea+fado+lamp",
+              "category": "Home",
+              "description": "A glowing orb for the side table.",
+              "inventory": "in_stock",
+              "entityName": "IKEA",
+              "entityType": "brand",
+              "affinity": 0.8988536514201751,
+              "affinityPct": 90,
+              "source": "discovery",
+              "matchedInterests": [
+                "Björk",
+                "Sally Rooney",
+                "Studio Ghibli"
+              ],
+              "contributors": [
+                {
+                  "name": "Björk",
+                  "sharePct": 40
+                },
+                {
+                  "name": "Sally Rooney",
+                  "sharePct": 31
+                },
+                {
+                  "name": "Studio Ghibli",
+                  "sharePct": 29
+                }
+              ],
+              "hops": 1,
+              "reason": "Discovered by connecting their interests to IKEA (90% affinity)."
+            },
+            {
+              "id": "tp-012",
+              "title": "Classic Notebook Set — Ruled",
+              "brand": "Moleskine",
+              "price": 24,
+              "currency": "USD",
+              "image": "https://images.qloo.com/i/AB06A58F-6962-4663-80A7-EF7D9208969A-420x-auto.jpg",
+              "buyUrl": "https://www.amazon.com/dp/B015NG46I2",
+              "category": "Stationery",
+              "description": "Three hardcover ruled notebooks for lists, lyrics, and sketches.",
+              "inventory": "in_stock",
+              "entityName": "Moleskine",
+              "entityType": "brand",
+              "affinity": 0.8897993381090219,
+              "affinityPct": 89,
+              "source": "adjacent",
+              "matchedInterests": [
+                "Björk",
+                "Sally Rooney",
+                "Studio Ghibli"
+              ],
+              "contributors": [
+                {
+                  "name": "Björk",
+                  "sharePct": 36
+                },
+                {
+                  "name": "Sally Rooney",
+                  "sharePct": 34
+                },
+                {
+                  "name": "Studio Ghibli",
+                  "sharePct": 29
+                }
+              ],
+              "reason": "A cross-domain connection surfaced by Qloo's graph (89% affinity)."
+            },
+            {
+              "id": "tp-041",
+              "title": "Art Sketchbook — Large",
+              "brand": "Moleskine",
+              "price": 26,
+              "currency": "USD",
+              "image": "https://images.qloo.com/i/AB06A58F-6962-4663-80A7-EF7D9208969A-420x-auto.jpg",
+              "buyUrl": "https://www.amazon.com/s?k=moleskine+art+sketchbook",
+              "category": "Stationery",
+              "description": "Heavyweight 165gsm pages that take ink, marker and abuse.",
+              "inventory": "in_stock",
+              "entityName": "Moleskine",
+              "entityType": "brand",
+              "affinity": 0.8897993381090219,
+              "affinityPct": 89,
+              "source": "adjacent",
+              "matchedInterests": [
+                "Björk",
+                "Sally Rooney",
+                "Studio Ghibli"
+              ],
+              "contributors": [
+                {
+                  "name": "Björk",
+                  "sharePct": 36
+                },
+                {
+                  "name": "Sally Rooney",
+                  "sharePct": 34
+                },
+                {
+                  "name": "Studio Ghibli",
+                  "sharePct": 29
+                }
+              ],
+              "reason": "A cross-domain connection surfaced by Qloo's graph (89% affinity)."
+            },
+            {
+              "id": "tp-114",
+              "title": "Ted Lasso — Believe Poster",
+              "brand": "Warner Bros.",
+              "price": 24,
+              "currency": "USD",
+              "image": "https://images.qloo.com/i/DCA1F3CA-7A25-421C-BB4D-A864B6D53848-420x-auto.jpg",
+              "buyUrl": "https://www.amazon.com/s?k=ted+lasso+believe+poster",
+              "category": "Art Print",
+              "description": "AFC Richmond optimism for the wall.",
+              "inventory": "in_stock",
+              "entityName": "Ted Lasso",
+              "entityType": "tv show",
+              "affinity": 0.866736250557104,
+              "affinityPct": 87,
+              "source": "adjacent",
+              "matchedInterests": [
+                "Studio Ghibli",
+                "Sally Rooney",
+                "Björk"
+              ],
+              "contributors": [
+                {
+                  "name": "Studio Ghibli",
+                  "sharePct": 35
+                },
+                {
+                  "name": "Sally Rooney",
+                  "sharePct": 33
+                },
+                {
+                  "name": "Björk",
+                  "sharePct": 31
+                }
+              ],
+              "reason": "A cross-domain connection surfaced by Qloo's graph (87% affinity)."
+            },
+            {
+              "id": "tp-059",
+              "title": "Kiki's Delivery Service — Jiji Tote Bag",
+              "brand": "Studio Ghibli Shop",
+              "price": 22,
+              "currency": "USD",
+              "image": "https://images.qloo.com/i/D712D169-BCE2-487F-8977-0CE9459125C3-420x-auto.jpg",
+              "buyUrl": "https://www.amazon.com/s?k=jiji+tote+bag+ghibli",
+              "category": "Stationery",
+              "description": "Everyone's favorite black cat, now helping with library runs.",
+              "inventory": "in_stock",
+              "entityName": "Kiki's Delivery Service",
+              "entityType": "movie",
+              "affinity": 0.8544615501365714,
+              "affinityPct": 85,
+              "source": "adjacent",
+              "matchedInterests": [
+                "Studio Ghibli",
+                "Björk",
+                "Sally Rooney"
+              ],
+              "contributors": [
+                {
+                  "name": "Studio Ghibli",
+                  "sharePct": 42
+                },
+                {
+                  "name": "Björk",
+                  "sharePct": 33
+                },
+                {
+                  "name": "Sally Rooney",
+                  "sharePct": 25
+                }
+              ],
+              "reason": "A cross-domain connection surfaced by Qloo's graph (85% affinity)."
+            },
+            {
+              "id": "tp-043",
+              "title": "Ghibli Museum Postcard Collection",
+              "brand": "Studio Ghibli",
+              "price": 12,
+              "currency": "USD",
+              "image": "https://images.qloo.com/i/9B33A620-68CA-49B3-BFCF-F09CCF8AD595-420x-auto.jpg",
+              "buyUrl": "https://www.etsy.com/search?q=ghibli+postcard+set",
+              "category": "Gift",
+              "description": "A thick stack of museum-edition stills to send — or hoard.",
+              "inventory": "in_stock",
+              "entityName": "Spirited Away",
+              "entityType": "movie",
+              "affinity": 0.84846252195729,
+              "affinityPct": 85,
+              "source": "adjacent",
+              "matchedInterests": [
+                "Studio Ghibli",
+                "Björk",
+                "Sally Rooney"
+              ],
+              "contributors": [
+                {
+                  "name": "Studio Ghibli",
+                  "sharePct": 38
+                },
+                {
+                  "name": "Björk",
+                  "sharePct": 36
+                },
+                {
+                  "name": "Sally Rooney",
+                  "sharePct": 25
+                }
+              ],
+              "reason": "A cross-domain connection surfaced by Qloo's graph (85% affinity)."
+            },
+            {
+              "id": "tp-005",
+              "title": "Spirited Away — Museum Art Print",
+              "brand": "Studio Ghibli",
+              "price": 28,
+              "currency": "USD",
+              "image": "https://images.qloo.com/i/9B33A620-68CA-49B3-BFCF-F09CCF8AD595-420x-auto.jpg",
+              "buyUrl": "https://www.etsy.com/search?q=spirited+away+art+print",
+              "category": "Art Print",
+              "description": "Giclée print of the bathhouse scene on archival cotton paper.",
+              "inventory": "in_stock",
+              "entityName": "Spirited Away",
+              "entityType": "movie",
+              "affinity": 0.84846252195729,
+              "affinityPct": 85,
+              "source": "adjacent",
+              "matchedInterests": [
+                "Studio Ghibli",
+                "Björk",
+                "Sally Rooney"
+              ],
+              "contributors": [
+                {
+                  "name": "Studio Ghibli",
+                  "sharePct": 38
+                },
+                {
+                  "name": "Björk",
+                  "sharePct": 36
+                },
+                {
+                  "name": "Sally Rooney",
+                  "sharePct": 25
+                }
+              ],
+              "reason": "A cross-domain connection surfaced by Qloo's graph (85% affinity)."
+            }
+          ],
+          "warnings": [],
+          "mode": "pipeline"
+        },
+        "constraints": {
+          "avoidItemIds": [],
+          "priorItemIds": [],
+          "boostInterests": [],
+          "muteInterests": []
+        }
+      }
+    ],
+    "result": {
+      "resolvedInterests": [
+        {
+          "input": "Björk",
+          "matchedName": "Björk",
+          "type": "artist",
+          "alternates": [
+            {
+              "type": "person",
+              "name": "Björk",
+              "popularity": 0.96,
+              "urn": "urn:entity:person"
+            }
+          ],
+          "candidates": []
+        },
+        {
+          "input": "Studio Ghibli",
+          "matchedName": "Studio Ghibli",
+          "type": "artist",
+          "alternates": [],
+          "candidates": []
+        },
+        {
+          "input": "Sally Rooney",
+          "matchedName": "Sally Rooney",
+          "type": "person",
+          "alternates": [],
+          "candidates": []
+        }
+      ],
+      "tasteMap": [
+        {
+          "type": "artist",
+          "entityName": "Japanese Breakfast",
+          "affinityPct": 94,
+          "hops": 2,
+          "via": "Rina Sawayama"
+        },
+        {
+          "type": "artist",
+          "entityName": "Weyes Blood",
+          "affinityPct": 94,
+          "hops": 2,
+          "via": "Rina Sawayama"
+        },
+        {
+          "type": "brand",
+          "entityName": "Urban Outfitters",
+          "affinityPct": 94,
+          "hops": 2,
+          "via": "Fiona Apple"
+        },
+        {
+          "type": "artist",
+          "entityName": "Kelsey Lu",
+          "affinityPct": 93,
+          "hops": 2,
+          "via": "Rina Sawayama"
+        },
+        {
+          "type": "brand",
+          "entityName": "Warby Parker",
+          "affinityPct": 92,
+          "hops": 2,
+          "via": "Fiona Apple"
+        },
+        {
+          "type": "brand",
+          "entityName": "Dr. Martens",
+          "affinityPct": 92,
+          "hops": 2,
+          "via": "Fiona Apple"
+        },
+        {
+          "type": "movie",
+          "entityName": "Lady Bird",
+          "affinityPct": 92,
+          "hops": 2,
+          "via": "Kate Bush"
+        },
+        {
+          "type": "movie",
+          "entityName": "Call Me by Your Name",
+          "affinityPct": 91,
+          "hops": 2,
+          "via": "Kate Bush"
+        },
+        {
+          "type": "movie",
+          "entityName": "Colorful",
+          "affinityPct": 91,
+          "hops": 1
+        },
+        {
+          "type": "book",
+          "entityName": "Call Me By Your Name (Call Me By Your Name, #1)",
+          "affinityPct": 87,
+          "hops": 2,
+          "via": "Rina Sawayama"
+        },
+        {
+          "type": "book",
+          "entityName": "The Dawsonwood Diaries: In the Beginning",
+          "affinityPct": 87,
+          "hops": 1
+        },
+        {
+          "type": "book",
+          "entityName": "The Uncensored Picture of Dorian Gray",
+          "affinityPct": 86,
+          "hops": 2,
+          "via": "Rina Sawayama"
+        }
+      ],
+      "connections": [
+        {
+          "from": "Björk",
+          "to": "Japanese Breakfast",
+          "via": "Rina Sawayama",
+          "affinityPct": 94,
+          "hops": 2
+        },
+        {
+          "from": "Björk",
+          "to": "Weyes Blood",
+          "via": "Rina Sawayama",
+          "affinityPct": 94,
+          "hops": 2
+        },
+        {
+          "from": "Björk",
+          "to": "Urban Outfitters",
+          "via": "Fiona Apple",
+          "affinityPct": 94,
+          "hops": 2
+        },
+        {
+          "from": "Björk",
+          "to": "Kelsey Lu",
+          "via": "Rina Sawayama",
+          "affinityPct": 93,
+          "hops": 2
+        },
+        {
+          "from": "Björk",
+          "to": "Magdalena Bay",
+          "via": "Rina Sawayama",
+          "affinityPct": 93,
+          "hops": 2
+        },
+        {
+          "from": "Björk",
+          "to": "Slayyyter",
+          "via": "Rina Sawayama",
+          "affinityPct": 93,
+          "hops": 2
+        }
+      ],
+      "picks": [
+        {
+          "lane": "safe",
+          "headline": "Closest to their taste",
+          "explanation": "Of everything scored, UT Graphic Tee — Art Series lands closest to what they already love — a 89% affinity with their taste in Björk, Studio Ghibli and Sally Rooney across Qloo's graph. It is the pick that is almost impossible to get wrong.",
+          "items": [
+            {
+              "id": "tp-014",
+              "title": "UT Graphic Tee — Art Series",
+              "brand": "UNIQLO",
+              "price": 25,
+              "currency": "USD",
+              "image": "https://images.qloo.com/i/46C9F889-EC89-4715-A767-DEABACF52C41-420x-auto.jpg",
+              "buyUrl": "https://www.uniqlo.com/us/en/search?q=UT",
+              "category": "Apparel",
+              "description": "Wearable art from the UT collaboration series.",
+              "inventory": "in_stock",
+              "entityName": "Uniqlo",
+              "entityType": "brand",
+              "affinity": 0.8924856913680119,
+              "affinityPct": 89,
+              "source": "discovery",
+              "matchedInterests": [
+                "Björk",
+                "Studio Ghibli",
+                "Sally Rooney"
+              ],
+              "contributors": [
+                {
+                  "name": "Björk",
+                  "sharePct": 37
+                },
+                {
+                  "name": "Studio Ghibli",
+                  "sharePct": 35
+                },
+                {
+                  "name": "Sally Rooney",
+                  "sharePct": 28
+                }
+              ],
+              "hops": 1,
+              "reason": "Discovered by connecting their interests to Uniqlo (89% affinity)."
+            }
+          ],
+          "totalPrice": 25
+        },
+        {
+          "lane": "surprise",
+          "headline": "The unexpected connection",
+          "explanation": "This one is a leap: Qloo's taste graph links their love of Björk, Studio Ghibli and Sally Rooney to Urban Outfitters at 84%. It sits outside their usual orbit, which is exactly why it will feel like you know them better than they expected.",
+          "items": [
+            {
+              "id": "tp-154",
+              "title": "Woven Wall Tapestry",
+              "brand": "Urban Outfitters",
+              "price": 39,
+              "currency": "USD",
+              "image": "https://images.qloo.com/i/4F94C666-5FFA-4A42-8453-24C2F779EC36-420x-auto.jpg",
+              "buyUrl": "https://www.amazon.com/s?k=urban+outfitters+tapestry",
+              "category": "Home",
+              "description": "Dorm-room gallery in one hang.",
+              "inventory": "in_stock",
+              "entityName": "Urban Outfitters",
+              "entityType": "brand",
+              "affinity": 0.8405797308433771,
+              "affinityPct": 84,
+              "source": "discovery",
+              "matchedInterests": [
+                "Björk",
+                "Sally Rooney",
+                "Studio Ghibli"
+              ],
+              "contributors": [
+                {
+                  "name": "Björk",
+                  "sharePct": 38
+                },
+                {
+                  "name": "Sally Rooney",
+                  "sharePct": 33
+                },
+                {
+                  "name": "Studio Ghibli",
+                  "sharePct": 29
+                }
+              ],
+              "hops": 2,
+              "reason": "Discovered by connecting their interests to Urban Outfitters (84% affinity)."
+            }
+          ],
+          "totalPrice": 39
+        },
+        {
+          "lane": "bundle",
+          "headline": "One taste story, three chapters",
+          "explanation": "A curated 3-piece set spanning Stationery, Art Print and Gaming — each piece anchored in a different corner of their taste (Björk, Studio Ghibli and Sally Rooney), and together a complete unboxing moment.",
+          "items": [
+            {
+              "id": "tp-045",
+              "title": "Cahier Journals — 3-Pack",
+              "brand": "Moleskine",
+              "price": 15,
+              "currency": "USD",
+              "image": "https://images.qloo.com/i/AB06A58F-6962-4663-80A7-EF7D9208969A-420x-auto.jpg",
+              "buyUrl": "https://www.amazon.com/s?k=moleskine+cahier+journals",
+              "category": "Stationery",
+              "description": "Lightweight stitch-bound notebooks — one per idea.",
+              "inventory": "in_stock",
+              "entityName": "Moleskine",
+              "entityType": "brand",
+              "affinity": 0.8897993381090219,
+              "affinityPct": 89,
+              "source": "adjacent",
+              "matchedInterests": [
+                "Björk",
+                "Sally Rooney",
+                "Studio Ghibli"
+              ],
+              "contributors": [
+                {
+                  "name": "Björk",
+                  "sharePct": 36
+                },
+                {
+                  "name": "Sally Rooney",
+                  "sharePct": 34
+                },
+                {
+                  "name": "Studio Ghibli",
+                  "sharePct": 29
+                }
+              ],
+              "reason": "A cross-domain connection surfaced by Qloo's graph (89% affinity)."
+            },
+            {
+              "id": "tp-063",
+              "title": "Kiki's Delivery Service — Sky Art Print",
+              "brand": "Studio Ghibli Shop",
+              "price": 19,
+              "currency": "USD",
+              "image": "https://images.qloo.com/i/D712D169-BCE2-487F-8977-0CE9459125C3-420x-auto.jpg",
+              "buyUrl": "https://www.amazon.com/s?k=kiki+delivery+service+poster",
+              "category": "Art Print",
+              "description": "Cleared skies and a cat's tail wind — brightens any studio apartment.",
+              "inventory": "in_stock",
+              "entityName": "Kiki's Delivery Service",
+              "entityType": "movie",
+              "affinity": 0.8544615501365714,
+              "affinityPct": 85,
+              "source": "adjacent",
+              "matchedInterests": [
+                "Studio Ghibli",
+                "Björk",
+                "Sally Rooney"
+              ],
+              "contributors": [
+                {
+                  "name": "Studio Ghibli",
+                  "sharePct": 42
+                },
+                {
+                  "name": "Björk",
+                  "sharePct": 33
+                },
+                {
+                  "name": "Sally Rooney",
+                  "sharePct": 25
+                }
+              ],
+              "reason": "A cross-domain connection surfaced by Qloo's graph (85% affinity)."
+            },
+            {
+              "id": "tp-116",
+              "title": "The Office — Trivia Game",
+              "brand": "Cardinal",
+              "price": 24,
+              "currency": "USD",
+              "image": "https://images.qloo.com/i/E5AE1F26-04CB-4CDD-BBA4-87FB6541F848-420x-auto.jpg",
+              "buyUrl": "https://www.amazon.com/s?k=the+office+trivia+game",
+              "category": "Gaming",
+              "description": "Bears, beets, Battlestar questions.",
+              "inventory": "in_stock",
+              "entityName": "The Office",
+              "entityType": "tv show",
+              "affinity": 0.8287148705309575,
+              "affinityPct": 83,
+              "source": "adjacent",
+              "matchedInterests": [
+                "Sally Rooney",
+                "Björk",
+                "Studio Ghibli"
+              ],
+              "contributors": [
+                {
+                  "name": "Sally Rooney",
+                  "sharePct": 34
+                },
+                {
+                  "name": "Björk",
+                  "sharePct": 34
+                },
+                {
+                  "name": "Studio Ghibli",
+                  "sharePct": 33
+                }
+              ],
+              "reason": "A cross-domain connection surfaced by Qloo's graph (83% affinity)."
+            }
+          ],
+          "totalPrice": 58
+        }
+      ],
+      "shelf": [
+        {
+          "id": "tp-115",
+          "title": "Stranger Things — Demogorgon Figure",
+          "brand": "Funko",
+          "price": 14,
+          "currency": "USD",
+          "image": "https://images.qloo.com/i/07F1170E-BB69-4982-82C6-255F477EBBAD-420x-auto.jpg",
+          "buyUrl": "https://www.amazon.com/s?k=stranger+things+funko",
+          "category": "Collectible",
+          "description": "Hawkins horror, pocket-sized.",
+          "inventory": "in_stock",
+          "entityName": "Stranger Things",
+          "entityType": "tv show",
+          "affinity": 0.9018797968079445,
+          "affinityPct": 90,
+          "source": "adjacent",
+          "matchedInterests": [
+            "Björk",
+            "Sally Rooney",
+            "Studio Ghibli"
+          ],
+          "contributors": [
+            {
+              "name": "Björk",
+              "sharePct": 37
+            },
+            {
+              "name": "Sally Rooney",
+              "sharePct": 33
+            },
+            {
+              "name": "Studio Ghibli",
+              "sharePct": 29
+            }
+          ],
+          "reason": "A cross-domain connection surfaced by Qloo's graph (90% affinity)."
+        },
+        {
+          "id": "tp-153",
+          "title": "Fado Table Lamp",
+          "brand": "IKEA",
+          "price": 35,
+          "currency": "USD",
+          "image": "https://images.qloo.com/i/7E9A2E74-1CB5-43E9-8B74-69CA8283BFBD-420x-auto.jpg",
+          "buyUrl": "https://www.amazon.com/s?k=ikea+fado+lamp",
+          "category": "Home",
+          "description": "A glowing orb for the side table.",
+          "inventory": "in_stock",
+          "entityName": "IKEA",
+          "entityType": "brand",
+          "affinity": 0.8988536514201751,
+          "affinityPct": 90,
+          "source": "discovery",
+          "matchedInterests": [
+            "Björk",
+            "Sally Rooney",
+            "Studio Ghibli"
+          ],
+          "contributors": [
+            {
+              "name": "Björk",
+              "sharePct": 40
+            },
+            {
+              "name": "Sally Rooney",
+              "sharePct": 31
+            },
+            {
+              "name": "Studio Ghibli",
+              "sharePct": 29
+            }
+          ],
+          "hops": 1,
+          "reason": "Discovered by connecting their interests to IKEA (90% affinity)."
+        },
+        {
+          "id": "tp-012",
+          "title": "Classic Notebook Set — Ruled",
+          "brand": "Moleskine",
+          "price": 24,
+          "currency": "USD",
+          "image": "https://images.qloo.com/i/AB06A58F-6962-4663-80A7-EF7D9208969A-420x-auto.jpg",
+          "buyUrl": "https://www.amazon.com/dp/B015NG46I2",
+          "category": "Stationery",
+          "description": "Three hardcover ruled notebooks for lists, lyrics, and sketches.",
+          "inventory": "in_stock",
+          "entityName": "Moleskine",
+          "entityType": "brand",
+          "affinity": 0.8897993381090219,
+          "affinityPct": 89,
+          "source": "adjacent",
+          "matchedInterests": [
+            "Björk",
+            "Sally Rooney",
+            "Studio Ghibli"
+          ],
+          "contributors": [
+            {
+              "name": "Björk",
+              "sharePct": 36
+            },
+            {
+              "name": "Sally Rooney",
+              "sharePct": 34
+            },
+            {
+              "name": "Studio Ghibli",
+              "sharePct": 29
+            }
+          ],
+          "reason": "A cross-domain connection surfaced by Qloo's graph (89% affinity)."
+        },
+        {
+          "id": "tp-041",
+          "title": "Art Sketchbook — Large",
+          "brand": "Moleskine",
+          "price": 26,
+          "currency": "USD",
+          "image": "https://images.qloo.com/i/AB06A58F-6962-4663-80A7-EF7D9208969A-420x-auto.jpg",
+          "buyUrl": "https://www.amazon.com/s?k=moleskine+art+sketchbook",
+          "category": "Stationery",
+          "description": "Heavyweight 165gsm pages that take ink, marker and abuse.",
+          "inventory": "in_stock",
+          "entityName": "Moleskine",
+          "entityType": "brand",
+          "affinity": 0.8897993381090219,
+          "affinityPct": 89,
+          "source": "adjacent",
+          "matchedInterests": [
+            "Björk",
+            "Sally Rooney",
+            "Studio Ghibli"
+          ],
+          "contributors": [
+            {
+              "name": "Björk",
+              "sharePct": 36
+            },
+            {
+              "name": "Sally Rooney",
+              "sharePct": 34
+            },
+            {
+              "name": "Studio Ghibli",
+              "sharePct": 29
+            }
+          ],
+          "reason": "A cross-domain connection surfaced by Qloo's graph (89% affinity)."
+        },
+        {
+          "id": "tp-114",
+          "title": "Ted Lasso — Believe Poster",
+          "brand": "Warner Bros.",
+          "price": 24,
+          "currency": "USD",
+          "image": "https://images.qloo.com/i/DCA1F3CA-7A25-421C-BB4D-A864B6D53848-420x-auto.jpg",
+          "buyUrl": "https://www.amazon.com/s?k=ted+lasso+believe+poster",
+          "category": "Art Print",
+          "description": "AFC Richmond optimism for the wall.",
+          "inventory": "in_stock",
+          "entityName": "Ted Lasso",
+          "entityType": "tv show",
+          "affinity": 0.866736250557104,
+          "affinityPct": 87,
+          "source": "adjacent",
+          "matchedInterests": [
+            "Studio Ghibli",
+            "Sally Rooney",
+            "Björk"
+          ],
+          "contributors": [
+            {
+              "name": "Studio Ghibli",
+              "sharePct": 35
+            },
+            {
+              "name": "Sally Rooney",
+              "sharePct": 33
+            },
+            {
+              "name": "Björk",
+              "sharePct": 31
+            }
+          ],
+          "reason": "A cross-domain connection surfaced by Qloo's graph (87% affinity)."
+        },
+        {
+          "id": "tp-059",
+          "title": "Kiki's Delivery Service — Jiji Tote Bag",
+          "brand": "Studio Ghibli Shop",
+          "price": 22,
+          "currency": "USD",
+          "image": "https://images.qloo.com/i/D712D169-BCE2-487F-8977-0CE9459125C3-420x-auto.jpg",
+          "buyUrl": "https://www.amazon.com/s?k=jiji+tote+bag+ghibli",
+          "category": "Stationery",
+          "description": "Everyone's favorite black cat, now helping with library runs.",
+          "inventory": "in_stock",
+          "entityName": "Kiki's Delivery Service",
+          "entityType": "movie",
+          "affinity": 0.8544615501365714,
+          "affinityPct": 85,
+          "source": "adjacent",
+          "matchedInterests": [
+            "Studio Ghibli",
+            "Björk",
+            "Sally Rooney"
+          ],
+          "contributors": [
+            {
+              "name": "Studio Ghibli",
+              "sharePct": 42
+            },
+            {
+              "name": "Björk",
+              "sharePct": 33
+            },
+            {
+              "name": "Sally Rooney",
+              "sharePct": 25
+            }
+          ],
+          "reason": "A cross-domain connection surfaced by Qloo's graph (85% affinity)."
+        },
+        {
+          "id": "tp-043",
+          "title": "Ghibli Museum Postcard Collection",
+          "brand": "Studio Ghibli",
+          "price": 12,
+          "currency": "USD",
+          "image": "https://images.qloo.com/i/9B33A620-68CA-49B3-BFCF-F09CCF8AD595-420x-auto.jpg",
+          "buyUrl": "https://www.etsy.com/search?q=ghibli+postcard+set",
+          "category": "Gift",
+          "description": "A thick stack of museum-edition stills to send — or hoard.",
+          "inventory": "in_stock",
+          "entityName": "Spirited Away",
+          "entityType": "movie",
+          "affinity": 0.84846252195729,
+          "affinityPct": 85,
+          "source": "adjacent",
+          "matchedInterests": [
+            "Studio Ghibli",
+            "Björk",
+            "Sally Rooney"
+          ],
+          "contributors": [
+            {
+              "name": "Studio Ghibli",
+              "sharePct": 38
+            },
+            {
+              "name": "Björk",
+              "sharePct": 36
+            },
+            {
+              "name": "Sally Rooney",
+              "sharePct": 25
+            }
+          ],
+          "reason": "A cross-domain connection surfaced by Qloo's graph (85% affinity)."
+        },
+        {
+          "id": "tp-005",
+          "title": "Spirited Away — Museum Art Print",
+          "brand": "Studio Ghibli",
+          "price": 28,
+          "currency": "USD",
+          "image": "https://images.qloo.com/i/9B33A620-68CA-49B3-BFCF-F09CCF8AD595-420x-auto.jpg",
+          "buyUrl": "https://www.etsy.com/search?q=spirited+away+art+print",
+          "category": "Art Print",
+          "description": "Giclée print of the bathhouse scene on archival cotton paper.",
+          "inventory": "in_stock",
+          "entityName": "Spirited Away",
+          "entityType": "movie",
+          "affinity": 0.84846252195729,
+          "affinityPct": 85,
+          "source": "adjacent",
+          "matchedInterests": [
+            "Studio Ghibli",
+            "Björk",
+            "Sally Rooney"
+          ],
+          "contributors": [
+            {
+              "name": "Studio Ghibli",
+              "sharePct": 38
+            },
+            {
+              "name": "Björk",
+              "sharePct": 36
+            },
+            {
+              "name": "Sally Rooney",
+              "sharePct": 25
+            }
+          ],
+          "reason": "A cross-domain connection surfaced by Qloo's graph (85% affinity)."
+        }
+      ],
+      "warnings": [],
+      "mode": "pipeline"
+    }
+  },
+  {
+    "id": "persona-scifi",
+    "label": "Devon — Blade Runner, Dune, Frank Ocean ($120 Holidays)",
+    "request": {
+      "recipientName": "Devon",
+      "interests": [
+        "Blade Runner",
+        "Dune",
+        "Frank Ocean"
+      ],
+      "occasion": "Holidays",
+      "budgetMax": 120
+    },
+    "events": [
+      {
+        "type": "stage",
+        "stage": "start",
+        "label": "Planning the gift hunt",
+        "detail": "agent mode"
+      },
+      {
+        "type": "agent-note",
+        "message": "agent unavailable (LLM 429: {\"error\":{\"message\":\"Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01jx86106tfv79hw45) — using the deterministic pipeline"
+      },
+      {
+        "type": "stage",
+        "stage": "start",
+        "label": "Starting the taste reading"
+      },
+      {
+        "type": "stage",
+        "stage": "resolve",
+        "label": "Resolving interests against Qloo's entity index",
+        "detail": "Blade Runner · Dune · Frank Ocean"
+      },
+      {
+        "type": "interest",
+        "input": "Blade Runner",
+        "matchedName": "Blade Runner",
+        "entityType": "movie"
+      },
+      {
+        "type": "interest",
+        "input": "Dune",
+        "matchedName": "Dune",
+        "entityType": "movie"
+      },
+      {
+        "type": "interest",
+        "input": "Frank Ocean",
+        "matchedName": "Frank Ocean",
+        "entityType": "artist"
+      },
+      {
+        "type": "stage",
+        "stage": "expand",
+        "label": "Expanding taste across music, brands, books and film",
+        "detail": "3 seed signals · four discovery domains"
+      },
+      {
+        "type": "expansion",
+        "entityType": "artist",
+        "name": "Tyler, the Creator",
+        "affinityPct": 92,
+        "hops": 1
+      },
+      {
+        "type": "expansion",
+        "entityType": "artist",
+        "name": "Yves Tumor",
+        "affinityPct": 92,
+        "hops": 1
+      },
+      {
+        "type": "expansion",
+        "entityType": "brand",
+        "name": "Tesla",
+        "affinityPct": 96,
+        "hops": 1
+      },
+      {
+        "type": "expansion",
+        "entityType": "brand",
+        "name": "Apple Inc",
+        "affinityPct": 95,
+        "hops": 1
+      },
+      {
+        "type": "expansion",
+        "entityType": "book",
+        "name": "A Room of One’s Own",
+        "affinityPct": 86,
+        "hops": 1
+      },
+      {
+        "type": "expansion",
+        "entityType": "book",
+        "name": "One Piece, Volume 27: Overture",
+        "affinityPct": 85,
+        "hops": 1
+      },
+      {
+        "type": "expansion",
+        "entityType": "movie",
+        "name": "Blade Runner 2049",
+        "affinityPct": 90,
+        "hops": 1
+      },
+      {
+        "type": "expansion",
+        "entityType": "movie",
+        "name": "Everything Everywhere All at Once",
+        "affinityPct": 89,
+        "hops": 1
+      },
+      {
+        "type": "stage",
+        "stage": "hop2",
+        "label": "Second hop — chasing connections through the newly discovered taste",
+        "detail": "6 bridges: Tesla, Apple Inc, Lamborghini…"
+      },
+      {
+        "type": "expansion",
+        "entityType": "artist",
+        "name": "The Weeknd",
+        "affinityPct": 95,
+        "hops": 2,
+        "via": "Lamborghini"
+      },
+      {
+        "type": "expansion",
+        "entityType": "artist",
+        "name": "Drake&Orson",
+        "affinityPct": 94,
+        "hops": 2,
+        "via": "Lamborghini"
+      },
+      {
+        "type": "expansion",
+        "entityType": "brand",
+        "name": "Mclaren Automotive",
+        "affinityPct": 96,
+        "hops": 2,
+        "via": "Porsche"
+      },
+      {
+        "type": "expansion",
+        "entityType": "brand",
+        "name": "Land Rover",
+        "affinityPct": 96,
+        "hops": 2,
+        "via": "Porsche"
+      },
+      {
+        "type": "expansion",
+        "entityType": "book",
+        "name": "Pistol: The Life of Pete Maravich",
+        "affinityPct": 88,
+        "hops": 2,
+        "via": "Lamborghini"
+      },
+      {
+        "type": "expansion",
+        "entityType": "book",
+        "name": "A Season on the Brink: A Year with Bob Knight and the Indiana Hoosiers",
+        "affinityPct": 88,
+        "hops": 2,
+        "via": "Lamborghini"
+      },
+      {
+        "type": "expansion",
+        "entityType": "movie",
+        "name": "Avengers: Endgame",
+        "affinityPct": 94,
+        "hops": 2,
+        "via": "Tesla"
+      },
+      {
+        "type": "expansion",
+        "entityType": "movie",
+        "name": "Spider-Man: Far from Home",
+        "affinityPct": 94,
+        "hops": 2,
+        "via": "Tesla"
+      },
+      {
+        "type": "stage",
+        "stage": "score",
+        "label": "Scoring every catalog product against their taste",
+        "detail": "95 products mapped to Qloo entities"
+      },
+      {
+        "type": "stage",
+        "stage": "select",
+        "label": "Selecting the three lanes",
+        "detail": "87 eligible items · budget $0–$120"
+      },
+      {
+        "type": "selection",
+        "lane": "safe",
+        "headline": "Closest to their taste",
+        "titles": [
+          "WF-C710N Earbuds"
+        ]
+      },
+      {
+        "type": "selection",
+        "lane": "surprise",
+        "headline": "The unexpected connection",
+        "titles": [
+          "Air Force 1 '07"
+        ]
+      },
+      {
+        "type": "selection",
+        "lane": "bundle",
+        "headline": "One taste story, three chapters",
+        "titles": [
+          "In the Mood for Love — A3 Poster",
+          "Classic Notebook Set — Ruled",
+          "Elden Ring — PS5"
+        ]
+      },
+      {
+        "type": "stage",
+        "stage": "explain",
+        "label": "Writing the receipt copy",
+        "detail": "grounded in the resolved taste signals"
+      },
+      {
+        "type": "result",
+        "result": {
+          "resolvedInterests": [
+            {
+              "input": "Blade Runner",
+              "matchedName": "Blade Runner",
+              "type": "movie",
+              "alternates": [
+                {
+                  "type": "artist",
+                  "name": "Blade Runner",
+                  "popularity": 0.77,
+                  "urn": "urn:entity:artist"
+                },
+                {
+                  "type": "book",
+                  "name": "Blade Runner",
+                  "popularity": 0.75,
+                  "urn": "urn:entity:book"
+                }
+              ],
+              "candidates": []
+            },
+            {
+              "input": "Dune",
+              "matchedName": "Dune",
+              "type": "movie",
+              "alternates": [
+                {
+                  "type": "artist",
+                  "name": "Dune",
+                  "popularity": 0.99,
+                  "urn": "urn:entity:artist"
+                },
+                {
+                  "type": "tv show",
+                  "name": "Dune",
+                  "popularity": 0.92,
+                  "urn": "urn:entity:tv_show"
+                }
+              ],
+              "candidates": []
+            },
+            {
+              "input": "Frank Ocean",
+              "matchedName": "Frank Ocean",
+              "type": "artist",
+              "alternates": [
+                {
+                  "type": "person",
+                  "name": "Frank Ocean",
+                  "popularity": 0.97,
+                  "urn": "urn:entity:person"
+                }
+              ],
+              "candidates": []
+            }
+          ],
+          "tasteMap": [
+            {
+              "type": "brand",
+              "entityName": "Tesla",
+              "affinityPct": 96,
+              "hops": 1
+            },
+            {
+              "type": "brand",
+              "entityName": "Mclaren Automotive",
+              "affinityPct": 96,
+              "hops": 2,
+              "via": "Porsche"
+            },
+            {
+              "type": "brand",
+              "entityName": "Land Rover",
+              "affinityPct": 96,
+              "hops": 2,
+              "via": "Porsche"
+            },
+            {
+              "type": "artist",
+              "entityName": "The Weeknd",
+              "affinityPct": 95,
+              "hops": 2,
+              "via": "Lamborghini"
+            },
+            {
+              "type": "artist",
+              "entityName": "Drake&Orson",
+              "affinityPct": 94,
+              "hops": 2,
+              "via": "Lamborghini"
+            },
+            {
+              "type": "movie",
+              "entityName": "Avengers: Endgame",
+              "affinityPct": 94,
+              "hops": 2,
+              "via": "Tesla"
+            },
+            {
+              "type": "artist",
+              "entityName": "Future",
+              "affinityPct": 94,
+              "hops": 2,
+              "via": "Lamborghini"
+            },
+            {
+              "type": "movie",
+              "entityName": "Spider-Man: Far from Home",
+              "affinityPct": 94,
+              "hops": 2,
+              "via": "Tesla"
+            },
+            {
+              "type": "movie",
+              "entityName": "John Wick: Chapter 3 - Parabellum",
+              "affinityPct": 93,
+              "hops": 2,
+              "via": "Tesla"
+            },
+            {
+              "type": "book",
+              "entityName": "Pistol: The Life of Pete Maravich",
+              "affinityPct": 88,
+              "hops": 2,
+              "via": "Lamborghini"
+            },
+            {
+              "type": "book",
+              "entityName": "A Season on the Brink: A Year with Bob Knight and the Indiana Hoosiers",
+              "affinityPct": 88,
+              "hops": 2,
+              "via": "Lamborghini"
+            },
+            {
+              "type": "book",
+              "entityName": "Coach Wooden and Me: Our 50-Year Friendship On and Off the Court",
+              "affinityPct": 88,
+              "hops": 2,
+              "via": "Lamborghini"
+            }
+          ],
+          "connections": [
+            {
+              "from": "Dune",
+              "to": "Mclaren Automotive",
+              "via": "Porsche",
+              "affinityPct": 96,
+              "hops": 2
+            },
+            {
+              "from": "Dune",
+              "to": "Land Rover",
+              "via": "Porsche",
+              "affinityPct": 96,
+              "hops": 2
+            },
+            {
+              "from": "Dune",
+              "to": "Volkswagen",
+              "via": "Porsche",
+              "affinityPct": 96,
+              "hops": 2
+            },
+            {
+              "from": "Dune",
+              "to": "Jeep",
+              "via": "Porsche",
+              "affinityPct": 95,
+              "hops": 2
+            },
+            {
+              "from": "Dune",
+              "to": "Dodge",
+              "via": "Porsche",
+              "affinityPct": 95,
+              "hops": 2
+            },
+            {
+              "from": "Dune",
+              "to": "The Weeknd",
+              "via": "Lamborghini",
+              "affinityPct": 95,
+              "hops": 2
+            }
+          ],
+          "picks": [
+            {
+              "lane": "safe",
+              "headline": "Closest to their taste",
+              "explanation": "Of everything scored, WF-C710N Earbuds lands closest to what they already love — a 93% affinity with their taste in Dune, Blade Runner and Frank Ocean across Qloo's graph. It is the pick that is almost impossible to get wrong.",
+              "items": [
+                {
+                  "id": "tp-141",
+                  "title": "WF-C710N Earbuds",
+                  "brand": "Sony",
+                  "price": 99,
+                  "currency": "USD",
+                  "image": "https://images.qloo.com/i/AA620FF2-87D7-43EC-BFAE-36631D076D8D-420x-auto.jpg",
+                  "buyUrl": "https://www.amazon.com/s?k=sony+wf+c710n",
+                  "category": "Audio Gear",
+                  "description": "Sony noise-cancelling on a budget.",
+                  "inventory": "in_stock",
+                  "entityName": "Sony",
+                  "entityType": "brand",
+                  "affinity": 0.9251956737928009,
+                  "affinityPct": 93,
+                  "source": "discovery",
+                  "matchedInterests": [
+                    "Dune",
+                    "Blade Runner",
+                    "Frank Ocean"
+                  ],
+                  "contributors": [
+                    {
+                      "name": "Dune",
+                      "sharePct": 34
+                    },
+                    {
+                      "name": "Blade Runner",
+                      "sharePct": 34
+                    },
+                    {
+                      "name": "Frank Ocean",
+                      "sharePct": 32
+                    }
+                  ],
+                  "hops": 1,
+                  "reason": "Discovered by connecting their interests to Sony (93% affinity)."
+                }
+              ],
+              "totalPrice": 99
+            },
+            {
+              "lane": "surprise",
+              "headline": "The unexpected connection",
+              "explanation": "This one is a leap: Qloo's taste graph links their love of Blade Runner, Dune and Frank Ocean to Nike at 92%. It sits outside their usual orbit, which is exactly why it will feel like you know them better than they expected.",
+              "items": [
+                {
+                  "id": "tp-144",
+                  "title": "Air Force 1 '07",
+                  "brand": "Nike",
+                  "price": 95,
+                  "currency": "USD",
+                  "image": "https://images.qloo.com/i/C70CE2B8-0AD1-4150-BF18-5A6347F2E860-420x-auto.jpg",
+                  "buyUrl": "https://www.amazon.com/s?k=nike+air+force+1",
+                  "category": "Apparel",
+                  "description": "The white sneaker that never dies.",
+                  "inventory": "in_stock",
+                  "entityName": "Nike",
+                  "entityType": "brand",
+                  "affinity": 0.9185843702049932,
+                  "affinityPct": 92,
+                  "source": "discovery",
+                  "matchedInterests": [
+                    "Frank Ocean",
+                    "Blade Runner",
+                    "Dune"
+                  ],
+                  "contributors": [
+                    {
+                      "name": "Frank Ocean",
+                      "sharePct": 36
+                    },
+                    {
+                      "name": "Blade Runner",
+                      "sharePct": 32
+                    },
+                    {
+                      "name": "Dune",
+                      "sharePct": 32
+                    }
+                  ],
+                  "hops": 1,
+                  "reason": "Discovered by connecting their interests to Nike (92% affinity)."
+                }
+              ],
+              "totalPrice": 95
+            },
+            {
+              "lane": "bundle",
+              "headline": "One taste story, three chapters",
+              "explanation": "A curated 3-piece set spanning Art Print, Stationery and Gaming — each piece anchored in a different corner of their taste (Blade Runner, Dune and Frank Ocean), and together a complete unboxing moment.",
+              "items": [
+                {
+                  "id": "tp-044",
+                  "title": "In the Mood for Love — A3 Poster",
+                  "brand": "The Criterion Collection",
+                  "price": 18,
+                  "currency": "USD",
+                  "image": "https://images.qloo.com/i/900B6C69-9D86-4153-B8FD-4D6CD726FCF8-420x-auto.jpg",
+                  "buyUrl": "https://www.etsy.com/search?q=in+the+mood+for+love+poster",
+                  "category": "Art Print",
+                  "description": "The corridor poster — Wong Kar-wai's hallway of almost.",
+                  "inventory": "in_stock",
+                  "entityName": "In the Mood for Love",
+                  "entityType": "movie",
+                  "affinity": 0.8339716623195769,
+                  "affinityPct": 83,
+                  "source": "adjacent",
+                  "matchedInterests": [
+                    "Frank Ocean",
+                    "Blade Runner",
+                    "Dune"
+                  ],
+                  "contributors": [
+                    {
+                      "name": "Frank Ocean",
+                      "sharePct": 36
+                    },
+                    {
+                      "name": "Blade Runner",
+                      "sharePct": 35
+                    },
+                    {
+                      "name": "Dune",
+                      "sharePct": 28
+                    }
+                  ],
+                  "reason": "A cross-domain connection surfaced by Qloo's graph (83% affinity)."
+                },
+                {
+                  "id": "tp-012",
+                  "title": "Classic Notebook Set — Ruled",
+                  "brand": "Moleskine",
+                  "price": 24,
+                  "currency": "USD",
+                  "image": "https://images.qloo.com/i/AB06A58F-6962-4663-80A7-EF7D9208969A-420x-auto.jpg",
+                  "buyUrl": "https://www.amazon.com/dp/B015NG46I2",
+                  "category": "Stationery",
+                  "description": "Three hardcover ruled notebooks for lists, lyrics, and sketches.",
+                  "inventory": "in_stock",
+                  "entityName": "Moleskine",
+                  "entityType": "brand",
+                  "affinity": 0.8261305992295677,
+                  "affinityPct": 83,
+                  "source": "adjacent",
+                  "matchedInterests": [
+                    "Blade Runner",
+                    "Dune",
+                    "Frank Ocean"
+                  ],
+                  "contributors": [
+                    {
+                      "name": "Blade Runner",
+                      "sharePct": 34
+                    },
+                    {
+                      "name": "Dune",
+                      "sharePct": 33
+                    },
+                    {
+                      "name": "Frank Ocean",
+                      "sharePct": 32
+                    }
+                  ],
+                  "reason": "A cross-domain connection surfaced by Qloo's graph (83% affinity)."
+                },
+                {
+                  "id": "tp-163",
+                  "title": "Elden Ring — PS5",
+                  "brand": "FromSoftware",
+                  "price": 69,
+                  "currency": "USD",
+                  "image": "https://images.qloo.com/i/46CBADC5-F4A6-4E97-93B2-959066C9F608-420x-auto.jpg",
+                  "buyUrl": "https://www.amazon.com/s?k=elden+ring+ps5",
+                  "category": "Gaming",
+                  "description": "The open-world Souls benchmark.",
+                  "inventory": "in_stock",
+                  "entityName": "Elden Ring",
+                  "entityType": "videogame",
+                  "affinity": 0.8116406454406494,
+                  "affinityPct": 81,
+                  "source": "adjacent",
+                  "matchedInterests": [
+                    "Dune",
+                    "Blade Runner",
+                    "Frank Ocean"
+                  ],
+                  "contributors": [
+                    {
+                      "name": "Dune",
+                      "sharePct": 41
+                    },
+                    {
+                      "name": "Blade Runner",
+                      "sharePct": 31
+                    },
+                    {
+                      "name": "Frank Ocean",
+                      "sharePct": 28
+                    }
+                  ],
+                  "reason": "A cross-domain connection surfaced by Qloo's graph (81% affinity)."
+                }
+              ],
+              "totalPrice": 111
+            }
+          ],
+          "shelf": [
+            {
+              "id": "tp-157",
+              "title": "AirTag (Single)",
+              "brand": "Apple",
+              "price": 29,
+              "currency": "USD",
+              "image": "https://images.qloo.com/i/D5B78065-6DBB-4DDB-80DF-6495B9B1006B-420x-auto.jpg",
+              "buyUrl": "https://www.amazon.com/s?k=apple+airtag",
+              "category": "Gift",
+              "description": "Never lose the keys again.",
+              "inventory": "in_stock",
+              "entityName": "Apple Inc",
+              "entityType": "brand",
+              "affinity": 0.953880136928087,
+              "affinityPct": 95,
+              "source": "discovery",
+              "matchedInterests": [
+                "Dune",
+                "Blade Runner",
+                "Frank Ocean"
+              ],
+              "contributors": [
+                {
+                  "name": "Dune",
+                  "sharePct": 34
+                },
+                {
+                  "name": "Blade Runner",
+                  "sharePct": 33
+                },
+                {
+                  "name": "Frank Ocean",
+                  "sharePct": 33
+                }
+              ],
+              "hops": 1,
+              "reason": "Discovered by connecting their interests to Apple Inc (95% affinity)."
+            },
+            {
+              "id": "tp-168",
+              "title": "DualSense Wireless Controller",
+              "brand": "PlayStation",
+              "price": 74,
+              "currency": "USD",
+              "image": "https://images.qloo.com/i/1E74E760-63C9-48E9-89A0-6716C9C14E8B-420x-auto.jpg",
+              "buyUrl": "https://www.amazon.com/s?k=playstation+dualsense",
+              "category": "Gaming",
+              "description": "Haptics that sell the hit.",
+              "inventory": "in_stock",
+              "entityName": "Playstation",
+              "entityType": "brand",
+              "affinity": 0.917471751162993,
+              "affinityPct": 92,
+              "source": "discovery",
+              "matchedInterests": [
+                "Dune",
+                "Blade Runner",
+                "Frank Ocean"
+              ],
+              "contributors": [
+                {
+                  "name": "Dune",
+                  "sharePct": 34
+                },
+                {
+                  "name": "Blade Runner",
+                  "sharePct": 34
+                },
+                {
+                  "name": "Frank Ocean",
+                  "sharePct": 33
+                }
+              ],
+              "hops": 1,
+              "reason": "Discovered by connecting their interests to Playstation (92% affinity)."
+            },
+            {
+              "id": "tp-145",
+              "title": "Samba OG Shoes",
+              "brand": "Adidas",
+              "price": 100,
+              "currency": "USD",
+              "image": "https://images.qloo.com/i/FCEA7CA1-1D40-4680-B337-E74594D9BCF1-420x-auto.jpg",
+              "buyUrl": "https://www.amazon.com/s?k=adidas+samba+og",
+              "category": "Apparel",
+              "description": "Terrace classic, back on top.",
+              "inventory": "in_stock",
+              "entityName": "Adidas",
+              "entityType": "brand",
+              "affinity": 0.9081613980597237,
+              "affinityPct": 91,
+              "source": "adjacent",
+              "matchedInterests": [
+                "Frank Ocean",
+                "Blade Runner",
+                "Dune"
+              ],
+              "contributors": [
+                {
+                  "name": "Frank Ocean",
+                  "sharePct": 36
+                },
+                {
+                  "name": "Blade Runner",
+                  "sharePct": 32
+                },
+                {
+                  "name": "Dune",
+                  "sharePct": 32
+                }
+              ],
+              "reason": "A cross-domain connection surfaced by Qloo's graph (91% affinity)."
+            },
+            {
+              "id": "tp-170",
+              "title": "Blade Runner 2049 — Screen Print",
+              "brand": "Mondo",
+              "price": 45,
+              "currency": "USD",
+              "image": "https://images.qloo.com/i/3A02361C-987B-4F7E-9AAD-071C3853AD92-420x-auto.jpg",
+              "buyUrl": "https://www.amazon.com/s?k=blade+runner+2049+poster",
+              "category": "Art Print",
+              "description": "Neon-noir for the gallery wall.",
+              "inventory": "low_stock",
+              "entityName": "Blade Runner 2049",
+              "entityType": "movie",
+              "affinity": 0.9028213103361004,
+              "affinityPct": 90,
+              "source": "discovery",
+              "matchedInterests": [
+                "Blade Runner",
+                "Dune",
+                "Frank Ocean"
+              ],
+              "contributors": [
+                {
+                  "name": "Blade Runner",
+                  "sharePct": 37
+                },
+                {
+                  "name": "Dune",
+                  "sharePct": 32
+                },
+                {
+                  "name": "Frank Ocean",
+                  "sharePct": 31
+                }
+              ],
+              "hops": 1,
+              "reason": "Discovered by connecting their interests to Blade Runner 2049 (90% affinity)."
+            },
+            {
+              "id": "tp-156",
+              "title": "Bonsai Tree Building Set",
+              "brand": "Lego",
+              "price": 49,
+              "currency": "USD",
+              "image": "https://images.qloo.com/i/C5E85462-1B81-40FF-A7B4-849DEE5120E9-420x-auto.jpg",
+              "buyUrl": "https://www.lego.com/en-us/search?q=lego+bonsai+tree",
+              "category": "Collectible",
+              "description": "A zen build in pink blossom.",
+              "inventory": "in_stock",
+              "entityName": "The Lego Group",
+              "entityType": "brand",
+              "affinity": 0.893513165559255,
+              "affinityPct": 89,
+              "source": "adjacent",
+              "matchedInterests": [
+                "Dune",
+                "Blade Runner",
+                "Frank Ocean"
+              ],
+              "contributors": [
+                {
+                  "name": "Dune",
+                  "sharePct": 34
+                },
+                {
+                  "name": "Blade Runner",
+                  "sharePct": 33
+                },
+                {
+                  "name": "Frank Ocean",
+                  "sharePct": 33
+                }
+              ],
+              "reason": "A cross-domain connection surfaced by Qloo's graph (89% affinity)."
+            },
+            {
+              "id": "tp-114",
+              "title": "Ted Lasso — Believe Poster",
+              "brand": "Warner Bros.",
+              "price": 24,
+              "currency": "USD",
+              "image": "https://images.qloo.com/i/DCA1F3CA-7A25-421C-BB4D-A864B6D53848-420x-auto.jpg",
+              "buyUrl": "https://www.amazon.com/s?k=ted+lasso+believe+poster",
+              "category": "Art Print",
+              "description": "AFC Richmond optimism for the wall.",
+              "inventory": "in_stock",
+              "entityName": "Ted Lasso",
+              "entityType": "tv show",
+              "affinity": 0.8920139618981314,
+              "affinityPct": 89,
+              "source": "adjacent",
+              "matchedInterests": [
+                "Frank Ocean",
+                "Blade Runner",
+                "Dune"
+              ],
+              "contributors": [
+                {
+                  "name": "Frank Ocean",
+                  "sharePct": 35
+                },
+                {
+                  "name": "Blade Runner",
+                  "sharePct": 33
+                },
+                {
+                  "name": "Dune",
+                  "sharePct": 31
+                }
+              ],
+              "reason": "A cross-domain connection surfaced by Qloo's graph (89% affinity)."
+            },
+            {
+              "id": "tp-006",
+              "title": "Everything Everywhere All at Once — Screen Print",
+              "brand": "A24",
+              "price": 35,
+              "currency": "USD",
+              "image": "https://images.qloo.com/i/F0D354AA-BA7E-49D2-8ABA-9A8250F5C852-420x-auto.jpg",
+              "buyUrl": "https://www.etsy.com/search?q=eeaao+poster",
+              "category": "Art Print",
+              "description": "Limited-run poster celebrating the Daniels' multiverse epic.",
+              "inventory": "in_stock",
+              "entityName": "Everything Everywhere All at Once",
+              "entityType": "movie",
+              "affinity": 0.8887607252617125,
+              "affinityPct": 89,
+              "source": "discovery",
+              "matchedInterests": [
+                "Dune",
+                "Frank Ocean",
+                "Blade Runner"
+              ],
+              "contributors": [
+                {
+                  "name": "Dune",
+                  "sharePct": 43
+                },
+                {
+                  "name": "Frank Ocean",
+                  "sharePct": 34
+                },
+                {
+                  "name": "Blade Runner",
+                  "sharePct": 24
+                }
+              ],
+              "hops": 1,
+              "reason": "Discovered by connecting their interests to Everything Everywhere All at Once (89% affinity)."
+            },
+            {
+              "id": "tp-115",
+              "title": "Stranger Things — Demogorgon Figure",
+              "brand": "Funko",
+              "price": 14,
+              "currency": "USD",
+              "image": "https://images.qloo.com/i/07F1170E-BB69-4982-82C6-255F477EBBAD-420x-auto.jpg",
+              "buyUrl": "https://www.amazon.com/s?k=stranger+things+funko",
+              "category": "Collectible",
+              "description": "Hawkins horror, pocket-sized.",
+              "inventory": "in_stock",
+              "entityName": "Stranger Things",
+              "entityType": "tv show",
+              "affinity": 0.8729397048579896,
+              "affinityPct": 87,
+              "source": "adjacent",
+              "matchedInterests": [
+                "Blade Runner",
+                "Frank Ocean",
+                "Dune"
+              ],
+              "contributors": [
+                {
+                  "name": "Blade Runner",
+                  "sharePct": 35
+                },
+                {
+                  "name": "Frank Ocean",
+                  "sharePct": 33
+                },
+                {
+                  "name": "Dune",
+                  "sharePct": 32
+                }
+              ],
+              "reason": "A cross-domain connection surfaced by Qloo's graph (87% affinity)."
+            }
+          ],
+          "warnings": [],
+          "mode": "pipeline"
+        },
+        "constraints": {
+          "avoidItemIds": [],
+          "priorItemIds": [],
+          "boostInterests": [],
+          "muteInterests": []
+        }
+      }
+    ],
+    "result": {
+      "resolvedInterests": [
+        {
+          "input": "Blade Runner",
+          "matchedName": "Blade Runner",
+          "type": "movie",
+          "alternates": [
+            {
+              "type": "artist",
+              "name": "Blade Runner",
+              "popularity": 0.77,
+              "urn": "urn:entity:artist"
+            },
+            {
+              "type": "book",
+              "name": "Blade Runner",
+              "popularity": 0.75,
+              "urn": "urn:entity:book"
+            }
+          ],
+          "candidates": []
+        },
+        {
+          "input": "Dune",
+          "matchedName": "Dune",
+          "type": "movie",
+          "alternates": [
+            {
+              "type": "artist",
+              "name": "Dune",
+              "popularity": 0.99,
+              "urn": "urn:entity:artist"
+            },
+            {
+              "type": "tv show",
+              "name": "Dune",
+              "popularity": 0.92,
+              "urn": "urn:entity:tv_show"
+            }
+          ],
+          "candidates": []
+        },
+        {
+          "input": "Frank Ocean",
+          "matchedName": "Frank Ocean",
+          "type": "artist",
+          "alternates": [
+            {
+              "type": "person",
+              "name": "Frank Ocean",
+              "popularity": 0.97,
+              "urn": "urn:entity:person"
+            }
+          ],
+          "candidates": []
+        }
+      ],
+      "tasteMap": [
+        {
+          "type": "brand",
+          "entityName": "Tesla",
+          "affinityPct": 96,
+          "hops": 1
+        },
+        {
+          "type": "brand",
+          "entityName": "Mclaren Automotive",
+          "affinityPct": 96,
+          "hops": 2,
+          "via": "Porsche"
+        },
+        {
+          "type": "brand",
+          "entityName": "Land Rover",
+          "affinityPct": 96,
+          "hops": 2,
+          "via": "Porsche"
+        },
+        {
+          "type": "artist",
+          "entityName": "The Weeknd",
+          "affinityPct": 95,
+          "hops": 2,
+          "via": "Lamborghini"
+        },
+        {
+          "type": "artist",
+          "entityName": "Drake&Orson",
+          "affinityPct": 94,
+          "hops": 2,
+          "via": "Lamborghini"
+        },
+        {
+          "type": "movie",
+          "entityName": "Avengers: Endgame",
+          "affinityPct": 94,
+          "hops": 2,
+          "via": "Tesla"
+        },
+        {
+          "type": "artist",
+          "entityName": "Future",
+          "affinityPct": 94,
+          "hops": 2,
+          "via": "Lamborghini"
+        },
+        {
+          "type": "movie",
+          "entityName": "Spider-Man: Far from Home",
+          "affinityPct": 94,
+          "hops": 2,
+          "via": "Tesla"
+        },
+        {
+          "type": "movie",
+          "entityName": "John Wick: Chapter 3 - Parabellum",
+          "affinityPct": 93,
+          "hops": 2,
+          "via": "Tesla"
+        },
+        {
+          "type": "book",
+          "entityName": "Pistol: The Life of Pete Maravich",
+          "affinityPct": 88,
+          "hops": 2,
+          "via": "Lamborghini"
+        },
+        {
+          "type": "book",
+          "entityName": "A Season on the Brink: A Year with Bob Knight and the Indiana Hoosiers",
+          "affinityPct": 88,
+          "hops": 2,
+          "via": "Lamborghini"
+        },
+        {
+          "type": "book",
+          "entityName": "Coach Wooden and Me: Our 50-Year Friendship On and Off the Court",
+          "affinityPct": 88,
+          "hops": 2,
+          "via": "Lamborghini"
+        }
+      ],
+      "connections": [
+        {
+          "from": "Dune",
+          "to": "Mclaren Automotive",
+          "via": "Porsche",
+          "affinityPct": 96,
+          "hops": 2
+        },
+        {
+          "from": "Dune",
+          "to": "Land Rover",
+          "via": "Porsche",
+          "affinityPct": 96,
+          "hops": 2
+        },
+        {
+          "from": "Dune",
+          "to": "Volkswagen",
+          "via": "Porsche",
+          "affinityPct": 96,
+          "hops": 2
+        },
+        {
+          "from": "Dune",
+          "to": "Jeep",
+          "via": "Porsche",
+          "affinityPct": 95,
+          "hops": 2
+        },
+        {
+          "from": "Dune",
+          "to": "Dodge",
+          "via": "Porsche",
+          "affinityPct": 95,
+          "hops": 2
+        },
+        {
+          "from": "Dune",
+          "to": "The Weeknd",
+          "via": "Lamborghini",
+          "affinityPct": 95,
+          "hops": 2
+        }
+      ],
+      "picks": [
+        {
+          "lane": "safe",
+          "headline": "Closest to their taste",
+          "explanation": "Of everything scored, WF-C710N Earbuds lands closest to what they already love — a 93% affinity with their taste in Dune, Blade Runner and Frank Ocean across Qloo's graph. It is the pick that is almost impossible to get wrong.",
+          "items": [
+            {
+              "id": "tp-141",
+              "title": "WF-C710N Earbuds",
+              "brand": "Sony",
+              "price": 99,
+              "currency": "USD",
+              "image": "https://images.qloo.com/i/AA620FF2-87D7-43EC-BFAE-36631D076D8D-420x-auto.jpg",
+              "buyUrl": "https://www.amazon.com/s?k=sony+wf+c710n",
+              "category": "Audio Gear",
+              "description": "Sony noise-cancelling on a budget.",
+              "inventory": "in_stock",
+              "entityName": "Sony",
+              "entityType": "brand",
+              "affinity": 0.9251956737928009,
+              "affinityPct": 93,
+              "source": "discovery",
+              "matchedInterests": [
+                "Dune",
+                "Blade Runner",
+                "Frank Ocean"
+              ],
+              "contributors": [
+                {
+                  "name": "Dune",
+                  "sharePct": 34
+                },
+                {
+                  "name": "Blade Runner",
+                  "sharePct": 34
+                },
+                {
+                  "name": "Frank Ocean",
+                  "sharePct": 32
+                }
+              ],
+              "hops": 1,
+              "reason": "Discovered by connecting their interests to Sony (93% affinity)."
+            }
+          ],
+          "totalPrice": 99
+        },
+        {
+          "lane": "surprise",
+          "headline": "The unexpected connection",
+          "explanation": "This one is a leap: Qloo's taste graph links their love of Blade Runner, Dune and Frank Ocean to Nike at 92%. It sits outside their usual orbit, which is exactly why it will feel like you know them better than they expected.",
+          "items": [
+            {
+              "id": "tp-144",
+              "title": "Air Force 1 '07",
+              "brand": "Nike",
+              "price": 95,
+              "currency": "USD",
+              "image": "https://images.qloo.com/i/C70CE2B8-0AD1-4150-BF18-5A6347F2E860-420x-auto.jpg",
+              "buyUrl": "https://www.amazon.com/s?k=nike+air+force+1",
+              "category": "Apparel",
+              "description": "The white sneaker that never dies.",
+              "inventory": "in_stock",
+              "entityName": "Nike",
+              "entityType": "brand",
+              "affinity": 0.9185843702049932,
+              "affinityPct": 92,
+              "source": "discovery",
+              "matchedInterests": [
+                "Frank Ocean",
+                "Blade Runner",
+                "Dune"
+              ],
+              "contributors": [
+                {
+                  "name": "Frank Ocean",
+                  "sharePct": 36
+                },
+                {
+                  "name": "Blade Runner",
+                  "sharePct": 32
+                },
+                {
+                  "name": "Dune",
+                  "sharePct": 32
+                }
+              ],
+              "hops": 1,
+              "reason": "Discovered by connecting their interests to Nike (92% affinity)."
+            }
+          ],
+          "totalPrice": 95
+        },
+        {
+          "lane": "bundle",
+          "headline": "One taste story, three chapters",
+          "explanation": "A curated 3-piece set spanning Art Print, Stationery and Gaming — each piece anchored in a different corner of their taste (Blade Runner, Dune and Frank Ocean), and together a complete unboxing moment.",
+          "items": [
+            {
+              "id": "tp-044",
+              "title": "In the Mood for Love — A3 Poster",
+              "brand": "The Criterion Collection",
+              "price": 18,
+              "currency": "USD",
+              "image": "https://images.qloo.com/i/900B6C69-9D86-4153-B8FD-4D6CD726FCF8-420x-auto.jpg",
+              "buyUrl": "https://www.etsy.com/search?q=in+the+mood+for+love+poster",
+              "category": "Art Print",
+              "description": "The corridor poster — Wong Kar-wai's hallway of almost.",
+              "inventory": "in_stock",
+              "entityName": "In the Mood for Love",
+              "entityType": "movie",
+              "affinity": 0.8339716623195769,
+              "affinityPct": 83,
+              "source": "adjacent",
+              "matchedInterests": [
+                "Frank Ocean",
+                "Blade Runner",
+                "Dune"
+              ],
+              "contributors": [
+                {
+                  "name": "Frank Ocean",
+                  "sharePct": 36
+                },
+                {
+                  "name": "Blade Runner",
+                  "sharePct": 35
+                },
+                {
+                  "name": "Dune",
+                  "sharePct": 28
+                }
+              ],
+              "reason": "A cross-domain connection surfaced by Qloo's graph (83% affinity)."
+            },
+            {
+              "id": "tp-012",
+              "title": "Classic Notebook Set — Ruled",
+              "brand": "Moleskine",
+              "price": 24,
+              "currency": "USD",
+              "image": "https://images.qloo.com/i/AB06A58F-6962-4663-80A7-EF7D9208969A-420x-auto.jpg",
+              "buyUrl": "https://www.amazon.com/dp/B015NG46I2",
+              "category": "Stationery",
+              "description": "Three hardcover ruled notebooks for lists, lyrics, and sketches.",
+              "inventory": "in_stock",
+              "entityName": "Moleskine",
+              "entityType": "brand",
+              "affinity": 0.8261305992295677,
+              "affinityPct": 83,
+              "source": "adjacent",
+              "matchedInterests": [
+                "Blade Runner",
+                "Dune",
+                "Frank Ocean"
+              ],
+              "contributors": [
+                {
+                  "name": "Blade Runner",
+                  "sharePct": 34
+                },
+                {
+                  "name": "Dune",
+                  "sharePct": 33
+                },
+                {
+                  "name": "Frank Ocean",
+                  "sharePct": 32
+                }
+              ],
+              "reason": "A cross-domain connection surfaced by Qloo's graph (83% affinity)."
+            },
+            {
+              "id": "tp-163",
+              "title": "Elden Ring — PS5",
+              "brand": "FromSoftware",
+              "price": 69,
+              "currency": "USD",
+              "image": "https://images.qloo.com/i/46CBADC5-F4A6-4E97-93B2-959066C9F608-420x-auto.jpg",
+              "buyUrl": "https://www.amazon.com/s?k=elden+ring+ps5",
+              "category": "Gaming",
+              "description": "The open-world Souls benchmark.",
+              "inventory": "in_stock",
+              "entityName": "Elden Ring",
+              "entityType": "videogame",
+              "affinity": 0.8116406454406494,
+              "affinityPct": 81,
+              "source": "adjacent",
+              "matchedInterests": [
+                "Dune",
+                "Blade Runner",
+                "Frank Ocean"
+              ],
+              "contributors": [
+                {
+                  "name": "Dune",
+                  "sharePct": 41
+                },
+                {
+                  "name": "Blade Runner",
+                  "sharePct": 31
+                },
+                {
+                  "name": "Frank Ocean",
+                  "sharePct": 28
+                }
+              ],
+              "reason": "A cross-domain connection surfaced by Qloo's graph (81% affinity)."
+            }
+          ],
+          "totalPrice": 111
+        }
+      ],
+      "shelf": [
+        {
+          "id": "tp-157",
+          "title": "AirTag (Single)",
+          "brand": "Apple",
+          "price": 29,
+          "currency": "USD",
+          "image": "https://images.qloo.com/i/D5B78065-6DBB-4DDB-80DF-6495B9B1006B-420x-auto.jpg",
+          "buyUrl": "https://www.amazon.com/s?k=apple+airtag",
+          "category": "Gift",
+          "description": "Never lose the keys again.",
+          "inventory": "in_stock",
+          "entityName": "Apple Inc",
+          "entityType": "brand",
+          "affinity": 0.953880136928087,
+          "affinityPct": 95,
+          "source": "discovery",
+          "matchedInterests": [
+            "Dune",
+            "Blade Runner",
+            "Frank Ocean"
+          ],
+          "contributors": [
+            {
+              "name": "Dune",
+              "sharePct": 34
+            },
+            {
+              "name": "Blade Runner",
+              "sharePct": 33
+            },
+            {
+              "name": "Frank Ocean",
+              "sharePct": 33
+            }
+          ],
+          "hops": 1,
+          "reason": "Discovered by connecting their interests to Apple Inc (95% affinity)."
+        },
+        {
+          "id": "tp-168",
+          "title": "DualSense Wireless Controller",
+          "brand": "PlayStation",
+          "price": 74,
+          "currency": "USD",
+          "image": "https://images.qloo.com/i/1E74E760-63C9-48E9-89A0-6716C9C14E8B-420x-auto.jpg",
+          "buyUrl": "https://www.amazon.com/s?k=playstation+dualsense",
+          "category": "Gaming",
+          "description": "Haptics that sell the hit.",
+          "inventory": "in_stock",
+          "entityName": "Playstation",
+          "entityType": "brand",
+          "affinity": 0.917471751162993,
+          "affinityPct": 92,
+          "source": "discovery",
+          "matchedInterests": [
+            "Dune",
+            "Blade Runner",
+            "Frank Ocean"
+          ],
+          "contributors": [
+            {
+              "name": "Dune",
+              "sharePct": 34
+            },
+            {
+              "name": "Blade Runner",
+              "sharePct": 34
+            },
+            {
+              "name": "Frank Ocean",
+              "sharePct": 33
+            }
+          ],
+          "hops": 1,
+          "reason": "Discovered by connecting their interests to Playstation (92% affinity)."
+        },
+        {
+          "id": "tp-145",
+          "title": "Samba OG Shoes",
+          "brand": "Adidas",
+          "price": 100,
+          "currency": "USD",
+          "image": "https://images.qloo.com/i/FCEA7CA1-1D40-4680-B337-E74594D9BCF1-420x-auto.jpg",
+          "buyUrl": "https://www.amazon.com/s?k=adidas+samba+og",
+          "category": "Apparel",
+          "description": "Terrace classic, back on top.",
+          "inventory": "in_stock",
+          "entityName": "Adidas",
+          "entityType": "brand",
+          "affinity": 0.9081613980597237,
+          "affinityPct": 91,
+          "source": "adjacent",
+          "matchedInterests": [
+            "Frank Ocean",
+            "Blade Runner",
+            "Dune"
+          ],
+          "contributors": [
+            {
+              "name": "Frank Ocean",
+              "sharePct": 36
+            },
+            {
+              "name": "Blade Runner",
+              "sharePct": 32
+            },
+            {
+              "name": "Dune",
+              "sharePct": 32
+            }
+          ],
+          "reason": "A cross-domain connection surfaced by Qloo's graph (91% affinity)."
+        },
+        {
+          "id": "tp-170",
+          "title": "Blade Runner 2049 — Screen Print",
+          "brand": "Mondo",
+          "price": 45,
+          "currency": "USD",
+          "image": "https://images.qloo.com/i/3A02361C-987B-4F7E-9AAD-071C3853AD92-420x-auto.jpg",
+          "buyUrl": "https://www.amazon.com/s?k=blade+runner+2049+poster",
+          "category": "Art Print",
+          "description": "Neon-noir for the gallery wall.",
+          "inventory": "low_stock",
+          "entityName": "Blade Runner 2049",
+          "entityType": "movie",
+          "affinity": 0.9028213103361004,
+          "affinityPct": 90,
+          "source": "discovery",
+          "matchedInterests": [
+            "Blade Runner",
+            "Dune",
+            "Frank Ocean"
+          ],
+          "contributors": [
+            {
+              "name": "Blade Runner",
+              "sharePct": 37
+            },
+            {
+              "name": "Dune",
+              "sharePct": 32
+            },
+            {
+              "name": "Frank Ocean",
+              "sharePct": 31
+            }
+          ],
+          "hops": 1,
+          "reason": "Discovered by connecting their interests to Blade Runner 2049 (90% affinity)."
+        },
+        {
+          "id": "tp-156",
+          "title": "Bonsai Tree Building Set",
+          "brand": "Lego",
+          "price": 49,
+          "currency": "USD",
+          "image": "https://images.qloo.com/i/C5E85462-1B81-40FF-A7B4-849DEE5120E9-420x-auto.jpg",
+          "buyUrl": "https://www.lego.com/en-us/search?q=lego+bonsai+tree",
+          "category": "Collectible",
+          "description": "A zen build in pink blossom.",
+          "inventory": "in_stock",
+          "entityName": "The Lego Group",
+          "entityType": "brand",
+          "affinity": 0.893513165559255,
+          "affinityPct": 89,
+          "source": "adjacent",
+          "matchedInterests": [
+            "Dune",
+            "Blade Runner",
+            "Frank Ocean"
+          ],
+          "contributors": [
+            {
+              "name": "Dune",
+              "sharePct": 34
+            },
+            {
+              "name": "Blade Runner",
+              "sharePct": 33
+            },
+            {
+              "name": "Frank Ocean",
+              "sharePct": 33
+            }
+          ],
+          "reason": "A cross-domain connection surfaced by Qloo's graph (89% affinity)."
+        },
+        {
+          "id": "tp-114",
+          "title": "Ted Lasso — Believe Poster",
+          "brand": "Warner Bros.",
+          "price": 24,
+          "currency": "USD",
+          "image": "https://images.qloo.com/i/DCA1F3CA-7A25-421C-BB4D-A864B6D53848-420x-auto.jpg",
+          "buyUrl": "https://www.amazon.com/s?k=ted+lasso+believe+poster",
+          "category": "Art Print",
+          "description": "AFC Richmond optimism for the wall.",
+          "inventory": "in_stock",
+          "entityName": "Ted Lasso",
+          "entityType": "tv show",
+          "affinity": 0.8920139618981314,
+          "affinityPct": 89,
+          "source": "adjacent",
+          "matchedInterests": [
+            "Frank Ocean",
+            "Blade Runner",
+            "Dune"
+          ],
+          "contributors": [
+            {
+              "name": "Frank Ocean",
+              "sharePct": 35
+            },
+            {
+              "name": "Blade Runner",
+              "sharePct": 33
+            },
+            {
+              "name": "Dune",
+              "sharePct": 31
+            }
+          ],
+          "reason": "A cross-domain connection surfaced by Qloo's graph (89% affinity)."
+        },
+        {
+          "id": "tp-006",
+          "title": "Everything Everywhere All at Once — Screen Print",
+          "brand": "A24",
+          "price": 35,
+          "currency": "USD",
+          "image": "https://images.qloo.com/i/F0D354AA-BA7E-49D2-8ABA-9A8250F5C852-420x-auto.jpg",
+          "buyUrl": "https://www.etsy.com/search?q=eeaao+poster",
+          "category": "Art Print",
+          "description": "Limited-run poster celebrating the Daniels' multiverse epic.",
+          "inventory": "in_stock",
+          "entityName": "Everything Everywhere All at Once",
+          "entityType": "movie",
+          "affinity": 0.8887607252617125,
+          "affinityPct": 89,
+          "source": "discovery",
+          "matchedInterests": [
+            "Dune",
+            "Frank Ocean",
+            "Blade Runner"
+          ],
+          "contributors": [
+            {
+              "name": "Dune",
+              "sharePct": 43
+            },
+            {
+              "name": "Frank Ocean",
+              "sharePct": 34
+            },
+            {
+              "name": "Blade Runner",
+              "sharePct": 24
+            }
+          ],
+          "hops": 1,
+          "reason": "Discovered by connecting their interests to Everything Everywhere All at Once (89% affinity)."
+        },
+        {
+          "id": "tp-115",
+          "title": "Stranger Things — Demogorgon Figure",
+          "brand": "Funko",
+          "price": 14,
+          "currency": "USD",
+          "image": "https://images.qloo.com/i/07F1170E-BB69-4982-82C6-255F477EBBAD-420x-auto.jpg",
+          "buyUrl": "https://www.amazon.com/s?k=stranger+things+funko",
+          "category": "Collectible",
+          "description": "Hawkins horror, pocket-sized.",
+          "inventory": "in_stock",
+          "entityName": "Stranger Things",
+          "entityType": "tv show",
+          "affinity": 0.8729397048579896,
+          "affinityPct": 87,
+          "source": "adjacent",
+          "matchedInterests": [
+            "Blade Runner",
+            "Frank Ocean",
+            "Dune"
+          ],
+          "contributors": [
+            {
+              "name": "Blade Runner",
+              "sharePct": 35
+            },
+            {
+              "name": "Frank Ocean",
+              "sharePct": 33
+            },
+            {
+              "name": "Dune",
+              "sharePct": 32
+            }
+          ],
+          "reason": "A cross-domain connection surfaced by Qloo's graph (87% affinity)."
+        }
+      ],
+      "warnings": [],
+      "mode": "pipeline"
+    }
+  }
+]

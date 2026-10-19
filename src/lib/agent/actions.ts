@@ -127,6 +127,27 @@ export function applyRefinement(
       Object.assign(next, base);
       break;
     }
+
+    case "clarify": {
+      notes.push(action.label ? `Shopper clarified: ${action.label}` : `Clarified ${action.key} → ${action.value}`);
+      break;
+    }
+
+    case "chat": {
+      const parsed = noteToActions(action.message, request.interests ?? []);
+      if (parsed.length === 0) {
+        notes.push(`Shopper instruction: “${action.message.slice(0, 80)}”`);
+        break;
+      }
+      let base = next;
+      for (const sub of parsed) {
+        const applied = applyRefinement(sub, base, request);
+        base = applied.constraints;
+        notes.push(...applied.notes);
+      }
+      Object.assign(next, base);
+      break;
+    }
   }
   return { constraints: next, notes };
 }

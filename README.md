@@ -5,13 +5,14 @@
   <img src="https://img.shields.io/badge/License-MIT-green?style=for-the-badge" alt="MIT License" />
 </p>
 
-# 🎁 Tasteprint — AI Gift Discovery Through Cultural Taste
+# 🎁 Tasteprint — Autonomous Gift Discovery Agent
 
-> **Tell us what they love. We'll find what they didn't know they wanted.**
+> *"A deterministic pipeline is not an agent. An agent reasons, plans, uses tools, handles surprises, and adapts to the shopper."*  
+> **Built for the Qloo AI Agent Hackathon.**
 
-Tasteprint is an AI gift agent that finds thoughtful, unexpected gifts by reading a person's **cultural taste print**. It uses [Qloo](https://qloo.com)'s taste intelligence API to connect interests across music, film, TV, books, and brands — then matches them to real products in a curated catalog.
+Tasteprint is an autonomous AI gift agent that discovers thoughtful, unexpected gifts by navigating a person's **cultural taste graph**. Instead of rigid keyword matching, an LLM agent uses [Qloo](https://qloo.com)'s cultural intelligence API as discrete tools to reason across music, film, TV, books, and brands — matching recipient taste to real products in a curated catalog.
 
-Every search returns **three angles** on the same person:
+Every search delivers **three distinct angles** on the same person:
 
 | Lane | What it does |
 |------|-------------|
@@ -19,23 +20,41 @@ Every search returns **three angles** on the same person:
 | 🩷 **Wild Card** | A cross-domain discovery from Qloo's graph they'd never find themselves |
 | 🟡 **The Bundle** | A multi-item set that tells one taste story across categories, within budget |
 
-Each pick comes with a human-readable explanation grounded in the recipient's taste signals — written by an LLM (or built-in templates when no LLM key is set).
+---
+
+## 🧠 What Makes Tasteprint an Agent (Not a Pipeline)
+
+Most hackathon projects wrap an API in a fixed sequence: `resolve → expand → score → select`. Tasteprint is fundamentally different:
+
+1. **Autonomous Tool-Calling Loop (`agent.ts`):**  
+   The LLM drives the hunt in an open loop up to 8 bounded steps, calling discrete tools:
+   - `resolve_entity`: Disambiguates free-text interests across 700M+ entities (e.g. film vs book).
+   - `expand_taste`: Explores multi-domain neighbors; decides whether hop-1 affinity density justifies a second-hop bridge.
+   - `score_candidates`: Computes statistical affinity vectors between recipient taste graph and real catalog products.
+   - `check_budget`: Price-checks proposed combinations against the shopper's budget ceiling before committing.
+   - `select_lanes`: Commits the final Safe Bet, Wild Card, and Bundle.
+2. **Re-planning on Constraint Violations:**  
+   If a proposed bundle blows the budget, the agent receives the error, re-evaluates the candidate pool, and re-plans with cheaper items or a 2-item bundle.
+3. **Live Radial Taste Graph (`TasteGraph.tsx`):**  
+   Rather than rendering a flat list, Tasteprint draws an interactive SVG radial graph as discoveries stream in over SSE (`Recipient → Direct Seeds → Hop 1 → Hop 2`), showing real affinity percentages and `via` attribution chains.
+4. **Fail-Safe Fallback Pipeline (`pipeline.ts`):**  
+   If no LLM key is configured, rate limits fire, or the agent loop exhausts its steps, the system transparently falls back to our deterministic pipeline so the demo never dies on stage.
+5. **Adversarial Invariant Eval Harness (`npm run eval`):**  
+   10 fixed adversarial recipient profiles tested against catalog authenticity, per-lane budget compliance, category divergence (wild card $\neq$ safe category), and zero cross-lane duplication.
+6. **Hardened Demo Replay Mode (`TASTEPRINT_REPLAY=1`):**  
+   Instant offline playback from recorded golden fixtures (`demo-scenarios.json`) ensuring stage demonstrations never hang under network or rate-limiting delays.
 
 ---
 
 ## ✨ Key Features
 
-- **Taste-graph powered** — goes beyond keyword matching; uses Qloo's cultural knowledge graph spanning 700M+ entities
-- **Two-hop discovery** — finds gifts two degrees of separation away from stated interests
-- **Three recommendation lanes** — Safe / Surprise / Bundle picks with per-item affinity scores
-- **Category filter** — optionally narrow the search to chosen product categories; leave empty to search everything
-- **Explainable results** — every pick shows *which* interests drove it, with contributor shares and "via" chains
-- **Interactive refinement** — boost/mute interests, adjust budget, change mood, mark items as "not for them", or type free-text notes
-- **Stateless server** — all constraint state lives on the client; the server stays stateless and re-runnable
-- **SSE streaming** — real-time progress events while the agent thinks (stage updates, discoveries, warnings)
-- **Graceful degradation** — works without an LLM key using built-in templates and regex note parsing
-
----
+- **LLM Tool Loop** — autonomous reasoning over Qloo tools with real-time SSE progress events
+- **Interactive Taste Graph** — radial SVG visualization of two-hop cultural connections
+- **Voice Refinement** — Web Speech API integration to refine gifts using your natural shopper voice
+- **Real Product Links** — direct product pages and honest store labeling (`Find on Amazon ↗`, `Shop A24 ↗`, `Shop Criterion ↗`)
+- **Automated Invariant Eval** — `npm run eval` gates quality across 10 adversarial profiles
+- **Stateless Client Architecture** — full session refinement state persists in the browser URL
+- **Fail-Safe Fast Path** — seamless fallback to deterministic pipeline if LLM is unavailable
 
 ## 🏗️ Architecture
 
@@ -245,6 +264,7 @@ The same agent over **Server-Sent Events** — streams real-time progress events
 | `stage` | Pipeline stage update (resolve, expand, hop2, score, select, explain) |
 | `interest` | An interest resolved to a Qloo entity |
 | `expansion` | A taste discovery from the expansion phase |
+| `agent-step` | A tool decision made by the LLM agent |
 | `warning` | Non-fatal issue (e.g., a domain failed) |
 | `agent-note` | Internal agent observation |
 | `selection` | Lane selection summary |
@@ -276,6 +296,17 @@ Returns Qloo API connectivity status and key validity.
 
 ---
 
+### `GET /api/eval`
+
+Runs fixed recipient profiles through the recommendation engine and checks catalog, budget, category, duplication, and evidence invariants. Add `?engine=pipeline` to force the deterministic engine or `?only=ghibli-birthday` to run one profile.
+
+```bash
+npm run eval
+npm run eval -- --engine=pipeline
+```
+
+---
+
 ## 🗂️ Project Structure
 
 ```
@@ -288,10 +319,14 @@ tasteprint/
 │   │       ├── health/route.ts   # Health check endpoint
 │   │       ├── recommend/route.ts # Sync recommendation endpoint
 │   │       ├── stream/route.ts   # SSE streaming endpoint
+│   │       ├── eval/route.ts     # Recommendation eval endpoint
 │   │       └── search/route.ts   # Entity search for typeahead
 │   ├── lib/
 │   │   ├── agent/
 │   │   │   ├── pipeline.ts       # Core recommendation pipeline (~1100 lines)
+│   │   │   ├── agent.ts          # LLM-directed Qloo tool loop
+│   │   │   ├── tools.ts          # Guarded agent tool implementations
+│   │   │   ├── invariants.ts     # Engine-independent result checks
 │   │   │   ├── types.ts          # TypeScript types for the agent
 │   │   │   ├── actions.ts        # Refinement action handlers + note parser
 │   │   │   ├── explain.ts        # LLM / template explanation generator

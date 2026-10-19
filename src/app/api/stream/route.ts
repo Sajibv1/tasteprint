@@ -1,5 +1,7 @@
 import { NextResponse } from "next/server";
 import { recommend, warmCatalog } from "@/lib/agent/pipeline";
+import { runAgent, agentAvailable } from "@/lib/agent/agent";
+import { replayScenario } from "@/lib/agent/replay";
 import { applyRefinement, noteToActions } from "@/lib/agent/actions";
 import { interpretNote } from "@/lib/agent/llm-note";
 import { QlooError } from "@/lib/qloo/client";
@@ -18,6 +20,7 @@ interface StreamBody {
   request?: unknown;
   action?: RefineAction;
   constraints?: Partial<SessionConstraints>;
+  replay?: boolean;
 }
 
 interface RunPlan {
@@ -25,6 +28,7 @@ interface RunPlan {
   constraints?: Partial<SessionConstraints>;
   shopperNote?: string;
   refinementNotes?: string[];
+  forceReplay?: boolean;
 }
 
 function hasMeaningfulConstraints(constraints?: Partial<SessionConstraints>): boolean {
@@ -46,7 +50,7 @@ async function planFrom(body: StreamBody): Promise<{ plan?: RunPlan; error?: str
   }
   const request = body.request as RecommendRequest;
   if (body.kind !== "refine") {
-    return { plan: { request } };
+    return { plan: { request, forceReplay: body.replay } };
   }
   if (!body.action) {
     return { error: "A refinement run needs an `action`." };
@@ -73,6 +77,7 @@ async function planFrom(body: StreamBody): Promise<{ plan?: RunPlan; error?: str
       constraints,
       shopperNote,
       refinementNotes: notes,
+      forceReplay: body.replay,
     },
   };
 }
@@ -83,7 +88,8 @@ function errorPayload(error: unknown, fallbackStatus: number): { status: number;
     return { status, message: error.message };
   }
   console.error("stream failed:", error);
-  return { status: fallbackStatus, message: "Something went wrong building the recommendations." };
+  const msg = error instanceof Error ? error.message : "Something went wrong building the recommendations.";
+  return { status: fallbackStatus, message: msg };
 }
 
 export async function POST(request: Request) {
@@ -119,12 +125,34 @@ export async function POST(request: Request) {
         for (const note of plan.refinementNotes ?? []) {
           send({ type: "agent-note", message: note });
         }
-        const result = await recommend(plan.request, {
+        // Demo/offline path: replay a recorded run without touching Qloo.
+        const replay = replayScenario(plan.request, {
           sink: send,
-          constraints: hasMeaningfulConstraints(plan.constraints) ? plan.constraints : undefined,
-          shopperNote: plan.shopperNote,
+          constraints: plan.constraints,
+          force: plan.forceReplay,
         });
-        send({ type: "result", result, constraints: { ...emptyConstraints(), ...plan.constraints } });
+        if (replay) {
+          send({ type: "result", result: { ...replay, mode: "replay" }, constraints: { ...emptyConstraints(), ...plan.constraints } });
+          return;
+        }
+        // Agentic path: the LLM drives Qloo tool calls. Falls through to the
+        // deterministic pipeline when no LLM key is set or the loop bails.
+        let result = agentAvailable()
+          ? await runAgent(plan.request, {
+              sink: send,
+              constraints: hasMeaningfulConstraints(plan.constraints) ? plan.constraints : undefined,
+              shopperNote: plan.shopperNote,
+            })
+          : null;
+        const mode = result ? "agent" : "pipeline";
+        if (!result) {
+          result = await recommend(plan.request, {
+            sink: send,
+            constraints: hasMeaningfulConstraints(plan.constraints) ? plan.constraints : undefined,
+            shopperNote: plan.shopperNote,
+          });
+        }
+        send({ type: "result", result: { ...result, mode }, constraints: { ...emptyConstraints(), ...plan.constraints } });
       } catch (caught) {
         const payload = errorPayload(caught, 500);
         send({ type: "error", message: payload.message });
